@@ -29,7 +29,7 @@ sufficient CSS styling:
 [sample-state]: sample-state.md
 [api-endpoints]: api-endpoints.md
 [schema]: schema.md
-[style-guide]: style-guide/style-guide.jpg
+[style-guide]: style-guide/dropify-style-guide.jpg
 
 ## Implementation Timeline
 
