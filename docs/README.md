@@ -1,6 +1,8 @@
 # Dropify
 
-[heroku]: http://www.herokuapp.com
+[Heroku][heroku]
+
+[heroku]: https://dropifyapp.herokuapp.com/
 
 ## Minimum Viable Product
 
