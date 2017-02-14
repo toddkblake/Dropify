@@ -14,6 +14,7 @@ sufficient CSS styling:
 - [ ] Continuous song playback during navigation
 - [ ] Song/Playlist CRUD
 - [ ] Playlist following
+- [ ] User following
 - [ ] Production README
 
 ## Design Docs
@@ -49,9 +50,9 @@ sufficient CSS styling:
 
 **Objective:** Users can create, update and delete playlists
 
-### Phase 5: Playlist Following (1 day, W2 Th 6pm)
+### Phase 5: Playlist Following / User Following (1 day, W2 Th 6pm)
 
-**Objective:** Users can follow playlists
+**Objective:** Users can follow playlists and other users
 
 ### Bonus Features (TBD)
 - [ ] Search

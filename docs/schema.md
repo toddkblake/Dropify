@@ -31,7 +31,7 @@
 |id              |integer  |not null, primary key                              |
 |title           |string   |not null, primary key                              |
 |artist_id       |integer  |not null, foreign key (references artists), indexed|
-|album_cover_url |string   |                                                   |
+|album_cover_url |string   |not null                                           |
 
 ## artists
 
@@ -44,36 +44,29 @@
 
 ## playlists
 
-|column name|data type|details                                          |
-|-----------|---------|-------------------------------------------------|
-|id         |integer  |not null, primary key                            |
-|name       |string   |not null, indexed                                |
-|owner_id   |integer  |not null, foreign key (references users), indexed|
+|column name|data type|details                                           |
+|-----------|---------|--------------------------------------------------|
+|id         |integer  |not null, primary key                             |
+|name       |string   |not null, indexed                                 |
+|owner_id   |integer  |not null, foreign key (references users), indexed |
 
 ## playlist_songs
 
-|column name|data type|details                                              |
-|-----------|---------|-----------------------------------------------------|
-|id         |integer  |not null, primary key                                |
-|playlist_id|integer  |not null, foreign key (references playlists), indexed|
-|song_id    |integer  |not null, foreign key (references songs), indexed    |
-|ord        |integer  |not null                                             |
+|column name|data type|details                                               |
+|-----------|---------|------------------------------------------------------|
+|id         |integer  |not null, primary key                                 |
+|playlist_id|integer  |not null, foreign key (references playlists), indexed |
+|song_id    |integer  |not null, foreign key (references songs), indexed     |
+|ord        |integer  |not null                                              |
 
-## playlist_follows
+### follows
 
-|column name  |data type|details                                              |
-|-------------|---------|-----------------------------------------------------|
-|id           |integer  |not null, primary key                                |
-|user_id      |integer  |not null, foreign key (references users), indexed    |
-|playlist_id  |integer  |not null, foreign key (references playlists), indexed|
-
-### user_follows
-
-|column name  |data type|details                                          |
-|-------------|---------|-------------------------------------------------|
-|id           |integer  |not null, primary key                            |
-|follower_id  |integer  |not null, foreign key (references users), indexed|
-|followee_id  |integer  |not null, foreign key (references users), indexed|
+|column name     |data type|details                                                |
+|----------------|---------|-------------------------------------------------------|
+|id              |integer  |not null, primary key                                  |
+|follower_id     |integer  |not null, foreign key (references users), indexed      |
+|followable_id   |integer  |not null, polymorphic (references followable), indexed |
+|followable_type |string   |not null                                               |
 
 ## BONUS
 
@@ -86,32 +79,32 @@
 
 ### artist_genres
 
-|column name  |data type|details                                              |
-|-------------|---------|-----------------------------------------------------|
-|id           |integer  |not null, primary key                                |
-|artist_id    |integer  |not null, foreign key (references artists), indexed  |
-|genre_id     |integer  |not null, foreign key (references genres), indexed   |
+|column name  |data type|details                                             |
+|-------------|---------|----------------------------------------------------|
+|id           |integer  |not null, primary key                               |
+|artist_id    |integer  |not null, foreign key (references artists), indexed |
+|genre_id     |integer  |not null, foreign key (references genres), indexed  |
 
 ### playlist_genres
 
-|column name  |data type|details                                              |
-|-------------|---------|-----------------------------------------------------|
-|id           |integer  |not null, primary key                                |
-|playlist_id  |integer  |not null, foreign key (references playlists), indexed|
-|genre_id     |integer  |not null, foreign key (references genres), indexed   |
+|column name  |data type|details                                               |
+|-------------|---------|------------------------------------------------------|
+|id           |integer  |not null, primary key                                 |
+|playlist_id  |integer  |not null, foreign key (references playlists), indexed |
+|genre_id     |integer  |not null, foreign key (references genres), indexed    |
 
 ### user_songs
 
-|column name  |data type|details                                              |
-|-------------|---------|-----------------------------------------------------|
-|id           |integer  |not null, primary key                                |
-|user_id      |integer  |not null, foreign key (references users), indexed    |
-|song_id      |integer  |not null, foreign key (references songs), indexed    |
+|column name  |data type|details                                           |
+|-------------|---------|--------------------------------------------------|
+|id           |integer  |not null, primary key                             |
+|user_id      |integer  |not null, foreign key (references users), indexed |
+|song_id      |integer  |not null, foreign key (references songs), indexed |
 
 ### sessions
 
-|column name    |data type|details              |
-|---------------|---------|---------------------|
-|id             |integer  |not null, primary key|
-|user_id        |string   |not null, indexed    |
-|http_user_agent|string   |not null             |
+|column name     |data type|details               |
+|----------------|---------|----------------------|
+|id              |integer  |not null, primary key |
+|user_id         |string   |not null, indexed     |
+|http_user_agent |string   |not null              |

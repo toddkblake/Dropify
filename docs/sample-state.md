@@ -13,38 +13,41 @@
 
   loading: false,
 
-  artists: {},
-
-  artist: {},
-
-  album: {
-    id: 43,
-    title: "On Time",
-    artist_id: 5,
-    album_cover_url: "http://example.com/example.jpg"
-    songs: {
-      1: {
-        id: 73,
-        title: "Take Five",
-        duration: 323,
-        artist: "Dave Brubeck",
-        position: 61,
-        media_url: "http://example.com/example.mp3",
-        album_cover_url: "http://example.com/example.jpg"
-      },
-      2: {
-        //...
+  browse: {
+    artists: {},
+    artist: {},
+    album: {
+      id: 43,
+      title: "On Time",
+      artist_id: 5,
+      album_cover_url: "http://example.com/example.jpg"
+      songs: {
+        1: {
+          id: 73,
+          title: "Take Five",
+          duration: 323,
+          artist: "Dave Brubeck",
+          position: 61,
+          media_url: "http://example.com/example.mp3",
+          album_cover_url: "http://example.com/example.jpg"
+        },
+        2: {
+          //...
+        }
       }
-    }
+    },
+  }
+
+  playlists: {
+    playlists: {},
+    playlist: {}
   },
 
-  playlists: {},
-
-  playlist: {},
-
-  users: {},
-
-  user: {},
+  users: {
+    users: {},
+    user: {}
+    playlist: {},
+  }
 
   playQueue: {
     currentSong: {
