@@ -42,3 +42,7 @@
 ### playlist_follows
 - `POST /api/playlist_follows`
 - `DELETE /api/playlist_follows/:id`
+
+### user_follows
+- `POST /api/user_follows`
+- `DELETE /api/user_follows/:id`

@@ -67,6 +67,14 @@
 |user_id      |integer  |not null, foreign key (references users), indexed    |
 |playlist_id  |integer  |not null, foreign key (references playlists), indexed|
 
+### user_follows
+
+|column name  |data type|details                                          |
+|-------------|---------|-------------------------------------------------|
+|id           |integer  |not null, primary key                            |
+|follower_id  |integer  |not null, foreign key (references users), indexed|
+|followee_id  |integer  |not null, foreign key (references users), indexed|
+
 ## BONUS
 
 ### genres
@@ -107,11 +115,3 @@
 |id             |integer  |not null, primary key|
 |user_id        |string   |not null, indexed    |
 |http_user_agent|string   |not null             |
-
-### user_follows
-
-|column name  |data type|details                                          |
-|-------------|---------|-------------------------------------------------|
-|id           |integer  |not null, primary key                            |
-|follower_id  |integer  |not null, foreign key (references users), indexed|
-|followee_id  |integer  |not null, foreign key (references users), indexed|

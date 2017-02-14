@@ -13,53 +13,38 @@
 
   loading: false,
 
-  content: {
-    artists: {},
-    artist: {
-      id: 5,
-      name: "Dave Brubeck",
-      profile_photo_url: "http://example.com/example.jpg",
-      header_photo_url: "http://example.com/example.jpg",
-      albums: {
-        1: {
-          id: 43,
-          title: "On Time",
-          artist_id: 5,
-          album_cover_url: "http://example.com/example.jpg"
-        },
-        2: {
-          id: 44,
-          title: "The Very Best of Dave Brubeck",
-          artist_id: 5,
-          album_cover_url: "http://example.com/example.jpg"
-        }
-      }
-    },
-    album: {
-      id: 43,
-      title: "On Time",
-      artist_id: 5,
-      album_cover_url: "http://example.com/example.jpg"
-      songs: {
-        1: {
-          id: 73,
-          title: "Take Five",
-          duration: 323,
-          artist: "Dave Brubeck",
-          position: 61,
-          media_url: "http://example.com/example.mp3",
-          album_cover_url: "http://example.com/example.jpg"
-        },
-        2: {
-          //...
-        }
+  artists: {},
+
+  artist: {},
+
+  album: {
+    id: 43,
+    title: "On Time",
+    artist_id: 5,
+    album_cover_url: "http://example.com/example.jpg"
+    songs: {
+      1: {
+        id: 73,
+        title: "Take Five",
+        duration: 323,
+        artist: "Dave Brubeck",
+        position: 61,
+        media_url: "http://example.com/example.mp3",
+        album_cover_url: "http://example.com/example.jpg"
+      },
+      2: {
+        //...
       }
     }
-    playlists: {},
-    playlist: {},
-    users: {},
-    user: {}
   },
+
+  playlists: {},
+
+  playlist: {},
+
+  users: {},
+
+  user: {},
 
   playQueue: {
     currentSong: {
