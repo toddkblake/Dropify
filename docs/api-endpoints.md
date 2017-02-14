@@ -35,9 +35,9 @@
 - `DELETE /api/playlists`
 
 ### playlist_songs
-- `POST /api/playlists/:id/playlist_songs`
-- `PATCH /api/playlists/:id/playlist_songs/:id`
-- `DELETE /api/playlists/:id/playlist_songs/:id`
+- `POST /api/playlist_songs`
+- `PATCH /api/playlist_songs/:id`
+- `DELETE /api/playlist_songs/:id`
 
 ### playlist_follows
 - `POST /api/playlist_follows`
