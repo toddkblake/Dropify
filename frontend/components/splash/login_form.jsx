@@ -40,7 +40,7 @@ class LoginForm extends React.Component {
   render () {
     return (
       <form className="splash-left login" onSubmit={ this.handleSubmit } >
-        <img src={window.images.fullLogoWhite}/>
+        <img className ="small-logo" src={window.images.fullLogoWhite}/>
         { this.props.errors() }
         <label htmlFor="username">Username</label>
         <input type="text" name="username" placeholder="Dropify username" onChange={ this.handleChange("username") } />

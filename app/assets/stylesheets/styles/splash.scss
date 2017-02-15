@@ -51,7 +51,7 @@
 }
 
 .marketing li {
-  font-size: 18px;
+  font-size: 17px;
   margin-top: 10px;
 }
 
@@ -60,6 +60,11 @@
   content: '\f00c';
   color: $primary-green;
   margin-right: 10px;
+}
+
+.splash .small-logo {
+  width: 135px;
+  height: auto;
 }
 
 /* BUTTONS */
