@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import Splash from './splash/splash';
-import Browse from './browse';
+import Browse from './browse/browse';
 
 const Root = ({ store }) => {
 
@@ -18,9 +18,10 @@ const Root = ({ store }) => {
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
-        <Route path="/" component={ App } />
-        <IndexRoute component={ Splash } onEnter={ _redirectIfLoggedIn }/>
-        <Route path="/browse" component={ Browse } onEnter={ _redirectUnlessLoggedIn } />
+        <Route path="/" component={ App }>
+          <IndexRoute component={ Splash } onEnter={ _redirectIfLoggedIn } />
+          <Route path="/browse" component={ Browse } onEnter={ _redirectUnlessLoggedIn } />
+        </Route>
       </Router>
     </Provider>
   );

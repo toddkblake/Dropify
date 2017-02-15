@@ -1,9 +1,9 @@
 import React from 'react';
 
-const App = ({ currentUser }) => (
-  <div>
-    <h1>Dropify</h1>
-  </div>
+const App = ({ children }) => (
+  <main>
+    { children }
+  </main>
 );
 
 export default App;

@@ -1,4 +1,4 @@
-<main id="root"></main>
+<div id="content"></div>
 
 <script type="text/javascript">
   <% if logged_in? %>
@@ -6,9 +6,10 @@
   <% end %>
 
   window.images = {
-    fullLogo: "<%= image_path("full-logo.png") %>"
+    hero: "<%= image_path("hero.jpg") %>",
+    fullLogo: "<%= image_path("full-logo.png") %>",
     fullLogoWhite: "<%= image_path("full-logo-white.png") %>",
     roundLogo: "<%= image_path("round-logo.png") %>",
-    roundLogoWhite: "<%= image_path("round-logo-white.png") %>",
+    roundLogoWhite: "<%= image_path("round-logo-white.png") %>"
   }
 </script>
