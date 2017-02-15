@@ -17,6 +17,12 @@ class SignUpForm extends React.Component {
     this.redirectToWelcome = this.redirectToWelcome.bind(this);
   }
 
+  componentWillReceiveProps ({ session }) {
+    if (session.errors.length && this.props.session.errors !== session.errors) {
+      $(".welcome-container").effect("shake", { times: 5, distance: 5}, 500 );
+    }
+  }
+
   handleChange (property) {
     return (e) => {
       this.setState({ [property]: e.target.value });
