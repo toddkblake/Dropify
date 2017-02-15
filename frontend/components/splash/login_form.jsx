@@ -35,12 +35,13 @@ class LoginForm extends React.Component {
     return (
       <form className="splash-left login" onSubmit={ this.handleSubmit } >
         <img src={window.images.fullLogoWhite}/>
+        { this.props.errors() }
         <label htmlFor="username">Username</label>
         <input type="text" name="username" placeholder="Dropify username" onChange={ this.handleChange("username") } />
         <label htmlFor="password">Password</label>
         <input type="password" name="password" placeholder="Password" onChange={ this.handleChange("password") }/>
         <input type="submit" value="Log In"/>
-        <p>Don't have an account? <a onClick={ this.redirectToSignup }>Sign up here!</a></p>
+        <p><a onClick={ this.redirectToSignup }>Don't have an account? Sign up here!</a></p>
       </form>
     );
   }

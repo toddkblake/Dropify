@@ -44,6 +44,7 @@ class SignUpForm extends React.Component {
     return (
       <form className="splash-left signup" onSubmit={ this.handleSubmit }>
         <img src={window.images.fullLogoWhite}/>
+        { this.props.errors() }
         <label htmlFor="username">Username</label>
         <input type="text" name="username" placeholder="e.g.johndoe" onChange={ this.handleChange("username") } />
         <label htmlFor="email">Email</label>
@@ -55,8 +56,8 @@ class SignUpForm extends React.Component {
         <label htmlFor="l_name">Last Name</label>
         <input type="text" name="l_name" placeholder="Doe" onChange={ this.handleChange("l_name") }/>
         <input type="submit" value="Sign Up"/>
-        <p>Already have an account? <a onClick={ this.redirectToLogin }>Log in here.</a></p>
-        <p>Don't want to make an account? <a onClick={ this.redirectToWelcome }>Log in as a guest!</a></p>
+        <p><a onClick={ this.redirectToLogin }>Already have an account? Log in here.</a></p>
+        <p><a onClick={ this.redirectToWelcome }>Don't want to make an account? Log in as a guest!</a></p>
       </form>
     );
   }

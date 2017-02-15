@@ -87,10 +87,23 @@
 .splash input[type="text"],
 .splash input[type="password"] {
   margin-top: 5px;
-  color: $light-grey;
 }
 
 .splash label {
   margin: 10px 0 0px;
   color: $light-grey;
+}
+
+/* ERRORS */
+
+.errors li {
+  color: red;
+  margin-top: 3px;
+}
+
+.errors li:before {
+  font-family: 'FontAwesome';
+  content: '\f071';
+  color: red;
+  margin-right: 10px;
 }
