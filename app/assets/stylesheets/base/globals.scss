@@ -1,0 +1,119 @@
+/* COLORS */
+
+$primary-green: #1ED760;
+$secondary-green: #1DB854;
+$darkest-grey: #121212;
+$dark-grey: #181818;
+$medium-grey: #282828;
+$light-grey: #9F9F9F;
+$white: #FFF;
+
+/* MAIN */
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+/* TYPOGRAPHY */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,700|Muli:700,400');
+$font-stack: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+body {
+  font-family: $font-stack;
+  color: $medium-grey;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 44px;
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-size: 36px;
+  letter-spacing: -0.5px;
+}
+
+h3 {
+  font-size: 26px;
+  font-weight: 200;
+  letter-spacing: -0.5px;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h5 {
+  font-family: "Muli", $font-stack;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+/* BUTTONS */
+
+button, input[type="submit"] {
+  height: 40px;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: $secondary-green;
+
+  color: $white;
+  font-family: "Muli", $font-stack;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  transition: 100ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  background-color: $primary-green;
+  cursor: pointer;
+}
+
+/* LINKS */
+
+a:hover {
+  padding-bottom: 3px;
+  border-bottom: 1px solid $white;
+}
+
+/* INPUTS */
+
+input {
+  border-bottom: 1px solid $white;
+  padding: 5px;
+}
+
+::-webkit-input-placeholder {
+  color: $white;
+}
+
+::-moz-placeholder {
+  color: $white;
+}
+
+:-ms-input-placeholder {
+  color: $white;
+}
+
+:-moz-placeholder {
+  color: $white;
+}

@@ -27,11 +27,11 @@ const Welcome = ({ login, update, router }) => {
   }
 
   return (
-    <div className="welcome">
+    <div className="splash-left welcome">
       <img src={ window.images.fullLogoWhite }/>
+      <button name="guest" className="guest" onClick={ handleClick }>Guest Log In</button>
       <button name="signup" onClick={ handleClick }>Sign Up</button>
       <button name="login" onClick={ handleClick }>Log In</button>
-      <button name="guest" onClick={ handleClick }>Guest Log In</button>
     </div>
   );
 };

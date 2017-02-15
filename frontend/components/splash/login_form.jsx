@@ -33,7 +33,7 @@ class LoginForm extends React.Component {
 
   render () {
     return (
-      <form className="login" onSubmit={ this.handleSubmit } >
+      <form className="splash-left login" onSubmit={ this.handleSubmit } >
         <img src={window.images.fullLogoWhite}/>
         <label htmlFor="username">Username</label>
         <input type="text" name="username" placeholder="Dropify username" onChange={ this.handleChange("username") } />

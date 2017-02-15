@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Marketing = () => (
-  <div className="marketing">
+  <div className="splash-right marketing">
     <h1>Get the right music, right now</h1>
     <h3>Listen to hundreds of songs for free.</h3>
     <ul>

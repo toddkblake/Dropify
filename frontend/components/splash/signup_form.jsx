@@ -42,7 +42,7 @@ class SignUpForm extends React.Component {
 
   render () {
     return (
-      <form className="signup" onSubmit={ this.handleSubmit }>
+      <form className="splash-left signup" onSubmit={ this.handleSubmit }>
         <img src={window.images.fullLogoWhite}/>
         <label htmlFor="username">Username</label>
         <input type="text" name="username" placeholder="e.g.johndoe" onChange={ this.handleChange("username") } />

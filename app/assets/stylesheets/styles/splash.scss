@@ -1,0 +1,96 @@
+.splash {
+  width: 100vw;
+  height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+  background-image: image-url("hero.jpg");
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: $white;
+  font-size: 12px;
+}
+
+.welcome-container {
+  width: 1040px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-left {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.splash-right {
+  border-left: 1px solid $white;
+  width: 60%;
+}
+
+.splash-left, .splash-right {
+  padding: 5%;
+}
+
+.splash-right > * {
+  margin-top: 20px;
+}
+
+.splash-left > * {
+  margin: 20px auto 0;
+}
+
+.splash h1 {
+  font-size: 54px;
+  font-weight: 400;
+  color: $primary-green;
+}
+
+.marketing li {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.marketing li:before {
+  font-family: 'FontAwesome';
+  content: '\f00c';
+  color: $primary-green;
+  margin-right: 10px;
+}
+
+/* BUTTONS */
+
+.splash button, input {
+  width: 100%;
+}
+
+.splash button:not(.guest), input[type="submit"] {
+  background: transparent;
+  border: 1px solid white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash button:hover:not(.guest), input[type="submit"] {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* INPUTS */
+
+.splash input[type="text"],
+.splash input[type="password"] {
+  margin-top: 5px;
+  color: $light-grey;
+}
+
+.splash label {
+  margin: 10px 0 0px;
+  color: $light-grey;
+}

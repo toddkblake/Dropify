@@ -1,0 +1,22 @@
+/* RESET */
+
+html, main, body, div,
+nav, section, aside, footer,
+h1, h2, h3, h4, h5, h6,
+ol, ul, li,
+form, input, label, button,
+img, audio,
+p, a {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+
+  color: inherit;
+  text-decoration: none;
+  font: inherit;
+  box-sizing: border-box;
+  list-style: none;
+  outline: none;
+
+  background: transparent;
+}
