@@ -1,9 +1,8 @@
 import React from 'react';
 
-const App = ({ children }) => (
+const App = ({ currentUser }) => (
   <div>
     <h1>Dropify</h1>
-    { children }
   </div>
 );
 

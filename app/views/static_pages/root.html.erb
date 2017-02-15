@@ -4,4 +4,11 @@
   <% if logged_in? %>
     window.currentUser = <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
   <% end %>
+
+  window.images = {
+    fullLogo: "<%= image_path("full-logo.png") %>"
+    fullLogoWhite: "<%= image_path("full-logo-white.png") %>",
+    roundLogo: "<%= image_path("round-logo.png") %>",
+    roundLogoWhite: "<%= image_path("round-logo-white.png") %>",
+  }
 </script>
