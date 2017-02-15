@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import Splash from './splash/splash';
-import Browse from './browse/browse';
+import Browse from './browse/browse_container';
 
 const Root = ({ store }) => {
 

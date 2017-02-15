@@ -1,24 +1,65 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { withRouter } from 'react-router';
 
-const SignUpForm = () => {
-  return (
-    <form className="signup">
-      <img src={window.images.fullLogoWhite}/>
-      <label htmlFor="username">Username</label>
-      <input type="text" name="username" placeholder="e.g.johndoe"/>
-      <label htmlFor="email">Email</label>
-      <input type="text" name="email" placeholder="e.g.john@email.com"/>
-      <label htmlFor="password">Password</label>
-      <input type="password" name="password" placeholder="Choose a password"/>
-      <label htmlFor="f_name">First Name</label>
-      <input type="text" name="f_name" placeholder="John"/>
-      <label htmlFor="l_name">Last Name</label>
-      <input type="text" name="l_name" placeholder="Doe"/>
-      <input type="submit" value="Sign Up"/>
-      <p>Already have an account? <Link>Log in here.</Link></p>
-    </form>
-  );
-};
+class SignUpForm extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      username: "",
+      email: "",
+      password: "",
+      f_name: "",
+      l_name: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.redirectToLogin = this.redirectToLogin.bind(this);
+    this.redirectToWelcome = this.redirectToWelcome.bind(this);
+  }
 
-export default SignUpForm;
+  handleChange (property) {
+    return (e) => {
+      this.setState({ [property]: e.target.value });
+    };
+  }
+
+  handleSubmit (e) {
+    e.preventDefault();
+    this.props.signup(this.state).then(
+      () => this.props.router.push("/browse")
+    );
+  }
+
+  redirectToLogin (e) {
+    e.preventDefault();
+    this.props.update("login");
+  }
+
+  redirectToWelcome (e) {
+    e.preventDefault();
+    this.props.update("welcome");
+  }
+
+  render () {
+    return (
+      <form className="signup" onSubmit={ this.handleSubmit }>
+        <img src={window.images.fullLogoWhite}/>
+        <label htmlFor="username">Username</label>
+        <input type="text" name="username" placeholder="e.g.johndoe" onChange={ this.handleChange("username") } />
+        <label htmlFor="email">Email</label>
+        <input type="text" name="email" placeholder="e.g.john@email.com" onChange={ this.handleChange("email") } />
+        <label htmlFor="password">Password</label>
+        <input type="password" name="password" placeholder="Choose a password" onChange={ this.handleChange("password") }/>
+        <label htmlFor="f_name">First Name</label>
+        <input type="text" name="f_name" placeholder="John" onChange={ this.handleChange("f_name") }/>
+        <label htmlFor="l_name">Last Name</label>
+        <input type="text" name="l_name" placeholder="Doe" onChange={ this.handleChange("l_name") }/>
+        <input type="submit" value="Sign Up"/>
+        <p>Already have an account? <a onClick={ this.redirectToLogin }>Log in here.</a></p>
+        <p>Don't want to make an account? <a onClick={ this.redirectToWelcome }>Log in as a guest!</a></p>
+      </form>
+    );
+  }
+}
+
+export default withRouter(SignUpForm);

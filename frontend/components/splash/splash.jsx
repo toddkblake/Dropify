@@ -1,5 +1,5 @@
 import React from 'react';
-import AuthForm from './auth_form';
+import AuthForm from './auth_form_container';
 import Marketing from './marketing';
 
 const Splash = () => (

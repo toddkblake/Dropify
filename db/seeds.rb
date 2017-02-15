@@ -7,3 +7,11 @@ User.create!(
   f_name: 'Todd',
   l_name: 'Blake'
 )
+
+User.create!(
+  username: 'appacademy',
+  password: 'fullstack',
+  email: 'admin@appacademy.io',
+  f_name: 'Guest',
+  l_name: 'Account'
+)
