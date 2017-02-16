@@ -24,7 +24,9 @@ class Artist < ActiveRecord::Base
   has_attached_file :profile_photo,
     styles: { small: "50x50", medium: "130x130", large: "210x210" },
     default_url: "/images/default-profile-photo.jpg"
-    
+  validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
+
   has_attached_file :header_photo,
     default_url: "/images/default-header-photo.jpg"
+  validates_attachment_content_type :header_photo, content_type: /\Aimage\/.*\Z/
 end
