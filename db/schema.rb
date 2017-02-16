@@ -11,10 +11,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214182219) do
+ActiveRecord::Schema.define(version: 20170216142246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.string   "title",                    null: false
+    t.integer  "artist_id",                null: false
+    t.string   "album_cover_file_name",    null: false
+    t.string   "album_cover_content_type", null: false
+    t.integer  "album_cover_file_size",    null: false
+    t.datetime "album_cover_updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "albums", ["artist_id"], name: "index_albums_on_artist_id", using: :btree
+  add_index "albums", ["title"], name: "index_albums_on_title", using: :btree
+
+  create_table "artists", force: :cascade do |t|
+    t.string   "name",                       null: false
+    t.string   "profile_photo_file_name",    null: false
+    t.string   "profile_photo_content_type", null: false
+    t.integer  "profile_photo_file_size",    null: false
+    t.datetime "profile_photo_updated_at",   null: false
+    t.string   "header_photo_file_name",     null: false
+    t.string   "header_photo_content_type",  null: false
+    t.integer  "header_photo_file_size",     null: false
+    t.datetime "header_photo_updated_at",    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "artists", ["name"], name: "index_artists_on_name", using: :btree
+
+  create_table "songs", force: :cascade do |t|
+    t.string   "title",              null: false
+    t.integer  "duration",           null: false
+    t.integer  "album_id",           null: false
+    t.integer  "ord",                null: false
+    t.string   "audio_file_name",    null: false
+    t.string   "audio_content_type", null: false
+    t.integer  "audio_file_size",    null: false
+    t.datetime "audio_updated_at",   null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "songs", ["album_id"], name: "index_songs_on_album_id", using: :btree
+  add_index "songs", ["title"], name: "index_songs_on_title", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
