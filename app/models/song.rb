@@ -16,4 +16,7 @@
 #
 
 class Song < ActiveRecord::Base
+  validates :title, :duration, :album_id, :ord, presence: true
+
+  has_attached_file :audio
 end

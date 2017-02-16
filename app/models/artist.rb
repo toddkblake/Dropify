@@ -17,4 +17,14 @@
 #
 
 class Artist < ActiveRecord::Base
+  validates :name, presence: true
+  validates :profile_photo, attachment_presence: true
+  validates :header_photo, attachment_presence: true
+
+  has_attached_file :profile_photo,
+    styles: { small: "50x50", medium: "130x130", large: "210x210" },
+    default_url: "/images/default-profile-photo.jpg"
+    
+  has_attached_file :header_photo,
+    default_url: "/images/default-header-photo.jpg"
 end
