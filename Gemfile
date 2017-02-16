@@ -34,6 +34,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'aws-sdk', '>= 2.0'
 gem 'figaro'
 gem "paperclip", '~> 5.0.0'
+gem 'open_uri_redirections'
+
 
 group :production do
   gem 'rails_12factor'
