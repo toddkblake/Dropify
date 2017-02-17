@@ -1,6 +1,6 @@
 .navbar {
-    width: 90px;
     height: 100vh;
+    flex: 0 0 90px;
     background-color: $dark-grey;
     display: flex;
     flex-direction: column;
