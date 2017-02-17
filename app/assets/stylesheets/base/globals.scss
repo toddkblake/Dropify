@@ -8,6 +8,7 @@ $dark-grey: #1C1C1F;
 $medium-grey: #282828;
 $light-grey: #9F9F9F;
 $white: #FFF;
+$black: #000;
 
 /* MAIN */
 
@@ -45,7 +46,7 @@ main {
   src: asset-url('ProximaNova-Black.otf') format('opentype');
 }
 
-$font-stack: 'Montserrat', 'Proxima Nova', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$font-stack: 'Proxima Nova', 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
 body {
   font-family: $font-stack;

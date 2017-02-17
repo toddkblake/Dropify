@@ -9,6 +9,7 @@ class NavBar extends React.Component {
 
   handleClick (e) {
     e.preventDefault();
+    debugger
     this.props.logout().then(() => this.props.router.push("/"));
   }
 
@@ -19,31 +20,34 @@ class NavBar extends React.Component {
         <ul>
           <li>
             <Link to="#">
-              <i className="fa fa-search fa-2x"></i>
+              <i className="fa fa-search"></i>
               <h6>Search</h6>
             </Link>
           </li>
           <li className="active">
             <Link to="#">
-              <i className="fa fa-clone fa-2x"></i>
+              <i className="fa fa-clone"></i>
               <h6>Browse</h6>
             </Link>
           </li>
           <li>
             <Link to="#">
-              <i className="fa fa-music fa-2x"></i>
+              <i className="fa fa-music"></i>
               <h6>Your Music</h6>
             </Link>
           </li>
           <li>
             <Link to="#">
-              <i className="fa fa-users fa-2x"></i>
+              <i className="fa fa-users"></i>
               <h6>Follow</h6>
             </Link>
           </li>
         </ul>
         <div className="user">
-          <img className="user-profile-photo" src={ this.props.session.currentUser.profilePhoto }/>
+          <Link to="#">
+            <img className="user-profile-photo" src={ this.props.session.currentUser.profilePhoto }/>
+            <p>{ this.props.session.currentUser.f_name }</p>
+          </Link>
           <button onClick={ this.handleClick }>Logout</button>
         </div>
       </div>
