@@ -23,6 +23,9 @@ class Artist < ActiveRecord::Base
 
   has_many :albums
 
+  has_many :songs,
+    through: :album
+
   has_attached_file :profile_photo,
     styles: { small: "50x50", medium: "130x130", large: "210x210" },
     default_url: "/images/default-profile-photo.jpg"

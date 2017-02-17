@@ -19,6 +19,9 @@ class Song < ActiveRecord::Base
   validates :title, :duration, :album_id, :ord, presence: true
 
   belongs_to :album
+  has_one :artist,
+    through: :album
+
   has_attached_file :audio
   validates_attachment :audio,
     content_type: { content_type: /\Aaudio\/.*\Z/ }
