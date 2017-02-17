@@ -8,6 +8,16 @@
 }
 
 .main-content-container {
-  width: 100%;
+  position: relative;
+  left: 90px;
+  width: calc(100% - 90px);
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.now-playing-active {
+  width: calc(100% - 360px);
+  display: flex;
+  flex-direction: column;
 }

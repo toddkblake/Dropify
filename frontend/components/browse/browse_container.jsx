@@ -1,14 +1,13 @@
 import { connect } from 'react-redux';
 import Browse from './browse';
+import { fetchArtists } from '../../actions/browse_actions';
 
 const mapStateToProps = state => ({
-  browse: state.browse
+  artists: Object.values(state.browse.artists)
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchArtists: () => dispatch(fetchArtists()),
-  fetchArtist: (artistId) => dispatch(fetchArtist(artistId)),
-  fetchAlbum: (albumId) => dispatch(fetchAlbum(albumId))
+  fetchArtists: () => dispatch(fetchArtists())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Browse);

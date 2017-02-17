@@ -1,0 +1,72 @@
+.browse-container {
+
+}
+
+.browse-nav {
+  border-bottom: 1px solid $medium-grey;
+}
+
+.browse-nav ul {
+  display: flex;
+}
+
+.browse-nav li {
+  padding: 10px 0;
+  margin-right: 30px;
+}
+
+.browse-nav a:hover {
+  border: none;
+}
+
+.browse-nav h5:hover {
+  color: $white;
+}
+
+.browse-nav .active {
+  border-bottom: 3px solid $secondary-green;
+  color: $white;
+}
+
+.artists-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content-card {
+  float: left;
+  width: 210px;
+  height: 290px;
+
+  background-color: $medium-grey;
+  margin: 15px 15px 15px 0;
+}
+
+.content-card-image {
+  width: 210px;
+  height: 210px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.content-card img {
+  height: 100%;
+}
+
+.content-card-content {
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+  padding: 10px;
+}
+
+.content-card .primary {
+  margin-top: 5px;
+  color: $white;
+}
+
+.content-card .secondary {
+  margin-top: 10px;
+  color: $light-grey;
+}

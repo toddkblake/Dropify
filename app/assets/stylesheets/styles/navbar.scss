@@ -1,11 +1,12 @@
 .navbar {
-    height: 100vh;
-    flex: 0 0 90px;
-    background-color: $dark-grey;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: $light-grey;
+  position: fixed;
+  height: 100vh;
+  flex: 0 0 90px;
+  background-color: $dark-grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $light-grey;
 }
 
 .round-logo-white {

@@ -1,0 +1,19 @@
+.artist-container {
+  width: 100%;
+}
+
+.artist-header {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.artist-header-img {
+  width: 100%;
+  overflow: hidden;
+}
+
+.artist-header img {
+  max-width:100%;
+}

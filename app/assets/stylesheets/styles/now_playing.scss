@@ -1,8 +1,10 @@
 .now-playing-container {
-  // width: 270px;
+  position: fixed;
+  width: 270px;
+  right: 0;
+  height: 100vh;
   background-color: $dark-grey;
   display: flex;
-  flex: 0 0 270px;
   flex-direction: column;
   align-items: center;
   color: $light-grey;

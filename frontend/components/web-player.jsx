@@ -6,8 +6,7 @@ const WebPlayer = ({ children }) => {
   return (
     <div className="web-player">
       <NavBar />
-      <div className="main-content-container">
-        <h1>Main Content</h1>
+      <div className="main-content-container now-playing-active">
         { children }
       </div>
       <NowPlaying />
