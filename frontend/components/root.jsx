@@ -23,6 +23,9 @@ const Root = ({ store }) => {
           <IndexRoute component={ Splash } onEnter={ _redirectIfLoggedIn } />
           <Route component={ WebPlayer } onEnter={ _redirectUnlessLoggedIn }>
             <Route path="/browse" component={ Browse } onEnter={ _redirectUnlessLoggedIn } />
+            <Route path="/browse" component={ Browse } onEnter={ _redirectUnlessLoggedIn } />
+            <Route path="/browse" component={ Browse } onEnter={ _redirectUnlessLoggedIn } />
+
           </Route>
         </Route>
       </Router>

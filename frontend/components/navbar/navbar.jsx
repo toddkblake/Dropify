@@ -9,11 +9,11 @@ class NavBar extends React.Component {
 
   handleClick (e) {
     e.preventDefault();
-    debugger
     this.props.logout().then(() => this.props.router.push("/"));
   }
 
   render () {
+    if (this.props.session.currentUser === null) return (<div></div>);
     return (
       <div className="navbar">
         <img className="round-logo-white" src={window.images.roundLogoWhite}/>
