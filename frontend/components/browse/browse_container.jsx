@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
 import Browse from './browse';
 
 const mapStateToProps = state => ({
-  session: state.session
+  browse: state.browse
 });
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
+  fetchArtists: () => dispatch(fetchArtists()),
+  fetchArtist: (artistId) => dispatch(fetchArtist(artistId)),
+  fetchAlbum: (albumId) => dispatch(fetchAlbum(albumId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Browse);
