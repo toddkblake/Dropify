@@ -1,0 +1,82 @@
+.navbar {
+    width: 90px;
+    height: 100vh;
+    background-color: $dark-grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $light-grey;
+}
+
+.round-logo-white {
+  margin: 15px;
+  width: 60px;
+  height: auto;
+}
+
+.navbar * {
+  padding: 5px 0;
+}
+
+.navbar ul {
+  width: 100%;
+}
+
+.navbar li {
+  display: flex;
+  padding: 5px 0;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar .active {
+  border-left: 2px solid $secondary-green;
+  color: $white;
+}
+
+.navbar a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar a:hover {
+  color: $white;
+  border: none;
+}
+
+.navbar a > * {
+  padding: 5px 0;
+}
+
+/* USER */
+
+.user-profile-photo {
+  border-radius: 42px;
+  width: 42px;
+  height: 42px;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* BUTTONS */
+
+.navbar button {
+  height: 28px;
+  padding: 5px;
+  border-radius: 28px;
+  border: 1px solid $white;
+  background: transparent;
+  text-align: center;
+  font-size: 12px;
+}
+
+.navbar button:hover {
+  border-color: $secondary-green;
+  cursor: pointer;
+}

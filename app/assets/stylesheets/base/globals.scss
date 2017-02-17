@@ -3,7 +3,8 @@
 $primary-green: #1ED760;
 $secondary-green: #1DB854;
 $darkest-grey: #121212;
-$dark-grey: #181818;
+$darker-grey: #181818;
+$dark-grey: #1C1C1F;
 $medium-grey: #282828;
 $light-grey: #9F9F9F;
 $white: #FFF;
@@ -19,13 +20,42 @@ main {
 /* TYPOGRAPHY */
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,700|Muli:700,400');
-$font-stack: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-weight: 300;
+  src: asset-url('ProximaNova-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-weight: normal, 400;
+  src: asset-url('ProximaNova-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-weight: bold, 700;
+  src: asset-url('ProximaNova-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-weight: 900;
+  src: asset-url('ProximaNova-Black.otf') format('opentype');
+}
+
+$font-stack: 'Montserrat', 'Proxima Nova', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
 body {
   font-family: $font-stack;
   color: $medium-grey;
   font-size: 14px;
   font-weight: 300;
+}
+
+h1, h2, h3, h4 {
+  color: $white;
 }
 
 h1 {
@@ -90,8 +120,11 @@ button:hover {
 
 /* LINKS */
 
-a:hover {
+a {
   padding-bottom: 3px;
+}
+
+a:hover {
   border-bottom: 1px solid $white;
 }
 
