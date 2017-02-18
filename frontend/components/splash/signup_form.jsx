@@ -61,7 +61,7 @@ class SignUpForm extends React.Component {
         <input type="text" name="f_name" placeholder="John" onChange={ this.handleChange("f_name") }/>
         <label htmlFor="l_name">Last Name</label>
         <input type="text" name="l_name" placeholder="Doe" onChange={ this.handleChange("l_name") }/>
-        <input type="submit" value="Sign Up"/>
+        <input type="submit" value="Sign Up" className="large" />
         <p><a onClick={ this.redirectToLogin }>Already have an account? Log in here.</a></p>
         <p><a onClick={ this.redirectToWelcome }>Don't want to make an account? Log in as a guest!</a></p>
       </form>

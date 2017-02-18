@@ -11,6 +11,9 @@
   align-items: center;
 
   color: $white;
+}
+
+.splash p {
   font-size: 12px;
 }
 
@@ -71,20 +74,6 @@
 
 .splash button, input {
   width: 100%;
-}
-
-.splash button:not(.guest), input[type="submit"] {
-  background: transparent;
-  border: 1px solid white;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.splash button:hover:not(.guest), input[type="submit"] {
-  background-color: transparent;
-  cursor: pointer;
 }
 
 /* INPUTS */

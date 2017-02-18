@@ -25,8 +25,19 @@ class ArtistDetail extends React.Component {
           <div className="artist-header-img">
             <img src={ artist.header_photo } />
           </div>
-          <h1>{ artist.name }</h1>
-          <h5>Albums</h5>
+          <div className="artist-header-info">
+            <div className="artist-profile-photo">
+              <img src={ artist.profile_photo_medium } />
+              <div className="artist-name">
+                <h5>Artist</h5>
+                <h3>{ artist.name }</h3>
+              </div>
+            </div>
+            <ul className="button-row">
+              <button className="medium green">Play</button>
+              <button className="medium">Follow</button>
+            </ul>
+          </div>
         </div>
         <Albums albums={ albums } />
       </div>

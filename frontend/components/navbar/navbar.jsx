@@ -48,7 +48,7 @@ class NavBar extends React.Component {
             <img className="user-profile-photo" src={ this.props.session.currentUser.profilePhoto }/>
             <p>{ this.props.session.currentUser.f_name }</p>
           </Link>
-          <button onClick={ this.handleClick }>Logout</button>
+          <button className="small" onClick={ this.handleClick }>Logout</button>
         </div>
       </div>
     );

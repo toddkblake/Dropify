@@ -20,7 +20,7 @@ main {
 
 /* TYPOGRAPHY */
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,700|Muli:700,400');
+// @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,700|Muli:700,400');
 
 @font-face {
   font-family: 'Proxima Nova';
@@ -36,6 +36,12 @@ main {
 
 @font-face {
   font-family: 'Proxima Nova';
+  font-weight: bold, 600;
+  src: asset-url('ProximaNova-Semibold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
   font-weight: bold, 700;
   src: asset-url('ProximaNova-Bold.otf') format('opentype');
 }
@@ -46,7 +52,7 @@ main {
   src: asset-url('ProximaNova-Black.otf') format('opentype');
 }
 
-$font-stack: 'Proxima Nova', 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$font-stack: 'Proxima Nova', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
 body {
   font-family: $font-stack;
@@ -87,8 +93,7 @@ h4 {
 }
 
 h5 {
-  font-family: "Muli", $font-stack;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 14px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -98,30 +103,72 @@ h6 {
   font-size: 14px;
 }
 
-/* BUTTONS */
+/* BUTTONS & INPUTS */
 
-button, input[type="submit"] {
-  height: 40px;
-  padding: 10px;
-  border-radius: 20px;
-  background-color: $secondary-green;
-
+button,
+input[type="submit"] {
   color: $white;
-  font-family: "Muli", $font-stack;
-  font-weight: 400;
-  font-size: 12px;
-  letter-spacing: 0.5px;
+  text-align: center;
   text-transform: uppercase;
-
+  letter-spacing: 0.5px;
   transition: 100ms;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
+  border: 1px solid white;
 }
 
 button:hover {
-  background-color: $primary-green;
   cursor: pointer;
+}
+
+/* LARGE */
+
+button.large,
+input[type="submit"].large {
+  height: 40px;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* MEDIUM */
+
+button.medium {
+  height: 28px;
+  padding: 5px 35px;
+  border-radius: 28px;
+  font-size: 12px;
+}
+
+button.medium:hover {
+  border-color: $secondary-green;
+}
+
+
+/* SMALL */
+
+button.small {
+  height: 28px;
+  padding: 5px 15px;
+  border-radius: 28px;
+  font-size: 11px;
+}
+
+button.small:hover {
+  border-color: $secondary-green;
+}
+
+/* GREEN */
+
+button.green {
+  background-color: $secondary-green;
+  border: none;
+}
+
+button.green:hover {
+  background-color: $primary-green;
 }
 
 /* LINKS */

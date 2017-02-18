@@ -3,17 +3,71 @@
 }
 
 .artist-header {
-  height: 400px;
+  height: 320px;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .artist-header-img {
-  width: 100%;
+  position: absolute;
+  height: 320px;
   overflow: hidden;
+  filter: brightness(30%);
 }
 
 .artist-header img {
   max-width:100%;
+}
+
+.artist-header-info {
+  position: relative;
+  top: 100px;
+  padding: 20px;
+}
+
+.albums_container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.artist-profile-photo img {
+  width: 132px;
+  height: auto;
+  border-radius: 132px;
+  margin: 0 10px 10px 0;
+}
+
+.artist-profile-photo {
+  display: flex;
+}
+
+.artist-name {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.artist-name h5 {
+  font-size: 12px;
+}
+
+.artist-name h3 {
+  padding-top: 10px;
+}
+
+.button-row {
+  display: flex;
+  margin: 10px 0;
+}
+
+.button-row button {
+  margin-right: 10px;
+}
+
+.artist-header nav {
+  height: 45px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  border-bottom: 1px solid $medium-grey;
 }

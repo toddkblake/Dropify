@@ -75,17 +75,4 @@
 
 .navbar button {
   margin-top: 15px;
-  width: 80%;
-  height: 28px;
-  padding: 5px;
-  border-radius: 28px;
-  border: 1px solid $white;
-  background: transparent;
-  font-size: 11px;
-  text-align: center;
-}
-
-.navbar button:hover {
-  border-color: $secondary-green;
-  cursor: pointer;
 }
