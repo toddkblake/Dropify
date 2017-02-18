@@ -4,7 +4,9 @@ import ContentCard from './content-card';
 const Albums = ({ albums }) => {
   return (
     <div className="albums-container">
-      <h5>Albums</h5>
+      <div className="section-header">
+        <h5>Albums</h5>
+      </div>
       {
         albums.map(album => (
           <ContentCard

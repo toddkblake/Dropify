@@ -18,8 +18,8 @@ export const fetchArtist = (artistId) => dispatch => {
   )
 }
 
-export const fetchAlbum = (albumId) => dispatch => {
-  return BrowseApiUtil.fetchAlbum(albumId).then(
+export const fetchAlbum = (artistId, albumId) => dispatch => {
+  return BrowseApiUtil.fetchAlbum(artistId, albumId).then(
     album => dispatch(receiveAlbum(album)),
     errors => console.log(errors)
   )

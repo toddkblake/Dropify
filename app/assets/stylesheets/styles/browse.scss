@@ -1,7 +1,3 @@
-.browse-container {
-
-}
-
 .browse-nav {
   border-bottom: 1px solid $medium-grey;
 }
@@ -69,4 +65,9 @@
 .content-card .secondary {
   margin-top: 10px;
   color: $light-grey;
+}
+
+.section-header {
+  padding: 10px 0;
+  border-bottom: 1px solid $medium-grey;
 }

@@ -12,9 +12,9 @@ export const fetchArtist = (artistId) => {
   })
 }
 
-export const fetchAlbum = (albumId) => {
+export const fetchAlbum = (artistId, albumId) => {
   return $.ajax({
     method: "GET",
-    url: `api/albums/${albumId}`
+    url: `api/artists/${artistId}/albums/${albumId}`
   })
 }

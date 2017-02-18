@@ -21,31 +21,31 @@ class NavBar extends React.Component {
           <li>
             <Link to="#">
               <i className="fa fa-search"></i>
-              <h6>Search</h6>
+              <p>Search</p>
             </Link>
           </li>
           <li className="active">
             <Link to="#">
               <i className="fa fa-clone"></i>
-              <h6>Browse</h6>
+              <p>Browse</p>
             </Link>
           </li>
           <li>
             <Link to="#">
               <i className="fa fa-music"></i>
-              <h6>Your Music</h6>
+              <p>Your Music</p>
             </Link>
           </li>
           <li>
             <Link to="#">
               <i className="fa fa-users"></i>
-              <h6>Follow</h6>
+              <p>Follow</p>
             </Link>
           </li>
         </ul>
         <div className="user">
           <Link to="#">
-            <img className="user-profile-photo" src={ this.props.session.currentUser.profilePhoto }/>
+            <img className="user-profile-photo" src={ this.props.session.currentUser.profile_photo_small }/>
             <p>{ this.props.session.currentUser.f_name }</p>
           </Link>
           <button className="small" onClick={ this.handleClick }>Logout</button>

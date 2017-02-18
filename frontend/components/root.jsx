@@ -6,6 +6,7 @@ import Splash from './splash/splash';
 import WebPlayer from './web-player';
 import Browse from './browse/browse_container';
 import ArtistDetail from './browse/artist_detail_container';
+import AlbumDetail from './browse/album_detail_container';
 
 const Root = ({ store }) => {
 
@@ -25,6 +26,7 @@ const Root = ({ store }) => {
           <Route component={ WebPlayer } onEnter={ _redirectUnlessLoggedIn }>
             <Route path="/browse" component={ Browse } onEnter={ _redirectUnlessLoggedIn } />
             <Route path="/artists/:artistId" component={ ArtistDetail } onEnter={ _redirectUnlessLoggedIn } />
+            <Route path="/artists/:artistId/albums/:albumId" component={ AlbumDetail } onEnter={ _redirectUnlessLoggedIn } />
           </Route>
         </Route>
       </Router>

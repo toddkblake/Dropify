@@ -11,10 +11,6 @@ class ArtistDetail extends React.Component {
     this.props.fetchArtist(this.props.artistId);
   }
 
-  componentWillReceiveProps () {
-
-  }
-
   render () {
     const { artist } = this.props;
     if (!artist.albums) return (<div>loading...</div>);
@@ -29,8 +25,8 @@ class ArtistDetail extends React.Component {
             <div className="artist-profile-photo">
               <img src={ artist.profile_photo_medium } />
               <div className="artist-name">
-                <h5>Artist</h5>
-                <h3>{ artist.name }</h3>
+                <h6>Artist</h6>
+                <h2>{ artist.name }</h2>
               </div>
             </div>
             <ul className="button-row">

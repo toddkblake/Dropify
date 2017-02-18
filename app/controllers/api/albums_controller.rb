@@ -1,6 +1,6 @@
 class Api::AlbumsController < ApplicationController
   def show
-    @album = Album.includes(:songs).find(params[:id])
+    @album = Album.includes(:songs).order("songs.ord asc").find(params[:id])
     if @album
       render "api/albums/show"
     else

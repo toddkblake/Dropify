@@ -1,62 +1,16 @@
-/* COLORS */
-
-$primary-green: #1ED760;
-$secondary-green: #1DB854;
-$darkest-grey: #121212;
-$darker-grey: #181818;
-$dark-grey: #1C1C1F;
-$medium-grey: #282828;
-$light-grey: #9F9F9F;
-$white: #FFF;
-$black: #000;
-
-/* MAIN */
+/* GLOBAL STYLES */
 
 main {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  min-width: 1000px;
+  min-height: 600px;
   display: flex;
 }
 
-/* TYPOGRAPHY */
-
-// @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,700|Muli:700,400');
-
-@font-face {
-  font-family: 'Proxima Nova';
-  font-weight: 300;
-  src: asset-url('ProximaNova-Light.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Proxima Nova';
-  font-weight: normal, 400;
-  src: asset-url('ProximaNova-Regular.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Proxima Nova';
-  font-weight: bold, 600;
-  src: asset-url('ProximaNova-Semibold.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Proxima Nova';
-  font-weight: bold, 700;
-  src: asset-url('ProximaNova-Bold.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Proxima Nova';
-  font-weight: 900;
-  src: asset-url('ProximaNova-Black.otf') format('opentype');
-}
-
-$font-stack: 'Proxima Nova', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-
 body {
   font-family: $font-stack;
-  color: $medium-grey;
+  color: $light-grey;
   font-size: 14px;
   font-weight: 300;
   background-color: $darkest-grey;
@@ -66,8 +20,10 @@ h1, h2, h3, h4 {
   color: $white;
 }
 
-h5 {
+h5, h6 {
   color: $light-grey;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 h1 {
@@ -76,31 +32,30 @@ h1 {
 }
 
 h2 {
-  font-size: 36px;
-  letter-spacing: -0.5px;
+  font-size: 34px;
+  font-weight: 200;
 }
 
 h3 {
   font-size: 26px;
   font-weight: 200;
-  letter-spacing: -0.5px;
 }
 
 h4 {
   font-size: 20px;
   font-weight: 700;
-  letter-spacing: -0.5px;
 }
 
 h5 {
-  font-weight: 300;
   font-size: 14px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
 }
 
 h6 {
-  font-size: 14px;
+  font-size: 12px;
+}
+
+.white {
+  color: $white;
 }
 
 /* BUTTONS & INPUTS */
@@ -145,7 +100,6 @@ button.medium {
 button.medium:hover {
   border-color: $secondary-green;
 }
-
 
 /* SMALL */
 

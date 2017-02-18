@@ -1,19 +1,23 @@
 .web-player {
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
+  min-width: 1000px;
+  min-height: 600px;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  position: absolute;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   background-color: $darkest-grey;
 }
 
 .main-content-container {
   position: relative;
-  left: 90px;
   width: calc(100% - 90px);
-  padding: 15px;
+  padding: 0 15px;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 .now-playing-active {

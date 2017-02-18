@@ -1,0 +1,24 @@
+.album-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.album-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.album-cover {
+  display: flex;
+}
+
+.album-cover img {
+  margin: 0 10px 0px 0;
+}
+
+.album-info {
+  padding: 10px 0;
+  border-top: 1px solid $medium-grey;
+  border-bottom: 1px solid $medium-grey;
+}

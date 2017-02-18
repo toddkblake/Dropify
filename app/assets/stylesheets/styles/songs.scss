@@ -1,0 +1,24 @@
+table.songs-table {
+  width: 100%;
+  color: $light-grey;
+  border-collapse: collapse
+}
+
+.songs-table th {
+  padding: 5px 0;
+}
+
+.songs-table tr {
+  padding: 10px;
+  text-align: left;
+}
+
+.songs-table td {
+  border-spacing: 0;
+  border-top: 1px solid $medium-grey;
+  padding: 10px 0;
+}
+
+.songs-table {
+  border-bottom: 1px solid $medium-grey;
+}
