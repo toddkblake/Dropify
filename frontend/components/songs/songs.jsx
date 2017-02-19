@@ -1,5 +1,5 @@
 import React from 'react';
-import Song from './song';
+import Song from './song_container';
 
 const Songs = ({ songs }) => {
   return (

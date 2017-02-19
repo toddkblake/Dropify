@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 
 class Song extends React.Component {
+  constructor (props) {
+    super(props);
+  }
 
   duration (seconds) {
     const min = Math.floor(seconds / 60);
@@ -12,10 +15,18 @@ class Song extends React.Component {
     return `${min}:${sec}`;
   }
 
+  handleDoubleClick (song) {
+    return (e) => {
+      e.preventDefault();
+      this.props.setCurrentSong(song);
+      this.props.playCurrentSong();
+    };
+  }
+
   render () {
     const { song } = this.props;
     return (
-      <tr>
+      <tr onDoubleClick={ this.handleDoubleClick(song).bind(this) } >
         <td><i className="fa fa-play-circle-o"></i></td>
         <td><i className="fa fa-plus"></i></td>
         <td><p>{ song.ord }</p></td>

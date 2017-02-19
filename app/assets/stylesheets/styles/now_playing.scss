@@ -9,3 +9,13 @@
   align-items: center;
   color: $light-grey;
 }
+
+.play-pause-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.play-pause-row .fa {
+  padding: 20px;
+}
