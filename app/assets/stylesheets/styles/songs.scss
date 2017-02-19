@@ -1,11 +1,12 @@
-table.songs-table {
+.songs-table {
   width: 100%;
   color: $light-grey;
-  border-collapse: collapse
+  border-collapse: collapse;
+  display: table;
 }
 
 .songs-table th {
-  padding: 5px 0;
+  padding: 10px;
 }
 
 .songs-table tr {
@@ -16,7 +17,14 @@ table.songs-table {
 .songs-table td {
   border-spacing: 0;
   border-top: 1px solid $medium-grey;
-  padding: 10px 0;
+  padding: 10px;
+}
+
+.songs-table .ellipsis {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .songs-table {
