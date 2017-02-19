@@ -1,4 +1,5 @@
 import React from 'react';
+import { duration } from '../../util/music_util';
 
 class ProgressBar extends React.Component {
   constructor(props) {
@@ -19,15 +20,6 @@ class ProgressBar extends React.Component {
     this.setState({ currentTime });
   }
 
-  duration (seconds) {
-    const min = Math.floor(seconds / 60);
-    let sec = seconds % 60;
-    if (sec < 10) {
-      sec = `0${sec}`;
-    }
-    return `${min}:${sec}`;
-  }
-
   render () {
     const currentTime = this.state.currentTime;
     const currentSong = this.props.currentSong;
@@ -36,10 +28,10 @@ class ProgressBar extends React.Component {
         <progress id="song-progress-bar" value={ currentTime / currentSong.song.duration } max="1"></progress>
         <ul className="song-progress-info">
           <li>
-            <p>{ this.duration(this.state.currentTime) }</p>
+            <p>{ duration(this.state.currentTime) }</p>
           </li>
           <li>
-            <p>{ this.duration(currentSong.song.duration) }</p>
+            <p>{ duration(currentSong.song.duration) }</p>
           </li>
         </ul>
       </div>

@@ -1,18 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { duration } from '../../util/music_util';
 
 class Song extends React.Component {
   constructor (props) {
     super(props);
-  }
-
-  duration (seconds) {
-    const min = Math.floor(seconds / 60);
-    let sec = seconds % 60;
-    if (sec < 10) {
-      sec = `0${sec}`;
-    }
-    return `${min}:${sec}`;
   }
 
   handleDoubleClick (song) {
@@ -33,7 +25,7 @@ class Song extends React.Component {
         <td><div className="ellipsis"><p className="white">{ song.title }</p></div></td>
         <td><div className="ellipsis"><Link to={ `artists/${song.artist.id}` } className="white">{ song.artist.name }</Link></div></td>
         <td><div className="ellipsis"><Link to={ `artists/${song.artist.id}/albums/${song.album.id}` } className="white">{ song.album.title }</Link></div></td>
-        <td><p>{ this.duration(song.duration) }</p></td>
+        <td><p>{ duration(song.duration) }</p></td>
         <td><i className="fa fa-ellipsis-h"></i></td>
       </tr>
     );
