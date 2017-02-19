@@ -24,5 +24,6 @@ class Song < ActiveRecord::Base
 
   has_attached_file :audio
   validates_attachment :audio,
-    content_type: { content_type: /\Aaudio\/.*\Z/ }
+    presence: true,
+    content_type:  { content_type: /\Aaudio\/.*\Z/ }
 end
