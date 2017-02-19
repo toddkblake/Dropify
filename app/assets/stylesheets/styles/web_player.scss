@@ -11,17 +11,18 @@
   background-color: $darkest-grey;
 }
 
-.main-content-container {
+#main-content-container {
   position: relative;
-  width: calc(100% - 90px);
-  padding: 0 15px;
   display: flex;
   flex-direction: column;
+  padding: 0 15px;
   overflow-y: scroll;
+}
+
+.now-playing-inactive {
+  width: calc(100% - 90px);
 }
 
 .now-playing-active {
   width: calc(100% - 360px);
-  display: flex;
-  flex-direction: column;
 }

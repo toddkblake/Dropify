@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import NowPlaying from './now_playing';
+import Controls from './controls';
 import {
   playCurrentSong,
   pauseCurrentSong
@@ -12,7 +12,10 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return ({});
+  return ({
+    playCurrentSong: () => dispatch(playCurrentSong()),
+    pauseCurrentSong: () => dispatch(pauseCurrentSong())
+  });
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NowPlaying);
+export default connect(mapStateToProps, mapDispatchToProps)(Controls);

@@ -1,10 +1,10 @@
-.now-playing-container {
+.now-playing-container.active {
   position: relative;
   min-height: 600px;
   width: 270px;
   right: 0;
   height: 100vh;
-  padding: 30px;
+  padding: 20px;
   background-color: $dark-grey;
   display: flex;
   flex-direction: column;
@@ -12,8 +12,29 @@
   color: $light-grey;
 }
 
-.now-playing-container > * {
+.now-playing-container.inactive {
+  display: none;
+}
+
+.now-playing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.now-playing img {
+  margin-bottom: 20px;
+}
+
+.now-playing > * {
   margin-bottom: 10px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
 }
 
 .song-progress {
@@ -27,8 +48,8 @@
 .song-progress-info {
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
-  font-size: 11px;
+  margin-top: 10px;
+  font-size: 12px;
 }
 
 .play-pause-row {
