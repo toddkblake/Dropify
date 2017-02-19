@@ -16,14 +16,29 @@
   margin-bottom: 10px;
 }
 
+.song-progress {
+  width: 100%;
+}
+
+#song-progress-bar {
+  width: 100%;
+}
+
+.song-progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 11px;
+}
+
 .play-pause-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 .play-pause-row li {
-  margin: 30px;
+  margin: 15px 30px;
 }
 
 .fa.large {
@@ -34,6 +49,35 @@
   transform: scale(2.5, 2);
 }
 
-#song-progress-bar {
-  width: 100%;
+.fa.small {
+  transform: scale(1.25, 1.25);
+}
+
+.play-queue-row {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+play-queue-row li {
+  margin: 15px 30px;
+}
+
+progress {
+  height: 4px;
+  border: 0;
+  border-radius: 2px;
+}
+progress::-webkit-progress-bar {
+  background-color: $medium-grey;
+  border-radius: 2px;
+}
+progress::-webkit-progress-value {
+  background-color: $secondary-green;
+  border-radius: 2px;
+}
+progress::-moz-progress-bar {
+  background-color: $secondary-green;
+  border-radius: 2px;
 }

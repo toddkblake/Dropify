@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import ProgressBar from './progress_bar';
 
 class NowPlaying extends React.Component {
   constructor(props){
@@ -7,12 +8,12 @@ class NowPlaying extends React.Component {
   }
 
   play () {
-    this.audio.play();
+    this.audioEl.play();
     this.props.playCurrentSong();
   }
 
   pause () {
-    this.audio.pause();
+    this.audioEl.pause();
     this.props.pauseCurrentSong();
   }
 
@@ -34,8 +35,8 @@ class NowPlaying extends React.Component {
         </div>
         <Link className="white" to="#">{ currentSong.song.title }</Link>
         <Link to={`/artists/${currentSong.song.artist.id}`}>{ currentSong.song.artist.name }</Link>
-        <audio src={ currentSong.song.audio } ref={ ref => this.audio = ref } autoPlay />
-        <progress id="song-progress-bar" value="0" max="1"></progress>
+        <audio id="audio-element" src={ currentSong.song.audio } ref={ ref => this.audioEl = ref } autoPlay />
+        <ProgressBar audioEl={ this.audioEl } currentSong={ currentSong } />
         <ul className="play-pause-row">
           <li>
             <i className="fa fa-step-backward medium"></i>
@@ -45,6 +46,20 @@ class NowPlaying extends React.Component {
           </li>
           <li>
             <i className="fa fa-step-forward medium"></i>
+          </li>
+        </ul>
+        <ul className="play-queue-row">
+          <li>
+            <i className="fa fa-list small"></i>
+          </li>
+          <li>
+            <i className="fa fa-random small"></i>
+          </li>
+          <li>
+            <i className="fa fa-retweet small"></i>
+          </li>
+          <li>
+            <i className="fa fa-volume-up small"></i>
           </li>
         </ul>
       </div>
