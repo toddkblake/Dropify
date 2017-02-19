@@ -7,13 +7,12 @@ class NowPlaying extends React.Component {
   }
 
   play () {
-    this.audio.play;
+    this.audio.play();
     this.props.playCurrentSong();
   }
 
   pause () {
-    debugger
-    this.audio.pause;
+    this.audio.pause();
     this.props.pauseCurrentSong();
   }
 
@@ -24,9 +23,9 @@ class NowPlaying extends React.Component {
     }
     let play_pause_button;
     if (currentSong.playing) {
-      play_pause_button = <i className="fa fa-pause-circle-o fa-3x" onClick={ this.pause.bind(this) }></i>
+      play_pause_button = <i className="fa fa-pause-circle-o large" onClick={ this.pause.bind(this) }></i>
     } else {
-      play_pause_button = <i className="fa fa-play-circle-o fa-3x" onClick={ this.play.bind(this) }></i>
+      play_pause_button = <i className="fa fa-play-circle-o large" onClick={ this.play.bind(this) }></i>
     }
     return (
       <div className="now-playing-container">
@@ -36,15 +35,16 @@ class NowPlaying extends React.Component {
         <Link className="white" to="#">{ currentSong.song.title }</Link>
         <Link to={`/artists/${currentSong.song.artist.id}`}>{ currentSong.song.artist.name }</Link>
         <audio src={ currentSong.song.audio } ref={ ref => this.audio = ref } autoPlay />
+        <progress id="song-progress-bar" value="0" max="1"></progress>
         <ul className="play-pause-row">
           <li>
-            <i className="fa fa-step-backward fa-2x"></i>
+            <i className="fa fa-step-backward medium"></i>
           </li>
           <li>
             { play_pause_button }
           </li>
           <li>
-            <i className="fa fa-step-forward fa-2x"></i>
+            <i className="fa fa-step-forward medium"></i>
           </li>
         </ul>
       </div>

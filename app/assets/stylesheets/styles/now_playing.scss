@@ -1,13 +1,19 @@
 .now-playing-container {
   position: relative;
+  min-height: 600px;
   width: 270px;
   right: 0;
   height: 100vh;
+  padding: 30px;
   background-color: $dark-grey;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: $light-grey;
+}
+
+.now-playing-container > * {
+  margin-bottom: 10px;
 }
 
 .play-pause-row {
@@ -16,6 +22,18 @@
   justify-content: space-between;
 }
 
-.play-pause-row .fa {
-  padding: 20px;
+.play-pause-row li {
+  margin: 30px;
+}
+
+.fa.large {
+  transform: scale(4.5, 4.5);
+}
+
+.fa.medium {
+  transform: scale(2.5, 2);
+}
+
+#song-progress-bar {
+  width: 100%;
 }
