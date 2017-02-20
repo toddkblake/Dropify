@@ -36,17 +36,17 @@
         }
       }
     },
-  }
-
-  playlists: {
     playlists: {},
     playlist: {}
-  },
+  }
 
   users: {
     users: {},
-    user: {}
-    playlist: {},
+    user: {
+      user_playlists: {}
+      followed_playlists: {}
+      }
+    }
   }
 
   playQueue: {
