@@ -12,13 +12,13 @@ const BrowseReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ARTISTS: {
-      return merge({}, state, { artists: action.artists });
+      return Object.assign({}, state, { artists: action.artists });
     }
     case RECEIVE_ARTIST: {
-      return merge({}, state, { artist: action.artist });
+      return Object.assign({}, state, { artist: action.artist });
     }
     case RECEIVE_ALBUM: {
-      return merge({}, state, { album: action.album });
+      return Object.assign({}, state, { album: action.album });
     }
     default: {
       return state;
