@@ -1,4 +1,6 @@
 class Api::PlaylistsController < ApplicationController
+  before_action :ensure_playlist_owner, only: [:create, :update, :destroy]
+
   def index
     @playlists = Playlist.all
     render "api/playlists/index"
@@ -46,5 +48,11 @@ class Api::PlaylistsController < ApplicationController
 
   def playlist_params
     params.require(:playlist).permit(:name, :owner_id, :photo)
+  end
+
+  def ensure_playlist_owner
+    unless current_user.id == params[:playlist][:owner_id]
+      render json: { base: ["Access denied"] }, status: 403
+    end
   end
 end
