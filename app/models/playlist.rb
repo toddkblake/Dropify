@@ -23,4 +23,9 @@ class Playlist < ActiveRecord::Base
   has_many :songs,
     through: :playlist_songs,
     source: :song
+
+    has_attached_file :photo,
+      styles: { small: "50x50", medium: "130x130", large: "210x210" },
+      default_url: "images/default-playlist-photo.jpg"
+    validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 end
