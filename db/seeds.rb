@@ -1,5 +1,6 @@
 require 'csv'
 require 'mp3info'
+require 'open-uri'
 
 User.delete_all
 Artist.delete_all
@@ -39,6 +40,7 @@ songs.each_with_index do |song_row, i|
   puts "Song #{i + 1}..."
 
   song_file_path = song_row[0]
+  # song = open(song_file_path)
   song_info = Mp3Info.new(song_file_path)
 
   artist = Artist.find_by(name: song_info.tag.artist)
