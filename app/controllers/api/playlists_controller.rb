@@ -5,7 +5,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def user_playlists
-    @playlists = Playlist.find_by(owner_id: params[:owner_id])
+    @playlists = Playlist.where(owner_id: params[:user_id])
     render "api/playlists/index"
   end
 
