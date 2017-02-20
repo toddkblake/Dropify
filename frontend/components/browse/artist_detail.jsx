@@ -11,6 +11,10 @@ class ArtistDetail extends React.Component {
     this.props.fetchArtist(this.props.artistId);
   }
 
+  componentWillUnmount () {
+    this.props.clearArtist();
+  }
+
   render () {
     const { artist } = this.props;
     if (!artist.albums) return (<div>loading...</div>);

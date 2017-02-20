@@ -3,6 +3,8 @@ import * as BrowseApiUtil from '../util/browse_api_util.js';
 export const RECEIVE_ARTISTS = "RECEIVE_ARTISTS";
 export const RECEIVE_ARTIST = "RECEIVE_ARTIST";
 export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
+export const CLEAR_ARTIST = "CLEAR_ARTIST";
+export const CLEAR_ALBUM = "CLEAR_ALBUM";
 
 export const fetchArtists = () => dispatch => {
   return BrowseApiUtil.fetchArtists().then(
@@ -43,5 +45,17 @@ export const receiveAlbum = album => {
   return ({
     type: RECEIVE_ALBUM,
     album
+  })
+}
+
+export const clearArtist = () => {
+  return ({
+    type: CLEAR_ARTIST
+  })
+}
+
+export const clearAlbum = () => {
+  return ({
+    type: CLEAR_ALBUM
   })
 }

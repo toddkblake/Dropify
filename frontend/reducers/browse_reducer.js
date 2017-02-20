@@ -1,6 +1,12 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_ARTISTS, RECEIVE_ARTIST, RECEIVE_ALBUM } from '../actions/browse_actions';
+import {
+  RECEIVE_ARTISTS,
+  RECEIVE_ARTIST,
+  RECEIVE_ALBUM,
+  CLEAR_ARTIST,
+  CLEAR_ALBUM
+} from '../actions/browse_actions';
 
 const _defaultState = {
   artists: {},
@@ -19,6 +25,14 @@ const BrowseReducer = (state = _defaultState, action) => {
     }
     case RECEIVE_ALBUM: {
       return Object.assign({}, state, { album: action.album });
+    }
+    case CLEAR_ARTIST: {
+      let result = Object.assign({}, state);
+      return Object.assign(result, { artist: {} });
+    }
+    case CLEAR_ALBUM: {
+      let result = Object.assign({}, state);
+      return Object.assign(result, { album: {} });
     }
     default: {
       return state;

@@ -11,10 +11,14 @@ class AlbumDetail extends React.Component {
     this.props.fetchAlbum(this.props.artistId, this.props.albumId);
   }
 
+  componentWillUnmount () {
+    this.props.clearAlbum();
+  }
+
   render () {
     const { album } = this.props;
+    if (!album.songs) return (<div>loading...</div>);
     const songs = album.songs;
-    if (!songs) return (<div>loading...</div>);
     return (
       <div className="album-container">
         <div className="album-header">

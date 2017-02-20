@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AlbumDetail from './album_detail';
-import { fetchAlbum } from '../../actions/browse_actions';
+import { fetchAlbum, clearAlbum } from '../../actions/browse_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return ({
@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  fetchAlbum: (artistId, albumId) => dispatch(fetchAlbum(artistId, albumId))
+  fetchAlbum: (artistId, albumId) => dispatch(fetchAlbum(artistId, albumId)),
+  clearAlbum: () => dispatch(clearAlbum())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AlbumDetail);
