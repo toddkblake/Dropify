@@ -21,7 +21,7 @@
       title: "On Time",
       artist_id: 5,
       album_cover_url: "http://example.com/example.jpg"
-      songs: {
+      songs: [
         1: {
           id: 73,
           title: "Take Five",
@@ -33,21 +33,49 @@
         },
         2: {
           //...
-        }
+        ]
       }
     },
-    playlists: {},
-    playlist: {}
   }
 
-  users: {
-    users: {},
-    user: {
-      user_playlists: {}
-      followed_playlists: {}
-      }
+  playlists: {
+    9: {
+      id: 9
+      name: "Jazz"
+      owner_id: 3
+      photo_small: "http://example.com/"
+      photo_medium: "http://example.com/"
+      photo_large: "http://example.com/"
+      songs: [
+        {
+          id: 73,
+          title: "Take Five",
+          duration: 323,
+          artist: "Dave Brubeck",
+          position: 61,
+          media_url: "http://example.com/example.mp3",
+          album_cover_url: "http://example.com/example.jpg"
+        },
+        {
+          id: 45
+          //...
+        }
     }
-  }
+  },
+
+  users: {
+    3: {
+      id: 3
+      username:"appacademy"
+      f_name: "Guest"
+      l_name: "Account"
+      profile_photo_large: "http://example.com/",
+      profile_photo_medium: "http://example.com/",
+      profile_photo_small: "http://example.com/",
+      playlists: [ 3, 32, 45, 98]
+      ]
+    }
+  },
 
   playQueue: {
     currentSong: {
