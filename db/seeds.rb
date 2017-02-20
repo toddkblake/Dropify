@@ -33,15 +33,15 @@ guest.save!
 
 puts "Songs...\n"
 
-songs = CSV.read("db/seeds/songs.csv")
+songs = CSV.read("db/seeds/songs-pro.csv")
 
 songs.each_with_index do |song_row, i|
 
   puts "Song #{i + 1}..."
 
   song_file_path = song_row[0]
-  # song = open(song_file_path)
-  song_info = Mp3Info.new(song_file_path)
+  song = open(song_file_path)
+  song_info = Mp3Info.new(song)
 
   artist = Artist.find_by(name: song_info.tag.artist)
   unless artist
@@ -59,16 +59,12 @@ songs.each_with_index do |song_row, i|
     )
   end
 
-  song = Song.new(
+  song = Song.create!(
     title: song_info.tag.title,
     duration: song_info.length.to_i,
     album_id: album.id,
-    ord: song_info.tag.tracknum
+    ord: song_info.tag.tracknum,
+    audio: song_file_path
   )
 
-  audio = File.open(song_file_path)
-
-  song.audio = audio
-
-  song.save!
 end
