@@ -2,11 +2,15 @@
 #
 # Table name: playlists
 #
-#  id         :integer          not null, primary key
-#  name       :string           not null
-#  owner_id   :integer          not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                 :integer          not null, primary key
+#  name               :string           not null
+#  owner_id           :integer          not null
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  photo_file_name    :string
+#  photo_content_type :string
+#  photo_file_size    :integer
+#  photo_updated_at   :datetime
 #
 
 class Playlist < ActiveRecord::Base
