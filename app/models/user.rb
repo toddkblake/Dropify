@@ -28,6 +28,9 @@ class User < ActiveRecord::Base
     default_url: "images/default-profile-photo.jpg"
   validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
 
+  has_many :playlists,
+    foreign_key: :owner_id
+
   attr_reader :password
 
   def self.find_by_credentials(credentials)

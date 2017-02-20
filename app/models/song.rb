@@ -4,7 +4,7 @@
 #
 #  id                 :integer          not null, primary key
 #  title              :string           not null
-#  duration           :string           not null
+#  duration           :integer          not null
 #  album_id           :integer          not null
 #  ord                :integer          not null
 #  created_at         :datetime         not null
@@ -26,4 +26,12 @@ class Song < ActiveRecord::Base
   validates_attachment :audio,
     presence: true,
     content_type:  { content_type: /\Aaudio\/.*\Z/ }
+
+  has_many :playlist_songs,
+    class_name: 'PlaylistSong',
+    foreign_key: :song_id
+
+  has_many :playlists,
+    through: :playlist_songs,
+    source: :playlist
 end

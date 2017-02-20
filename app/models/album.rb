@@ -11,6 +11,7 @@
 #  album_cover_content_type :string
 #  album_cover_file_size    :integer
 #  album_cover_updated_at   :datetime
+#  year                     :integer
 #
 
 class Album < ActiveRecord::Base
