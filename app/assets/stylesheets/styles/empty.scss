@@ -1,0 +1,19 @@
+.empty-container {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.empty-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.empty-content > * {
+  margin-bottom: 15px;
+}

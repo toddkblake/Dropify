@@ -20,25 +20,25 @@ class NavBar extends React.Component {
         <img className="round-logo-white" src={window.images.roundLogoWhite}/>
         <ul>
           <li>
-            <Link to="#">
+            <Link>
               <i className="fa fa-search"></i>
               <p>Search</p>
             </Link>
           </li>
-          <li className="active">
-            <Link to="/browse">
+          <li>
+            <Link to="/browse" activeClassName="active">
               <i className="fa fa-clone"></i>
               <p>Browse</p>
             </Link>
           </li>
           <li>
-            <Link to={ `/users/${currentUser.id}/collection` }>
+            <Link to={ `/users/${currentUser.id}/collection` } activeClassName="active">
               <i className="fa fa-music"></i>
               <p>Your Music</p>
             </Link>
           </li>
           <li>
-            <Link to="#">
+            <Link to="/users" activeClassName="active">
               <i className="fa fa-users"></i>
               <p>Follow</p>
             </Link>

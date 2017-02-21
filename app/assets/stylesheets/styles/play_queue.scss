@@ -9,16 +9,3 @@
   border-bottom: 1px solid $medium-grey;
   padding: 35px 0 10px 0;
 }
-
-.empty-queue {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  align-items: center;
-}
-
-.empty-queue > * {
-  margin-bottom: 15px;
-}

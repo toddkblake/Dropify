@@ -1,23 +1,18 @@
 import React from 'react';
 import Songs from '../songs/songs';
-import { withRouter } from 'react-router';
+import Empty from '../loading/empty';
 
 class PlayQueue extends React.Component {
-
-  handleClick () {
-    this.props.router.push('/browse');
-  }
 
   render () {
     if (!this.props.currentSong.id && this.props.queuedSongs.length === 0) {
       return (
-        <div className="play-queue-container">
-          <div className="empty-queue">
-            <h2>Empty</h2>
-            <p>There are no more songs to play in the queue.</p>
-            <button className="medium green" onClick={ this.handleClick.bind(this) }>Browse Music</button>
-          </div>
-        </div>
+        <Empty
+          heading="Empty"
+          content="There are no more songs to play in the queue."
+          path="/browse"
+          linkText="Browse Music"
+        />
       );
     }
 
@@ -52,4 +47,4 @@ class PlayQueue extends React.Component {
   }
 }
 
-export default withRouter(PlayQueue);
+export default PlayQueue;

@@ -27,22 +27,24 @@
   margin-top: 15px;
 }
 
-.navbar .active {
-  color: $white;
-  border-left: 3px solid $secondary-green;
-}
-
 .navbar a {
   width: 100%;
   padding: 20px 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-left: 3px solid transparent;
 }
 
 .navbar a:hover {
   color: $white;
-  border: none;
+  border-bottom: none;
+}
+
+.navbar .active,
+.navbar .active:hover {
+  color: $white;
+  border-left: 3px solid $secondary-green;
 }
 
 .navbar .fa {

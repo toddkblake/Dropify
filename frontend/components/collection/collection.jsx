@@ -20,6 +20,7 @@ class Collection extends React.Component {
   }
 
   render () {
+    let playlists;
     if (!this.props.user || !this.props.user.playlists || !this.props.playlists[this.props.user.playlists[0]] ) {
       return (<div>loading...</div>);
     }
