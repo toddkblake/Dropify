@@ -11,6 +11,13 @@ export const fetchPlaylists = () => dispatch => {
   );
 }
 
+export const fetchUserPlaylists = (userId) => dispatch => {
+  return PlaylistApiUtil.fetchUserPlaylists(userId).then(
+    playlists => dispatch(receivePlaylists(playlists)),
+    errors => console.log(errors)
+  );
+}
+
 export const fetchPlaylist = (userId, playlistId) => dispatch => {
   return PlaylistApiUtil.fetchPlaylist(userId, playlistId).then(
     playlist => dispatch(receivePlaylist(playlist)),
@@ -42,7 +49,7 @@ export const deletePlaylist = playlistId => dispatch => {
 export const receivePlaylists = playlists => {
   return ({
     type: RECEIVE_PLAYLISTS,
-    playlist
+    playlists
   });
 }
 

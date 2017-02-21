@@ -1,0 +1,29 @@
+.page-header {
+  margin-top: 15px;
+}
+
+.page-header-nav {
+  border-bottom: 1px solid $medium-grey;
+}
+
+.page-header-nav ul {
+  display: flex;
+}
+
+.page-header-nav li {
+  padding: 10px 0;
+  margin-right: 30px;
+}
+
+.page-header-nav a:hover {
+  border: none;
+}
+
+.page-header-nav h5:hover {
+  color: $white;
+}
+
+.page-header-nav .active {
+  border-bottom: 3px solid $secondary-green;
+  color: $white;
+}

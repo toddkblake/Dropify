@@ -13,7 +13,8 @@ class NavBar extends React.Component {
   }
 
   render () {
-    if (this.props.session.currentUser === null) return (<div></div>);
+    const currentUser = this.props.session.currentUser;
+    if (currentUser === null) return (<div></div>);
     return (
       <div className="navbar">
         <img className="round-logo-white" src={window.images.roundLogoWhite}/>
@@ -25,13 +26,13 @@ class NavBar extends React.Component {
             </Link>
           </li>
           <li className="active">
-            <Link to="#">
+            <Link to="/browse">
               <i className="fa fa-clone"></i>
               <p>Browse</p>
             </Link>
           </li>
           <li>
-            <Link to="#">
+            <Link to={ `/users/${currentUser.id}/collection` }>
               <i className="fa fa-music"></i>
               <p>Your Music</p>
             </Link>

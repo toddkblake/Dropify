@@ -15,9 +15,9 @@ class Browse extends React.Component {
     const { artists } = this.props;
     return (
       <div className="browse-container">
-        <div className="browse-header">
+        <div className="page-header">
           <h1>Browse</h1>
-          <nav className="browse-nav">
+          <nav className="page-header-nav">
             <ul>
               <li className="active">
                 <Link to="#" >

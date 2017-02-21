@@ -9,6 +9,7 @@ import ArtistDetail from './browse/artist_detail_container';
 import AlbumDetail from './browse/album_detail_container';
 import PlaylistDetail from './playlists/playlist_detail_container';
 import PlayQueue from './play_queue/play_queue_container';
+import Collection from './collection/collection_container';
 
 const Root = ({ store }) => {
 
@@ -19,6 +20,13 @@ const Root = ({ store }) => {
   const _redirectUnlessLoggedIn = (nextState, replace) => {
     if (!store.getState().session.currentUser) replace("/");
   };
+
+  const _redirectIfNotCurrentUser = (nextState, replace) => {
+    if (nextState.params.userId != store.getState().session.currentUser.id) {
+      _redirectIfLoggedIn(nextState, replace);
+      _redirectUnlessLoggedIn(nextState, replace);
+    }
+  }
 
   return (
     <Provider store={ store }>
@@ -31,6 +39,7 @@ const Root = ({ store }) => {
             <Route path="/artists/:artistId/albums/:albumId" component={ AlbumDetail } onEnter={ _redirectUnlessLoggedIn } />
             <Route path="/users/:userId/playlists/:playlistId" component={ PlaylistDetail } onEnter={ _redirectUnlessLoggedIn } />
             <Route path="/queue" component={ PlayQueue } onEnter={ _redirectUnlessLoggedIn } />
+            <Route path="/users/:userId/collection" component={ Collection } onEnter={ _redirectIfNotCurrentUser } />
           </Route>
         </Route>
       </Router>

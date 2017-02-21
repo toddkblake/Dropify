@@ -1,0 +1,31 @@
+.playlists-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  border-bottom: 1px solid $medium-grey;
+}
+
+.user-playlists {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+
+.new-playlist-form {
+  background: $medium-grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 15px 0 0;
+  width: 210px;
+  height: 290px;
+}
+
+.new-playlist-form img {
+  margin-bottom: 8px;
+}
+
+.new-playlist-form input {
+  margin-bottom: 8px;
+  width: 80%;
+}

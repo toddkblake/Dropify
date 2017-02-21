@@ -90,7 +90,8 @@ input[type="submit"].large {
 
 /* MEDIUM */
 
-button.medium {
+button.medium,
+input[type="submit"].medium {
   height: 28px;
   padding: 5px 35px;
   border-radius: 28px;
@@ -129,12 +130,14 @@ button.round:hover {
 
 /* GREEN */
 
-button.green {
+button.green,
+input[type="submit"].green {
   background-color: $secondary-green;
   border: none;
 }
 
-button.green:hover {
+button.green:hover,
+input[type="submit"].green:hover {
   background-color: $primary-green;
 }
 

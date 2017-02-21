@@ -1,5 +1,5 @@
 import React from 'react';
-import ContentCard from './content-card';
+import ContentCard from './content_card';
 
 const Artists = ({ artists }) => {
   return (
