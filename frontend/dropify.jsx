@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
+import { fetchPlaylist } from './actions/playlist_actions';
+
+window.fetchPlaylist = fetchPlaylist;
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;

@@ -114,6 +114,19 @@ button.small:hover {
   border-color: $secondary-green;
 }
 
+/* ROUND */
+
+button.round {
+  height: 28px;
+  width: 28px;
+  border-radius: 28px;
+  font-size: 11px;
+}
+
+button.round:hover {
+  border-color: $secondary-green;
+}
+
 /* GREEN */
 
 button.green {
