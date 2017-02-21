@@ -1,18 +1,24 @@
 .play-queue-container {
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.current-song-header, .queued-songs-header {
+  border-bottom: 1px solid $medium-grey;
+  padding: 35px 0 10px 0;
 }
 
 .empty-queue {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    align-items: center;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
 }
 
 .empty-queue > * {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }

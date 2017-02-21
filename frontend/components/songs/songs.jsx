@@ -19,7 +19,7 @@ const Songs = ({ songs }) => {
         </thead>
         <tbody>
           {
-            songs.map(song => <Song key={ song.id } song={ song } />)
+            songs.map((song, i) => <Song key={ i } song={ song } />)
           }
         </tbody>
       </table>

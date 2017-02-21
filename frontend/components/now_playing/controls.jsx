@@ -39,7 +39,7 @@ class Controls extends React.Component {
         </ul>
         <ul className="play-queue-row">
           <li>
-            <i className="fa fa-list small" onClick={ this.props.router.push("/queue") }></i>
+            <i className="fa fa-list small" onClick={ e => this.props.router.push("/queue") }></i>
           </li>
           <li>
             <i className="fa fa-random small"></i>

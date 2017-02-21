@@ -9,7 +9,7 @@ class PlayQueue extends React.Component {
   }
 
   render () {
-    if (!this.props.currentSong.id && this.props.queuedSongs.length) {
+    if (!this.props.currentSong.id && this.props.queuedSongs.length === 0) {
       return (
         <div className="play-queue-container">
           <div className="empty-queue">
@@ -20,7 +20,7 @@ class PlayQueue extends React.Component {
         </div>
       );
     }
-    debugger
+
     let currentSong;
     let queuedSongs;
     if (this.props.currentSong.id) {
@@ -37,7 +37,7 @@ class PlayQueue extends React.Component {
         </div>
         <div className="current-song-container">
           <div className="current-song-header">
-            <h5>Current Track</h5>
+            <h5>Current Song</h5>
           </div>
           { currentSong }
         </div>
