@@ -34,3 +34,39 @@
 .songs-table {
   border-bottom: 1px solid $medium-grey;
 }
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  position: absolute;
+  left: -90%;
+  top: -32px;
+  font-family: $font-stack;
+  white-space: nowrap;
+  font-weight: 300;
+  padding: 5px 20px;
+  text-align: center;
+  border-radius: 50px;
+  border: 1px solid;
+  color: #fff;
+  background-color: $darkest-grey;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 15px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: $white transparent transparent transparent;
+}
