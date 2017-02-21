@@ -19,15 +19,15 @@ class Browse extends React.Component {
           <h1>Browse</h1>
           <nav className="page-header-nav">
             <ul>
-              <li className="active">
-                <Link to="#" >
+              <li>
+                <Link to="/browse" activeClassName="active-row" >
                   <h5>
                     Artists
                   </h5>
                 </Link>
               </li>
               <li>
-                <Link to="#">
+                <Link>
                   <h5>
                     Genres
                   </h5>

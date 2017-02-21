@@ -34,7 +34,7 @@ class Collection extends React.Component {
           <nav className="page-header-nav">
             <ul>
               <li className="active">
-                <Link to="#" >
+                <Link to={ `/users/${currentUser.id}/collection/` } >
                   <h5>
                     Playlists
                   </h5>

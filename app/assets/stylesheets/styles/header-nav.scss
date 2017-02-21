@@ -11,6 +11,10 @@
 }
 
 .page-header-nav li {
+}
+
+.page-header-nav a {
+  display: block;
   padding: 10px 0;
   margin-right: 30px;
 }
@@ -23,7 +27,8 @@
   color: $white;
 }
 
-.page-header-nav .active {
+.page-header-nav .active-row,
+.page-header-nav .active-row:hover {
   border-bottom: 3px solid $secondary-green;
   color: $white;
 }

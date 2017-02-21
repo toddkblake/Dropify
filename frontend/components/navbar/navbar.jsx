@@ -26,13 +26,13 @@ class NavBar extends React.Component {
             </Link>
           </li>
           <li>
-            <Link to="/browse" activeClassName="active">
+            <Link to="/browse" activeClassName="active-col">
               <i className="fa fa-clone"></i>
               <p>Browse</p>
             </Link>
           </li>
           <li>
-            <Link to={ `/users/${currentUser.id}/collection` } activeClassName="active">
+            <Link to={ `/users/${currentUser.id}/collection/` } activeClassName="active-col">
               <i className="fa fa-music"></i>
               <p>Your Music</p>
             </Link>
