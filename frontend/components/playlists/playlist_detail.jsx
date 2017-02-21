@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Songs from '../songs/songs';
+import Spinner from '../loading/spinner';
 
 class PlaylistDetail extends React.Component {
   constructor(props){
@@ -13,7 +14,7 @@ class PlaylistDetail extends React.Component {
   }
 
   render () {
-    if (!this.props.playlist || !this.props.owner) return (<div>loading...</div>);
+    if (!this.props.playlist || !this.props.owner) return (<Spinner/>);
     const { playlist, owner } = this.props;
     return (
       <div className="playlist-container">

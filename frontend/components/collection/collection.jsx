@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import Playlists from '../playlists/playlists';
 import { selectUserPlaylists } from '../../selectors/playlist_selectors';
 import NewPlaylistForm from '../playlists/new_playlist_form';
+import Spinner from '../loading/spinner';
 
 class Collection extends React.Component {
 
@@ -22,7 +23,7 @@ class Collection extends React.Component {
   render () {
     let playlists;
     if (!this.props.user || !this.props.user.playlists || !this.props.playlists[this.props.user.playlists[0]] ) {
-      return (<div>loading...</div>);
+      return (<Spinner/>);
     }
 
     this.userPlaylists = selectUserPlaylists(this.props.playlists, this.props.user.playlists);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Albums from './albums';
+import Spinner from '../loading/spinner';
 
 class ArtistDetail extends React.Component {
   constructor(props){
@@ -17,7 +18,7 @@ class ArtistDetail extends React.Component {
 
   render () {
     const { artist } = this.props;
-    if (!artist.albums) return (<div>loading...</div>);
+    if (!artist.albums) return (<Spinner />);
     const albums = artist.albums;
     return (
       <div className="artist-container">
