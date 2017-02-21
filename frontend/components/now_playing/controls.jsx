@@ -8,12 +8,10 @@ class Controls extends React.Component {
   }
 
   play () {
-    this.audioEl.play();
     this.props.playCurrentSong();
   }
 
   pause () {
-    this.audioEl.pause();
     this.props.pauseCurrentSong();
   }
 

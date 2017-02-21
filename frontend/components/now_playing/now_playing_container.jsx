@@ -7,7 +7,7 @@ import {
 
 const mapStateToProps = state => {
   return ({
-    playQueue: state.playQueue
+    currentSong: state.playQueue.currentSong
   });
 }
 

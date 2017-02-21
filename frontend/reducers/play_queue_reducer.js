@@ -3,7 +3,8 @@ import merge from 'lodash/merge';
 import {
   SET_CURRENT_SONG,
   PLAY_CURRENT_SONG,
-  PAUSE_CURRENT_SONG
+  PAUSE_CURRENT_SONG,
+  ADD_SONG
 } from '../actions/play_queue_actions';
 
 const _defaultState = {
@@ -12,7 +13,11 @@ const _defaultState = {
     playing: false,
     restart: false
   },
-  queuedSongs: {}
+  queuedSongs: {
+    songs: {},
+    order: [],
+    repeat: true
+  }
 };
 
 const PlayQueueReducer = (state = _defaultState, action) => {
@@ -26,6 +31,11 @@ const PlayQueueReducer = (state = _defaultState, action) => {
     }
     case PAUSE_CURRENT_SONG: {
       return merge({}, state, { currentSong: { playing: false } });
+    }
+    case ADD_SONG: {
+      let result = merge({}, state, { queuedSongs: { songs: { [action.song.id]: action.song } } });
+      result.queuedSongs.order.push(action.song.id);
+      return result;
     }
     default: {
       return state;

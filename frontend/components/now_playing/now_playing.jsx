@@ -8,12 +8,20 @@ class NowPlaying extends React.Component {
     super(props);
   }
 
+  componentDidUpdate () {
+    if (this.props.currentSong.playing && this.audioEl) {
+      this.audioEl.play();
+    } else if (this.audioEl) {
+      this.audioEl.pause();
+    }
+  }
+
   activateDisplay (mainContent) {
     mainContent.className = "now-playing-active";
   }
 
   render () {
-    const currentSong = this.props.playQueue.currentSong;
+    const currentSong = this.props.currentSong;
     if (!currentSong.song.id) {
       return (<div className="now-playing-container inactive"></div>);
     }
@@ -27,7 +35,12 @@ class NowPlaying extends React.Component {
           <img src={ currentSong.song.album.album_cover_large }></img>
           <p className="white">{ currentSong.song.title }</p>
           <Link to={`/artists/${currentSong.song.artist.id}`}>{ currentSong.song.artist.name }</Link>
-          <audio id="audio-element" src={ currentSong.song.audio } ref={ ref => this.audioEl = ref } autoPlay />
+          <audio
+            id="audio-element"
+            src={ currentSong.song.audio }
+            ref={ ref => this.audioEl = ref }
+            autoPlay
+          />
         </div>
         <ProgressBar currentSong={ currentSong } />
         <Controls currentSong={ currentSong } />

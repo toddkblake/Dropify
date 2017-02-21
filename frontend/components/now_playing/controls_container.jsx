@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import Controls from './controls';
 import {
   playCurrentSong,
-  pauseCurrentSong
+  pauseCurrentSong,
+  fetchCurrentSong
 } from '../../actions/play_queue_actions';
 
 const mapStateToProps = state => {
