@@ -1,7 +1,12 @@
 import React from 'react';
 import ContentCard from '../browse/content_card';
+import Spinner from '../loading/spinner';
 
 const Playlists = ({ playlists, name, className, form }) => {
+  let valid = true;
+  playlists.forEach(playlist => { if (!playlist) valid = false });
+  if (!valid) return (<Spinner/>);
+
   return (
     <div className="playlists-container">
       <div className="playlists-header">

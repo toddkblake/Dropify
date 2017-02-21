@@ -10,8 +10,8 @@ class PlayQueue extends React.Component {
         <Empty
           heading="Empty"
           content="There are no more songs to play in the queue."
-          path="/browse"
-          linkText="Browse Music"
+          clickAction={ e => this.props.router.push("/browse") }
+          buttonText="Browse Music"
         />
       );
     }
