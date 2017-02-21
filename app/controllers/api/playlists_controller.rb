@@ -2,12 +2,11 @@ class Api::PlaylistsController < ApplicationController
   before_action :ensure_playlist_owner, only: [:create, :update, :destroy]
 
   def index
-    @playlists = Playlist.all
-    render "api/playlists/index"
-  end
-
-  def user_playlists
-    @playlists = Playlist.where(owner_id: params[:user_id])
+    if params[:user_id]
+      @playlists = Playlist.where(owner_id: params[:user_id])
+    else
+      @playlists = Playlist.all
+    end
     render "api/playlists/index"
   end
 
