@@ -2,11 +2,12 @@ class Api::PlaylistSongsController < ApplicationController
   before_action :ensure_playlist_owner, only: [:create]
 
   def create
-    @playlist = PlaylistSong.new(playlist_song_params)
-    if @playlist.save
+    @playlist_song = PlaylistSong.new(playlist_song_params)
+    if @playlist_song.save
+      @playlist = playlist_song.playlist
       render "api/playlists/show"
     else
-      render json: { base: @playlist.errors.full_messages }, status: 422
+      render json: { base: @playlist_song.errors.full_messages }, status: 422
     end
   end
 
@@ -17,7 +18,8 @@ class Api::PlaylistSongsController < ApplicationController
   end
 
   def ensure_playlist_owner
-    unless current_user.id == params[:playlist][:owner_id].to_i
+    playlist = Playlist.find(params[:playlist_song][:playlist_id])
+    unless current_user.id == playlist.owner.id
       render json: { base: ["Access denied"] }, status: 403
     end
   end
