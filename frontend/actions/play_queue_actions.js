@@ -4,6 +4,7 @@ export const SET_CURRENT_SONG = "SET_CURRENT_SONG";
 export const PLAY_CURRENT_SONG = "PLAY_CURRENT_SONG";
 export const PAUSE_CURRENT_SONG = "PAUSE_CURRENT_SONG";
 export const ADD_SONG = "ADD_SONG";
+export const ADD_PLAYLIST = "ADD_PLAYLIST";
 
 export const setCurrentSong = (song) => ({
   type: SET_CURRENT_SONG,
@@ -23,5 +24,12 @@ export const addSongToQueue = (song) => {
   return ({
     type: "ADD_SONG",
     song
+  })
+}
+
+export const addPlaylistToQueue = playlist => {
+  return ({
+    type: "ADD_PLAYLIST",
+    playlist
   })
 }

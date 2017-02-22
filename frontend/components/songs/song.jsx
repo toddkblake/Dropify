@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { duration } from '../../util/music_util';
-import ContextMenu from '../menus/context_menu';
+import SongMenu from '../menus/song_menu_container';
 
 class Song extends React.Component {
   constructor (props) {
     super(props);
+    this.state = {
+      menuHidden: true
+    }
   }
 
   handleClick (song, action) {
@@ -28,7 +31,7 @@ class Song extends React.Component {
     };
   }
 
-  handleContextMenu (e) {
+  handleDropDownMenu (e) {
     e.preventDefault();
   }
 
@@ -43,7 +46,12 @@ class Song extends React.Component {
         <td><div className="ellipsis"><Link to={ `artists/${song.artist.id}` } className="white">{ song.artist.name }</Link></div></td>
         <td><div className="ellipsis"><Link to={ `artists/${song.artist.id}/albums/${song.album.id}` } className="white">{ song.album.title }</Link></div></td>
         <td><p>{ duration(song.duration) }</p></td>
-        <td><i className="fa fa-ellipsis-h" onClick={ this.handleContextMenu.bind(this) }></i></td>
+        <td>
+          <i
+            className="fa fa-ellipsis-h"
+            onClick={ this.handleDropDownMenu.bind(this) }>
+          </i>
+        </td>
       </tr>
     );
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 class PlaylistForm extends React.Component {
   constructor (props) {
@@ -23,11 +24,27 @@ class PlaylistForm extends React.Component {
     this.setState({ name: "" })
   }
 
+  // componentDidMount() {
+  //   document.addEventListener('click', this.handleClickOutside.bind(this), true);
+  // }
+  //
+  // componentWillUnmount() {
+  //   document.removeEventListener('click', this.handleClickOutside.bind(this), true);
+  // }
+  //
+  // handleClickOutside(event) {
+  //   const domNode = ReactDOM.findDOMNode(this);
+  //
+  //   if ((!domNode || !domNode.contains(event.target))) {
+  //     this.clearForm();
+  //     this.props.hideForm();
+  //   }
+  // }
+
   render () {
     const formText = (this.props.formType === "new") ? "Create Playlist" : "Rename Playlist";
     const name = (this.props.hidden) ? "hidden" : "visible";
-    const icon = (this.props.formType === "new") ? (<i className="fa fa-plus fa-5x"></i>) : (<i class="fa fa-pencil fa-5x"></i>);
-    debugger
+    const icon = (this.props.formType === "new") ? (<i className="fa fa-plus fa-5x"></i>) : (<i className="fa fa-pencil fa-5x"></i>);
     return (
       <form id="playlist-form" className={ name } onSubmit={ this.handleSubmit.bind(this) } >
         { icon }

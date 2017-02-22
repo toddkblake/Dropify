@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ContextMenu extends React.Component {
+class SongMenu extends React.Component {
 
   handleClick () {
     this.props.setCurrentSong(song);
@@ -9,7 +9,7 @@ class ContextMenu extends React.Component {
 
   render () {
     return (
-      <div className="context-menu">
+      <div className={`context-menu ${ this.props.hidden }`} >
         <ul>
           <li onClick={ this.handleClick.bind(this) }>
             Play
@@ -25,3 +25,5 @@ class ContextMenu extends React.Component {
     );
   }
 }
+
+export default SongMenu;
