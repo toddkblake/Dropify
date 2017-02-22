@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Songs from '../songs/songs';
+import Songs from '../songs/songs_container';
 import Spinner from '../loading/spinner';
 
 class AlbumDetail extends React.Component {

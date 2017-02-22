@@ -1,5 +1,5 @@
 import React from 'react';
-import Songs from '../songs/songs';
+import Songs from '../songs/songs_container';
 import Empty from '../loading/empty';
 
 class PlayQueue extends React.Component {

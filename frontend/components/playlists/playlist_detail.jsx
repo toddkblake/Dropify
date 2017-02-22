@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Songs from '../songs/songs';
+import Songs from '../songs/songs_container';
 import Spinner from '../loading/spinner';
 import PlaylistMenu from '../menus/playlist_menu_container';
 import PlaylistForm from './playlist_form_container';
@@ -58,6 +58,7 @@ class PlaylistDetail extends React.Component {
                 hidden={ this.state.menuHidden }
                 unhideForm={ this.unhideForm.bind(this) }
                 hideMenu={ this.hideMenu.bind(this) }
+                menuType="playlist"
               />
               <PlaylistForm
                 formType="edit"

@@ -28,22 +28,6 @@ class PlaylistMenu extends React.Component {
     );
   }
 
-  // componentDidMount() {
-  //   document.addEventListener('click', this.handleClickOutside.bind(this), true);
-  // }
-  //
-  // componentWillUnmount() {
-  //   document.removeEventListener('click', this.handleClickOutside.bind(this), true);
-  // }
-  //
-  // handleClickOutside(event) {
-  //   const domNode = ReactDOM.findDOMNode(this);
-  //
-  //   if ((!domNode || !domNode.contains(event.target))) {
-  //     this.props.hideMenu();
-  //   }
-  // }
-
   render () {
     return (
       <div className={ `playlist-menu ${this.props.hidden}` } >
