@@ -6,7 +6,7 @@ import { fetchUser } from '../../actions/user_actions';
 const mapStateToProps = (state, ownProps) => {
   return ({
     user: state.users[ownProps.params.userId],
-    playlists: state.playlists,
+    playlists: state.playlists
   });
 }
 

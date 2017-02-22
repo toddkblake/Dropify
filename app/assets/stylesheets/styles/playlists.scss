@@ -11,21 +11,59 @@
   overflow-x: scroll;
 }
 
-.new-playlist-form {
+#playlist-form {
+  width: 210px;
   background: $medium-grey;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 15px;
   margin: 15px 15px 0 0;
-  width: 210px;
-  height: 290px;
 }
 
-.new-playlist-form img {
-  margin-bottom: 8px;
-}
-
-.new-playlist-form input {
-  margin-bottom: 8px;
+#playlist-form input {
+  margin: 15px;
   width: 80%;
+}
+
+#playlist-form input[type="text"] {
+  height: 28px;
+  border-radius: 5px;
+  color: $dark-grey;
+  background-color: $white;
+}
+
+.playlist-header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.playlist-photo {
+  display: flex;
+}
+
+.playlist-photo img {
+  margin-right: 15px;
+}
+
+.playlist-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.playlist-cover {
+  display: flex;
+}
+
+.playlist-cover img {
+  margin: 0 10px 0px 0;
+}
+
+.playlist-info {
+  padding: 10px 0;
+  border-top: 1px solid $medium-grey;
+  border-bottom: 1px solid $medium-grey;
 }

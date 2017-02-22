@@ -19,7 +19,7 @@ const Playlists = ({ playlists, name, className, form }) => {
             <ContentCard
               key={ playlist.id }
               cardType={ "playlist" }
-              image={ playlist.playlist_photo_large }
+              image={ playlist.photo_large }
               primaryContent={ playlist.name }
               primaryLink={ `/users/${playlist.owner_id}/playlists/${playlist.id}` }
               />
