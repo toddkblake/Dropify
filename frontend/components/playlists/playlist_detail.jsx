@@ -36,11 +36,14 @@ class PlaylistDetail extends React.Component {
             <ul className="button-row">
               <button className="medium green" onClick={ e => this.props.playPlaylist(playlist) }>Play</button>
               <button className="medium">Follow</button>
-              <button className="round dropdown-anchor" onClick={ this.handleModal.bind(this) }>
-                <i className="fa fa-ellipsis-h"></i>
-              </button>
-              <PlaylistMenu playlist={ playlist } />
-              <PlaylistForm formType="edit" playlist={ playlist } />
+              <div className="dropdown-anchor">
+                <button className="round" onClick={ this.handleModal.bind(this) }>
+                  <i className="fa fa-ellipsis-h">
+                  </i>
+                </button>
+                <PlaylistMenu playlist={ playlist } />
+                <PlaylistForm formType="edit" playlist={ playlist } />
+              </div>
             </ul>
             <div className="playlist-info">
               <p>By <Link to={ `users/${playlist.owner_id}` } className="white">{ `${owner.f_name} ${owner.l_name}` }</Link> • { playlist.songs.length } songs</p>

@@ -1,0 +1,43 @@
+.dropdown-anchor {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background: $medium-grey;
+  width: 210px;
+  left: -100px;
+  top: 25px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+#playlist-menu {
+  left: -92px;
+  top: 43px;
+}
+
+.dropdown-menu li {
+  padding: 12px 15px;
+  border-bottom: 1px solid $dark-grey;
+}
+
+.dropdown-menu li:hover {
+  background: $dark-grey;
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent $medium-grey transparent;
+}

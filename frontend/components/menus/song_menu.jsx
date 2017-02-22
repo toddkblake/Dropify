@@ -43,11 +43,11 @@ class SongMenu extends React.Component {
         </li>
       );
     }
-    
+
     return (
       <div>
-        <Dropdown isOpen={ this.props.modalOpen === `song-menu-${ this.props.song.id }` }>
-          <div id={`song-menu-${ this.props.song.id }`} className="song-menu" >
+        <Dropdown isOpen={ this.props.modalOpen === `song-menu-${ this.props.uniqueId }` }>
+          <div id={`song-menu-${ this.props.uniqueId }`} className="dropdown-menu" >
             <ul>
               <li onClick={ this.handlePlay.bind(this) }>
                 <p>Play</p>
@@ -56,7 +56,7 @@ class SongMenu extends React.Component {
                 <p>Add to Play Queue</p>
               </li>
               <li onClick={ this.handleModal.bind(this) }>
-                <p>Add to:</p>
+                <p>Add to...</p>
                 { this.userPlaylists }
               </li>
               { this.delete }
@@ -64,7 +64,7 @@ class SongMenu extends React.Component {
           </div>
         </Dropdown>
         <Dropdown isOpen={ this.props.modalOpen === `playlist-menu-${ this.props.song.id }` }>
-          <ul id={ `playlist-menu-${ this.props.song.id }` } className="playlists-menu">
+          <ul id={ `playlist-menu-${ this.props.song.id }` } className="dropdown-menu">
             {
               this.props.userPlaylists.map(playlist => (
                 <li key={ playlist.id } onClick={ this.handleAddToPlaylist(playlist).bind(this) }>

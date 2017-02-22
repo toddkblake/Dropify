@@ -33,13 +33,13 @@ class Songs extends React.Component {
               <th><h5>Song</h5></th>
               <th><h5>Artist</h5></th>
               <th><h5>Album</h5></th>
-              <th><i className="fa fa-clock-o"></i></th>
               <th></th>
+              <th><i className="fa fa-clock-o"></i></th>
             </tr>
           </thead>
           <tbody>
             {
-              songs.map((song, i) => <Song key={ i } song={ song } userPlaylists={ this.state.userPlaylists } />)
+              songs.map((song, i) => <Song key={ i } song={ song } userPlaylists={ this.state.userPlaylists } uniqueId={ i } />)
             }
           </tbody>
         </table>

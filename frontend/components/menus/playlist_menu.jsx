@@ -29,19 +29,19 @@ class PlaylistMenu extends React.Component {
   render () {
     return (
       <Dropdown isOpen={ this.props.modalOpen === "playlist-menu" }>
-        <div id="playlist-menu" >
+        <div id="playlist-menu" className="dropdown-menu" >
           <ul>
             <li onClick={ this.handlePlay.bind(this) }>
-              Play
+              <p>Play</p>
             </li>
             <li onClick={ this.handleQueue.bind(this) }>
-              Add to Play Queue
+              <p>Add to Play Queue</p>
             </li>
             <li onClick={ this.handleRename.bind(this) }>
-              Rename
+              <p>Rename</p>
             </li>
             <li onClick={ this.handleDelete.bind(this) }>
-              Delete
+              <p>Delete</p>
             </li>
           </ul>
         </div>

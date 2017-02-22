@@ -32,7 +32,7 @@ class Song extends React.Component {
   }
 
   handleModal (e) {
-    this.props.openModal(`song-menu-${ this.props.song.id }`);
+    this.props.openModal(`song-menu-${ this.props.uniqueId }`);
   }
 
   render () {
@@ -45,18 +45,21 @@ class Song extends React.Component {
         <td><div className="ellipsis"><p className="white">{ song.title }</p></div></td>
         <td><div className="ellipsis"><Link to={ `artists/${song.artist.id}` } className="white">{ song.artist.name }</Link></div></td>
         <td><div className="ellipsis"><Link to={ `artists/${song.artist.id}/albums/${song.album.id}` } className="white">{ song.album.title }</Link></div></td>
-        <td><p>{ duration(song.duration) }</p></td>
         <td>
-          <i
-            className="fa fa-ellipsis-h"
-            onClick={ this.handleModal.bind(this) }>
-          </i>
-          <SongMenu
-            song={ song }
-            hidden={ this.state.menuHidden }
-            userPlaylists={ this.props.userPlaylists }
-          />
+          <div className="dropdown-anchor">
+            <i
+              className="fa fa-ellipsis-h"
+              onClick={ this.handleModal.bind(this) }>
+            </i>
+            <SongMenu
+              song={ song }
+              hidden={ this.state.menuHidden }
+              userPlaylists={ this.props.userPlaylists }
+              uniqueId={ this.props.uniqueId }
+            />
+          </div>
         </td>
+        <td><p>{ duration(song.duration) }</p></td>
       </tr>
     );
   }
