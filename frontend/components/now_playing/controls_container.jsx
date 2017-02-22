@@ -3,7 +3,8 @@ import Controls from './controls';
 import {
   playCurrentSong,
   pauseCurrentSong,
-  fetchCurrentSong
+  fetchCurrentSong,
+  nextSong
 } from '../../actions/play_queue_actions';
 
 const mapStateToProps = state => {
@@ -15,7 +16,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return ({
     playCurrentSong: () => dispatch(playCurrentSong()),
-    pauseCurrentSong: () => dispatch(pauseCurrentSong())
+    pauseCurrentSong: () => dispatch(pauseCurrentSong()),
+    nextSong: () => dispatch(nextSong())
   });
 }
 

@@ -4,6 +4,7 @@ import {
   SET_CURRENT_SONG,
   PLAY_CURRENT_SONG,
   PAUSE_CURRENT_SONG,
+  NEXT_SONG,
   ADD_SONG,
   ADD_PLAYLIST,
   PLAY_ALBUM,
@@ -34,6 +35,17 @@ const PlayQueueReducer = (state = _defaultState, action) => {
     }
     case PAUSE_CURRENT_SONG: {
       return merge({}, state, { currentSong: { playing: false } });
+    }
+    case NEXT_SONG: {
+      let result = merge({}, state);
+      if (result.queuedSongs.order[0]) {
+        const nextSong = result.queuedSongs.songs[result.queuedSongs.order[0]]
+        result.currentSong.song = nextSong;
+        result.queuedSongs.order.shift();
+        return result;
+      } else {
+        return result;
+      }
     }
     case ADD_SONG: {
       let result = merge({}, state, { queuedSongs: { songs: { [action.song.id]: action.song } } });

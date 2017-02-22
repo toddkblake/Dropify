@@ -34,7 +34,7 @@ class Controls extends React.Component {
             { play_pause_button }
           </li>
           <li>
-            <i className="fa fa-step-forward medium"></i>
+            <i className="fa fa-step-forward medium" onClick={ e => this.props.nextSong() }></i>
           </li>
         </ul>
         <ul className="play-queue-row">
