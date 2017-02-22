@@ -3,6 +3,7 @@ import PlaylistDetail from './playlist_detail';
 import { fetchPlaylist } from '../../actions/playlist_actions';
 import { fetchUser} from '../../actions/user_actions';
 import { playPlaylist } from '../../actions/play_queue_actions';
+import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return ({
@@ -14,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchPlaylist: (userId, playlistId) => dispatch(fetchPlaylist(userId, playlistId)),
   fetchUser: (userId) => dispatch(fetchUser(userId)),
-  playPlaylist: playlist => dispatch(playPlaylist(playlist))
+  playPlaylist: playlist => dispatch(playPlaylist(playlist)),
+  openModal: modal => dispatch(openModal(modal))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistDetail);

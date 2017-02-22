@@ -1,50 +1,51 @@
 import React from 'react';
 import PlaylistForm from '../playlists/playlist_form_container';
 import ReactDOM from 'react-dom';
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
+import Dropdown from './dropdown';
 
 class PlaylistMenu extends React.Component {
 
-  handlePlay () {
+  handlePlay (e) {
     this.props.playPlaylist(this.props.playlist);
-    this.props.hideMenu();
+    this.props.clearModal();
   }
 
-  handleRename () {
-    this.props.hideMenu();
-    this.props.unhideForm();
+  handleRename (e) {
+    this.props.openModal('playlist-form');
   }
 
-  handleQueue () {
+  handleQueue (e) {
     this.props.addPlaylistToQueue(this.props.playlist);
-    this.props.hideMenu();
+    this.props.clearModal();
   }
 
-  handleDelete () {
+  handleDelete (e) {
     this.props.deletePlaylist(this.props.playlist).then(
       this.props.router.push(`/users/${this.props.playlist.owner_id}/collection`)
     );
   }
 
   render () {
-    const name = (this.props.hidden) ? "hidden" : "visible";
     return (
-      <div className={ `playlist-menu ${name}` } >
-        <ul>
-          <li onClick={ this.handlePlay.bind(this) }>
-            Play
-          </li>
-          <li onClick={ this.handleQueue.bind(this) }>
-            Add to Play Queue
-          </li>
-          <li onClick={ this.handleRename.bind(this) }>
-            Rename
-          </li>
-          <li onClick={ this.handleDelete.bind(this) }>
-            Delete
-          </li>
-        </ul>
-      </div>
+      <Dropdown isOpen={ this.props.modalOpen === "playlist-menu" }>
+        <div id="playlist-menu" >
+          <ul>
+            <li onClick={ this.handlePlay.bind(this) }>
+              Play
+            </li>
+            <li onClick={ this.handleQueue.bind(this) }>
+              Add to Play Queue
+            </li>
+            <li onClick={ this.handleRename.bind(this) }>
+              Rename
+            </li>
+            <li onClick={ this.handleDelete.bind(this) }>
+              Delete
+            </li>
+          </ul>
+        </div>
+      </Dropdown>
     );
   }
 }

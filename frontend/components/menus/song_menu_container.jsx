@@ -11,6 +11,8 @@ import {
   addSongToQueue
 } from '../../actions/play_queue_actions';
 
+import { clearModal } from '../../actions/modal_actions';
+
 const mapStateToProps = (state, ownProps) => {
   return ({
     playQueue: state.playQueue,
@@ -24,7 +26,8 @@ const mapDispatchToProps = dispatch => ({
   playCurrentSong: () => dispatch(playCurrentSong()),
   addSongToQueue: (songId) => dispatch(addSongToQueue(songId)),
   addSongToPlaylist: (songId, playlist) => dispatch(addSongToPlaylist(songId, playlist)),
-  deleteSongFromPlaylist: (songId, playlist) => dispatch(deleteSongFromPlaylist(songId, playlist))
+  deleteSongFromPlaylist: (songId, playlist) => dispatch(deleteSongFromPlaylist(songId, playlist)),
+  clearModal: () => dispatch(clearModal())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongMenu);

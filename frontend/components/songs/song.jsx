@@ -51,7 +51,11 @@ class Song extends React.Component {
             className="fa fa-ellipsis-h"
             onClick={ this.handleDropDownMenu.bind(this) }>
           </i>
-          <SongMenu song={ song } hidden={ this.state.menuHidden }  userPlaylists={ this.props.userPlaylists }/>
+          <SongMenu
+            song={ song }
+            hidden={ this.state.menuHidden }
+            userPlaylists={ this.props.userPlaylists }
+          />
         </td>
       </tr>
     );

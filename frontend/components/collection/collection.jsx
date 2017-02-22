@@ -9,9 +9,6 @@ import Empty from '../loading/empty';
 class Collection extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {
-      formHidden: true
-    }
   }
 
   componentDidMount () {
@@ -19,12 +16,8 @@ class Collection extends React.Component {
     this.props.fetchUserPlaylists(this.props.params.userId);
   }
 
-  revealForm () {
-    this.setState({ formHidden: false });
-  }
-
-  hideForm () {
-    this.setState({ formHidden: true });
+  handleModal (e) {
+    this.openModal('playlist-form');
   }
 
   render () {
@@ -47,14 +40,14 @@ class Collection extends React.Component {
           </nav>
         </div>
         <ul className="button-row">
-          <button className="medium green" onClick={ this.revealForm.bind(this) }>Add Playlist</button>
+          <button className="medium green" onClick={ this.handleModal.bind(this) }>Add Playlist</button>
         </ul>
 
         <Playlists
           playlists={ this.userPlaylists }
           name="Your Playlists"
           className="user-playlists"
-          form={ <PlaylistForm formType="new" hidden={ this.state.formHidden } hideForm= { this.hideForm.bind(this) } /> }
+          form={ <PlaylistForm formType="new" /> }
         />
       </div>
     );
