@@ -1,9 +1,6 @@
 import { connect } from 'react-redux';
 import NowPlaying from './now_playing';
-import {
-  playCurrentSong,
-  pauseCurrentSong
-} from '../../actions/play_queue_actions';
+import { nextSong } from '../../actions/play_queue_actions';
 
 const mapStateToProps = state => {
   return ({
@@ -12,7 +9,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return ({});
+  return ({
+    nextSong: () => dispatch(nextSong())
+  });
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NowPlaying);

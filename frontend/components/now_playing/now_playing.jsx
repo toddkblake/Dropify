@@ -39,6 +39,7 @@ class NowPlaying extends React.Component {
             id="audio-element"
             src={ currentSong.song.audio }
             ref={ ref => this.audioEl = ref }
+            onEnded={ e => this.props.nextSong() }
             autoPlay
           />
         </div>
