@@ -39,7 +39,7 @@ class Songs extends React.Component {
           </thead>
           <tbody>
             {
-              songs.map((song, i) => <Song key={ i } song={ song } userPlaylists={ this.state.userPlaylists } uniqueId={ i } />)
+              songs.map((song, i, songs) => <Song key={ i } song={ song } userPlaylists={ this.state.userPlaylists } uniqueId={ i + songs.length } />)
             }
           </tbody>
         </table>
