@@ -72,8 +72,8 @@
       profile_photo_large: "http://example.com/",
       profile_photo_medium: "http://example.com/",
       profile_photo_small: "http://example.com/",
-      playlists: [ 3, 32, 45, 98]
-      ]
+      playlists: [ 3, 32, 45, 98],
+      followedPlaylists: [ 3, 32, 45, 98]
     }
   },
 
