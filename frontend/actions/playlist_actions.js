@@ -46,6 +46,20 @@ export const deletePlaylist = playlist => dispatch => {
   )
 }
 
+export const addSongToPlaylist = (songId, playlistId) => dispatch => {
+  return PlaylistApiUtil.addSongToPlaylist(songId, playlistId).then(
+    playlist => dispatch(receivePlaylist(playlist)),
+    errors => console.log(errors)
+  )
+}
+
+export const deleteSongFromPlaylist = (songId, playlist) => dispatch => {
+  return PlaylistApiUtil.deleteSongFromPlaylist(songId, playlist).then(
+    playlist => dispatch(receivePlaylist(playlist)),
+    errors => console.log(errors)
+  )
+}
+
 export const receivePlaylists = playlists => {
   return ({
     type: RECEIVE_PLAYLISTS,

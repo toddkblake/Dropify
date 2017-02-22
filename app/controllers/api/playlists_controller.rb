@@ -30,8 +30,8 @@ class Api::PlaylistsController < ApplicationController
 
   def update
     @playlist = Playlist.find(params[:id])
-    if playlist_params.includes(:song_id)
-      playlist_song = @playlist.playlist_songs.find_by(song_id: params[:playlist][:song_id])
+    if params.include?(:song_id)
+      playlist_song = @playlist.playlist_songs.find_by(song_id: params[:song_id])
       if playlist_song
         playlist_song.destroy!
         render "api/playlists/show"
@@ -56,7 +56,7 @@ class Api::PlaylistsController < ApplicationController
   private
 
   def playlist_params
-    params.require(:playlist).permit(:name, :owner_id, :photo, :song_id)
+    params.require(:playlist).permit(:name, :owner_id, :photo)
   end
 
   def ensure_playlist_owner

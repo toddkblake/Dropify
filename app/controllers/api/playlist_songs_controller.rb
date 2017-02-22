@@ -4,7 +4,7 @@ class Api::PlaylistSongsController < ApplicationController
   def create
     @playlist_song = PlaylistSong.new(playlist_song_params)
     if @playlist_song.save
-      @playlist = playlist_song.playlist
+      @playlist = @playlist_song.playlist
       render "api/playlists/show"
     else
       render json: { base: @playlist_song.errors.full_messages }, status: 422
@@ -14,7 +14,7 @@ class Api::PlaylistSongsController < ApplicationController
   private
 
   def playlist_song_params
-    params.require(:playlist_song).permit(:id, :playlist_id, :song_id)
+    params.require(:playlist_song).permit(:playlist_id, :song_id)
   end
 
   def ensure_playlist_owner
