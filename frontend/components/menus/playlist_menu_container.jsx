@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PlaylistMenu from './playlist_menu';
-import { setCurrentSong, playCurrentSong, addPlaylistToQueue } from '../../actions/play_queue_actions';
+import { playPlaylist, addPlaylistToQueue } from '../../actions/play_queue_actions';
 import { deletePlaylist } from '../../actions/playlist_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -10,9 +10,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentSong: (song) => dispatch(setCurrentSong(song)),
-  playCurrentSong: () => dispatch(playCurrentSong()),
-  addPlaylistToQueue: (playlist) => dispatch(addPlaylistToQueue(playlist)),
+  playPlaylist: playlist => dispatch(playPlaylist(playlist)),
+  addPlaylistToQueue: playlist => dispatch(addPlaylistToQueue(playlist)),
   deletePlaylist: playlist => dispatch(deletePlaylist(playlist))
 });
 

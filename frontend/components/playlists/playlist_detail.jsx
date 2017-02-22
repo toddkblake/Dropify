@@ -50,15 +50,16 @@ class PlaylistDetail extends React.Component {
               </div>
             </div>
             <ul className="button-row">
-              <button className="medium green">Play</button>
+              <button className="medium green" onClick={ e => this.props.playPlaylist(playlist) }>Play</button>
               <button className="medium">Follow</button>
-              <button className="round dropdown-anchor"><i className="fa fa-ellipsis-h"></i></button>
+              <button className="round dropdown-anchor" onClick={ this.unhideMenu.bind(this) }>
+                <i className="fa fa-ellipsis-h"></i>
+              </button>
               <PlaylistMenu
                 playlist={ playlist }
                 hidden={ this.state.menuHidden }
                 unhideForm={ this.unhideForm.bind(this) }
                 hideMenu={ this.hideMenu.bind(this) }
-                menuType="playlist"
               />
               <PlaylistForm
                 formType="edit"

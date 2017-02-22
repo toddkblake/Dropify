@@ -6,10 +6,8 @@ import { withRouter } from 'react-router'
 class PlaylistMenu extends React.Component {
 
   handlePlay () {
-    this.props.setCurrentSong(this.props.playlist.songs[0]);
-    this.props.playCurrentSong();
-    this.props.playlist.songs.shift();
-    this.props.addPlaylistToQueue(this.props.playlist);
+    this.props.playPlaylist(this.props.playlist);
+    this.props.hideMenu();
   }
 
   handleRename () {
@@ -29,8 +27,9 @@ class PlaylistMenu extends React.Component {
   }
 
   render () {
+    const name = (this.props.hidden) ? "hidden" : "visible";
     return (
-      <div className={ `playlist-menu ${this.props.hidden}` } >
+      <div className={ `playlist-menu ${name}` } >
         <ul>
           <li onClick={ this.handlePlay.bind(this) }>
             Play
