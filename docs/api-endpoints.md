@@ -36,8 +36,6 @@
 
 ### playlist_songs
 - `POST /api/playlist_songs`
-- `PATCH /api/playlist_songs/:id`
-- `DELETE /api/playlist_songs/:id`
 
 ### follows
 - `POST /api/follows`

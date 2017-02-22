@@ -1,5 +1,5 @@
 class Api::PlaylistSongsController < ApplicationController
-  before_action :ensure_playlist_owner, only: [:create, :update, :destroy]
+  before_action :ensure_playlist_owner, only: [:create]
 
   def create
     @playlist = PlaylistSong.new(playlist_song_params)
@@ -8,21 +8,6 @@ class Api::PlaylistSongsController < ApplicationController
     else
       render json: { base: @playlist.errors.full_messages }, status: 422
     end
-  end
-
-  def update
-    @playlist = PlaylistSong.find(params[:id])
-    if @playlist.update(playlist_song_params)
-      render "api/playlists/show"
-    else
-      render json: { base: @playlist.errors.full_messages }, status: 422
-    end
-  end
-
-  def destroy
-    @playlist = PlaylistSong.find(params[:id])
-    @playlist.destroy!
-    render "api/playlists/show"
   end
 
   private

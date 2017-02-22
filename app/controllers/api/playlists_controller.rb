@@ -30,10 +30,20 @@ class Api::PlaylistsController < ApplicationController
 
   def update
     @playlist = Playlist.find(params[:id])
-    if @playlist.update(playlist_params)
-      render "api/playlists/show"
+    if playlist_params.includes(:song_id)
+      playlist_song = @playlist.playlist_songs.find_by(song_id: params[:playlist][:song_id])
+      if playlist_song
+        playlist_song.destroy!
+        render "api/playlists/show"
+      else
+        render json: { base: ["Song is not on playlist"] }, status: 422
+      end
     else
-      render json: { base: @playlist.errors.full_messages }, status: 422
+      if @playlist.update(playlist_params)
+        render "api/playlists/show"
+      else
+        render json: { base: @playlist.errors.full_messages }, status: 422
+      end
     end
   end
 
@@ -46,7 +56,7 @@ class Api::PlaylistsController < ApplicationController
   private
 
   def playlist_params
-    params.require(:playlist).permit(:name, :owner_id, :photo)
+    params.require(:playlist).permit(:name, :owner_id, :photo, :song_id)
   end
 
   def ensure_playlist_owner
