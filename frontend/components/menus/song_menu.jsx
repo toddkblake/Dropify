@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import Dropdown from './dropdown';
 
 class SongMenu extends React.Component {
   constructor (props) {
@@ -19,7 +20,6 @@ class SongMenu extends React.Component {
 
   handleAddToPlaylist (playlist) {
     return function (e) {
-      e.preventDefault();
       this.props.addSongToPlaylist(this.props.song.id, playlist.id);
       this.props.clearModal();
     }
@@ -31,6 +31,10 @@ class SongMenu extends React.Component {
     this.props.clearModal();
   }
 
+  handleModal (e) {
+    this.props.openModal(`playlist-menu-${ this.props.song.id }`);
+  }
+
   render () {
     if (this.props.params.playlistId) {
       this.delete = (
@@ -39,37 +43,39 @@ class SongMenu extends React.Component {
         </li>
       );
     }
-
-    if (this.props.userPlaylists) {
-      this.userPlaylists = (
-        <ul id={ `playlist-menu-${ this.props.song.id }` } className="playlists-menu">
-          {
-            this.props.userPlaylists.map(playlist => (
-              <li key={ playlist.id } onClick={ this.handleAddToPlaylist(playlist).bind(this) }>
-                { playlist.name }
-              </li>
-            ))
-          }
-        </ul>
-      )
-    }
-
+    
     return (
-      <div id={`song-menu-${ this.props.song.id }`} className="song-menu" >
-        <ul>
-          <li onClick={ this.handlePlay.bind(this) }>
-            <p>Play</p>
-          </li>
-          <li onClick={ this.handleQueue.bind(this) }>
-            <p>Add to Play Queue</p>
-          </li>
-          <li onClick={ this.handleAddToPlaylist.bind(this) }>
-            <p>Add to:</p>
-            { this.userPlaylists }
-          </li>
-          { this.delete }
-        </ul>
+      <div>
+        <Dropdown isOpen={ this.props.modalOpen === `song-menu-${ this.props.song.id }` }>
+          <div id={`song-menu-${ this.props.song.id }`} className="song-menu" >
+            <ul>
+              <li onClick={ this.handlePlay.bind(this) }>
+                <p>Play</p>
+              </li>
+              <li onClick={ this.handleQueue.bind(this) }>
+                <p>Add to Play Queue</p>
+              </li>
+              <li onClick={ this.handleModal.bind(this) }>
+                <p>Add to:</p>
+                { this.userPlaylists }
+              </li>
+              { this.delete }
+            </ul>
+          </div>
+        </Dropdown>
+        <Dropdown isOpen={ this.props.modalOpen === `playlist-menu-${ this.props.song.id }` }>
+          <ul id={ `playlist-menu-${ this.props.song.id }` } className="playlists-menu">
+            {
+              this.props.userPlaylists.map(playlist => (
+                <li key={ playlist.id } onClick={ this.handleAddToPlaylist(playlist).bind(this) }>
+                  { playlist.name }
+                </li>
+              ))
+            }
+          </ul>
+        </Dropdown>
       </div>
+
     );
   }
 }

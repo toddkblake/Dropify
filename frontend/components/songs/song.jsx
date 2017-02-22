@@ -31,8 +31,8 @@ class Song extends React.Component {
     };
   }
 
-  handleDropDownMenu (e) {
-    e.preventDefault();
+  handleModal (e) {
+    this.props.openModal(`song-menu-${ this.props.song.id }`);
   }
 
   render () {
@@ -49,7 +49,7 @@ class Song extends React.Component {
         <td>
           <i
             className="fa fa-ellipsis-h"
-            onClick={ this.handleDropDownMenu.bind(this) }>
+            onClick={ this.handleModal.bind(this) }>
           </i>
           <SongMenu
             song={ song }
