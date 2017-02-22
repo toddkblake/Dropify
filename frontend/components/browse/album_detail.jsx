@@ -32,8 +32,7 @@ class AlbumDetail extends React.Component {
               </div>
             </div>
             <ul className="button-row">
-              <button className="medium green">Play</button>
-              <button className="medium">Save</button>
+              <button className="medium green" onClick={ e => this.props.playAlbum(album) }>Play</button>
             </ul>
             <div className="album-info">
               <p>By <Link to={ `artists/${album.artist.id}` } className="white">{ album.artist.name }</Link> • { album.songs.length } songs</p>

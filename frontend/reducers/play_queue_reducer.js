@@ -6,6 +6,7 @@ import {
   PAUSE_CURRENT_SONG,
   ADD_SONG,
   ADD_PLAYLIST,
+  PLAY_ALBUM,
   PLAY_PLAYLIST
 } from '../actions/play_queue_actions';
 
@@ -37,6 +38,16 @@ const PlayQueueReducer = (state = _defaultState, action) => {
     case ADD_SONG: {
       let result = merge({}, state, { queuedSongs: { songs: { [action.song.id]: action.song } } });
       result.queuedSongs.order.push(action.song.id);
+      return result;
+    }
+    case PLAY_ALBUM: {
+      let result = merge({}, _defaultState);
+      result.currentSong.song = action.album.songs[0];
+      result.currentSong.playing = true;
+      action.album.songs.slice(1).forEach(song => {
+        result.queuedSongs.order.push(song.id);
+        result.queuedSongs.songs[song.id] = song;
+      })
       return result;
     }
     case ADD_PLAYLIST: {
