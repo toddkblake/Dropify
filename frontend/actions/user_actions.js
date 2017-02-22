@@ -2,6 +2,7 @@ import * as UserApiUtil from '../util/user_api_util';
 
 export const RECEIVE_USERS = "RECEIVE_USERS";
 export const RECEIVE_USER = "RECEIVE_USER";
+export const ADD_PLAYLIST_ID_TO_USER = "ADD_PLAYLIST_ID_TO_USER";
 
 export const fetchUsers = () => dispatch => {
   return UserApiUtil.fetchUsers().then(
@@ -26,3 +27,7 @@ export const receiveUser = user => ({
   type: RECEIVE_USER,
   user
 })
+
+export const addPlaylistIdToUser = playlistId => ({
+  type: ADD_PLAYLIST_ID_TO_USER
+});

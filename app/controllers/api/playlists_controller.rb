@@ -3,7 +3,7 @@ class Api::PlaylistsController < ApplicationController
 
   def index
     if params[:user_id]
-      @playlists = Playlist.where(owner_id: params[:user_id])
+      @playlists = Playlist.includes(:songs).where(owner_id: params[:user_id])
     else
       @playlists = Playlist.all
     end
@@ -50,7 +50,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def ensure_playlist_owner
-    unless current_user.id == params[:playlist][:owner_id]
+    unless current_user.id == params[:playlist][:owner_id].to_i
       render json: { base: ["Access denied"] }, status: 403
     end
   end

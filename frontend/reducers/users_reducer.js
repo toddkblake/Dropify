@@ -3,6 +3,8 @@ import {
   RECEIVE_USER
 } from '../actions/user_actions';
 
+import { RECEIVE_PLAYLIST } from '../actions/playlist_actions';
+
 const UsersReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
@@ -11,6 +13,14 @@ const UsersReducer = (state = {}, action) => {
     }
     case RECEIVE_USER: {
       return Object.assign({}, state, { [action.user.id]: action.user });
+    }
+    case RECEIVE_PLAYLIST: {
+      let result = Object.assign({}, state);
+      let user = result[action.playlist.owner_id];
+      if (user && !user.playlist_ids.includes(action.playlist.id)) {
+        result[action.playlist.owner_id].playlist_ids.push(action.playlist.id);
+      }
+      return result;
     }
     default: {
       return state;
