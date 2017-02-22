@@ -1,6 +1,7 @@
 import React from 'react';
 import PlaylistForm from '../playlists/playlist_form_container';
 import ReactDOM from 'react-dom';
+import { withRouter } from 'react-router'
 
 class PlaylistMenu extends React.Component {
 
@@ -22,8 +23,9 @@ class PlaylistMenu extends React.Component {
   }
 
   handleDelete () {
-    this.props.deletePlaylist(this.props.playlist.id);
-    this.props.hideMenu();
+    this.props.deletePlaylist(this.props.playlist).then(
+      this.props.router.push(`/users/${this.props.playlist.owner_id}/collection`)
+    );
   }
 
   // componentDidMount() {
@@ -64,4 +66,4 @@ class PlaylistMenu extends React.Component {
   }
 }
 
-export default PlaylistMenu;
+export default withRouter(PlaylistMenu);

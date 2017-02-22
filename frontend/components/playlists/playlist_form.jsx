@@ -5,7 +5,15 @@ class PlaylistForm extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      name: ""
+      id: null,
+      name: "",
+      owner_id: this.props.owner_id
+    }
+  }
+
+  componentDidMount () {
+    if (this.props.playlist) {
+      this.setState({ id: this.props.playlist.id });
     }
   }
 
@@ -54,7 +62,7 @@ class PlaylistForm extends React.Component {
           placeholder="New Playlist"
           onChange={ this.handleChange.bind(this) }
         />
-        <input type="submit" className="medium green" value="Create Playlist"/>
+      <input type="submit" className="medium green" value={ formText }/>
       </form>
     );
   }
