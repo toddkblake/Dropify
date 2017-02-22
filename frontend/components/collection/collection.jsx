@@ -17,7 +17,7 @@ class Collection extends React.Component {
   }
 
   handleModal (e) {
-    this.openModal('playlist-form');
+    this.props.openModal('playlist-form');
   }
 
   render () {
