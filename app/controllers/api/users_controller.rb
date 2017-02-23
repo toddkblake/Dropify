@@ -25,10 +25,24 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      render "api/users/show"
+    if params.include?(:follow)
+      follow = Follow.find_by(
+        follower_id: params[:follow][:follower_id],
+        followable_id: params[:follow][:followable_id],
+        followable_type: params[:follow][:followable_type]
+      )
+      if follow
+        follow.destroy!
+        render "api/users/show"
+      else
+        render json: { base: ["Follow does not exist"] }, status: 422
+      end
     else
-      render json: { base: @user.errors.full_messages }, status: 422
+      if @user.update(user_params)
+        render "api/users/show"
+      else
+        render json: { base: @user.errors.full_messages }, status: 422
+      end
     end
   end
 end
