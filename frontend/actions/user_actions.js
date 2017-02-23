@@ -1,4 +1,5 @@
 import * as UserApiUtil from '../util/user_api_util';
+import * as FollowApiUtil from '../util/follow_api_util';
 
 export const RECEIVE_USERS = "RECEIVE_USERS";
 export const RECEIVE_USER = "RECEIVE_USER";
@@ -16,6 +17,20 @@ export const fetchUser = (userId) => dispatch => {
     user => dispatch(receiveUser(user)),
     errors => console.log(errors)
   );
+}
+
+export const followUser = (currentUser, user) => dispatch => {
+  return FollowApiUtil.followUser(currentUser, user).then(
+    user => dispatch(receiveUser(user)),
+    errors => console.log(errors)
+  )
+}
+
+export const unfollowUser = (currentUser, user) => dispatch => {
+  return FollowApiUtil.unfollowUser(currentUser, user).then(
+    user => dispatch(receiveUser(user)),
+    errors => console.log(errors)
+  )
 }
 
 export const receiveUsers = users => ({

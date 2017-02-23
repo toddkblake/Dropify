@@ -1,4 +1,5 @@
 import * as PlaylistApiUtil from '../util/playlist_api_util';
+import * as FollowApiUtil from '../util/follow_api_util';
 
 export const RECEIVE_PLAYLISTS = "RECEIVE_PLAYLISTS";
 export const RECEIVE_PLAYLIST = "RECEIVE_PLAYLIST";
@@ -55,6 +56,20 @@ export const addSongToPlaylist = (songId, playlistId) => dispatch => {
 
 export const deleteSongFromPlaylist = (songId, playlist) => dispatch => {
   return PlaylistApiUtil.deleteSongFromPlaylist(songId, playlist).then(
+    playlist => dispatch(receivePlaylist(playlist)),
+    errors => console.log(errors)
+  )
+}
+
+export const followPlaylist = (currentUser, playlist) => dispatch => {
+  return FollowApiUtil.followPlaylist(currentUser, playlist).then(
+    playlist => dispatch(receivePlaylist(playlist)),
+    errors => console.log(errors)
+  )
+}
+
+export const unfollowPlaylist = (currentUser, playlist) => dispatch => {
+  return FollowApiUtil.unfollowPlaylist(currentUser, playlist).then(
     playlist => dispatch(receivePlaylist(playlist)),
     errors => console.log(errors)
   )
