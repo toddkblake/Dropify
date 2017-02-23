@@ -20,7 +20,7 @@ export const fetchUser = (userId) => dispatch => {
 
 export const receiveUsers = users => ({
   type: RECEIVE_USERS,
-  user
+  users
 })
 
 export const receiveUser = user => ({

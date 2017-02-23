@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   validates :username, :email, presence: true, uniqueness: true
   validates :f_name, :l_name, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  after_initialize :ensure_session_token!
+  before_validation :ensure_session_token!
 
   has_attached_file :profile_photo,
     styles: { small: "50x50", medium: "130x130", large: "210x210" },
@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
   def followed_users
     User.find_by_sql(<<-SQL)
       SELECT
-        users_two
+        users_two.*
       FROM
         users
       JOIN

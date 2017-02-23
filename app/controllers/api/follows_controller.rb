@@ -2,8 +2,11 @@ class Api::FollowsController < ApplicationController
   before_action :ensure_current_user, only: [:create]
 
   def create
-    @follow = Follow.new(playlist_song_params)
+    debugger
+    @follow = Follow.new(follow_params)
+    debugger
     if @follow.save
+      debugger
       @user = @follow.follower
       render "api/users/show"
     else
@@ -18,7 +21,7 @@ class Api::FollowsController < ApplicationController
   end
 
   def ensure_current_user
-    unless current_user.id == params[:follow][:follower_id]
+    unless current_user.id == params[:follow][:follower_id].to_i
       render json: { base: ["Access denied"] }, status: 403
     end
   end
