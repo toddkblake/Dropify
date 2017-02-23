@@ -28,8 +28,14 @@ class Playlist < ActiveRecord::Base
     through: :playlist_songs,
     source: :song
 
-    has_attached_file :photo,
-      styles: { small: "50x50", medium: "130x130", large: "210x210" },
-      default_url: -> (a) { ActionController::Base.helpers.asset_path("default-playlist-photo.jpg") }
-    validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
+  has_many :follows, as: :followable
+
+  has_many :followers,
+    through: :follows,
+    source: :follower
+
+  has_attached_file :photo,
+    styles: { small: "50x50", medium: "130x130", large: "210x210" },
+    default_url: -> (a) { ActionController::Base.helpers.asset_path("default-playlist-photo.jpg") }
+  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 end

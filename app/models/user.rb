@@ -31,6 +31,12 @@ class User < ActiveRecord::Base
   has_many :playlists,
     foreign_key: :owner_id
 
+  has_many :follows, as: :followable
+
+  has_many :followers,
+    through: :follows,
+    source: :follower
+
   attr_reader :password
 
   def self.find_by_credentials(credentials)
@@ -41,6 +47,36 @@ class User < ActiveRecord::Base
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
+  end
+
+  def followed_users
+    User.find_by_sql(<<-SQL)
+      SELECT
+        users_two.*
+      FROM
+        users
+      JOIN
+        follows ON follows.follower_id = users.id
+      JOIN
+        users AS users_two ON users_two.id = follows.followable_id
+      WHERE
+        follower_id = #{self.id} AND follows.followable_type = 'User'
+    SQL
+  end
+
+  def followed_playlists
+    Playlist.find_by_sql(<<-SQL)
+      SELECT
+        *
+      FROM
+        playlists
+      JOIN
+        follows ON follows.followable_id = playlists.id
+      JOIN
+        users ON users.id = follows.follower_id
+      WHERE
+        follower_id = #{self.id} AND follows.followable_type = 'Playlist'
+    SQL
   end
 
   def is_password?(password)
