@@ -33,6 +33,20 @@ export const unfollowUser = (currentUser, user) => dispatch => {
   )
 }
 
+export const followPlaylist = (currentUser, playlist) => dispatch => {
+  return FollowApiUtil.followPlaylist(currentUser, playlist).then(
+    user => dispatch(receiveUser(user)),
+    errors => console.log(errors)
+  )
+}
+
+export const unfollowPlaylist = (currentUser, playlist) => dispatch => {
+  return FollowApiUtil.unfollowPlaylist(currentUser, playlist).then(
+    user => dispatch(receiveUser(user)),
+    errors => console.log(errors)
+  )
+}
+
 export const receiveUsers = users => ({
   type: RECEIVE_USERS,
   users

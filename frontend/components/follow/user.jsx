@@ -5,7 +5,6 @@ import Spinner from '../loading/spinner';
 class User extends React.Component {
 
   toggleFollow (e) {
-    e.stopPropagation();
     if (this.props.currentUser.followed_user_ids.includes(this.props.user.id)) {
       this.props.unfollowUser(this.props.currentUser, this.props.user)
     } else {

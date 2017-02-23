@@ -19,9 +19,18 @@ class PlaylistDetail extends React.Component {
     this.props.openModal('playlist-menu');
   }
 
+  toggleFollow (e) {
+    if (this.props.currentUser.followed_playlist_ids.includes(this.props.playlist.id)) {
+      this.props.unfollowPlaylist(this.props.currentUser, this.props.playlist)
+    } else {
+      this.props.followPlaylist(this.props.currentUser, this.props.playlist)
+    }
+  }
+
   render () {
     if (!this.props.playlist || !this.props.owner) return (<Spinner/>);
     const { playlist, owner } = this.props;
+    const buttonText = (this.props.currentUser.followed_playlist_ids.includes(this.props.playlist.id)) ? "Unfollow" : "Follow";
     return (
       <div className="playlist-container">
         <div className="playlist-header">
@@ -35,7 +44,7 @@ class PlaylistDetail extends React.Component {
             </div>
             <ul className="button-row">
               <button className="medium green" onClick={ e => this.props.playPlaylist(playlist) }>Play</button>
-              <button className="medium">Follow</button>
+              <button className="medium" onClick={ this.toggleFollow.bind(this) }>{ buttonText }</button>
               <div className="dropdown-anchor">
                 <button className="round" onClick={ this.handleModal.bind(this) }>
                   <i className="fa fa-ellipsis-h">

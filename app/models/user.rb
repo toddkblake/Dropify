@@ -37,6 +37,20 @@ class User < ActiveRecord::Base
     through: :follows,
     source: :follower
 
+  has_many :out_follows,
+    foreign_key: :follower_id,
+    class_name: 'Follow'
+
+  has_many :followed_users,
+    through: :out_follows,
+    source: :followable,
+    source_type: 'User'
+
+  has_many :followed_playlists,
+    through: :out_follows,
+    source: :followable,
+    source_type: 'Playlist'
+
   attr_reader :password
 
   def self.find_by_credentials(credentials)
@@ -47,52 +61,6 @@ class User < ActiveRecord::Base
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
-  end
-
-  def followed_users
-    User.find_by_sql(<<-SQL)
-      SELECT
-        users_two.*
-      FROM
-        users
-      JOIN
-        follows ON follows.follower_id = users.id
-      JOIN
-        users AS users_two ON users_two.id = follows.followable_id
-      WHERE
-        follower_id = #{self.id} AND follows.followable_type = 'User'
-    SQL
-  end
-
-  def followed_user_ids
-    followed_user_ids = [];
-    followed_users.each do |user|
-      followed_user_ids << user.id
-    end
-    followed_user_ids
-  end
-
-  def followed_playlists
-    Playlist.find_by_sql(<<-SQL)
-      SELECT
-        playlists.id
-      FROM
-        playlists
-      JOIN
-        follows ON follows.followable_id = playlists.id
-      JOIN
-        users ON users.id = follows.follower_id
-      WHERE
-        follower_id = #{self.id} AND follows.followable_type = 'Playlist'
-    SQL
-  end
-
-  def followed_playlist_ids
-    followed_playlist_ids = [];
-    followed_playlists.each do |playlist|
-      followed_playlist_ids << playlist.id
-    end
-    followed_playlist_ids
   end
 
   def is_password?(password)
