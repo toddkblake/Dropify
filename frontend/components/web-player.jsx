@@ -6,6 +6,12 @@ import { clearModal } from '../actions/modal_actions';
 
 class WebPlayer extends React.Component {
 
+  componentWillReceiveProps (nextProps) {
+    if (!nextProps.isLoggedIn) {
+      this.props.router.push("/")
+    }
+  }
+
   render () {
 
     function handleModal() {
@@ -29,7 +35,8 @@ class WebPlayer extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  modalOpen: state.modalOpen
+  modalOpen: state.modalOpen,
+  isLoggedIn: !!state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -9,14 +9,11 @@ class NavBar extends React.Component {
 
   handleLogout (e) {
     this.props.clearPlayQueue();
-    this.props.logout().then(() => {
-      this.props.router.push("/")
-    });
+    this.props.logout();
   }
 
   render () {
     const currentUser = this.props.session.currentUser;
-    if (currentUser === null) return (<div></div>);
     return (
       <div className="navbar">
         <img className="round-logo-white" src={window.images.roundLogoWhite}/>
