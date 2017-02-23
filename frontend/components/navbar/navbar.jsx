@@ -38,7 +38,7 @@ class NavBar extends React.Component {
             </Link>
           </li>
           <li>
-            <Link to="/follow" activeClassName="active">
+            <Link to="/follow" activeClassName="active-col">
               <i className="fa fa-users"></i>
               <p>Follow</p>
             </Link>

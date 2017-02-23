@@ -3,7 +3,8 @@ import Follow from './follow';
 import { fetchUsers } from '../../actions/user_actions';
 
 const mapStateToProps = state => ({
-  users: Object.values(state.users)
+  users: Object.values(state.users),
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -25,7 +25,7 @@ class User extends React.Component {
           <img src={ user.profile_photo_medium } className="user-profile-photo-medium" onClick={ this.handleClick.bind(this) } />
           <div className="user-info">
             <h4 onClick={ this.handleClick.bind(this) }>{ `${user.f_name} ${user.l_name}` }</h4>
-            <h6>{ `${user.follower_ids.length} followers` }</h6>
+            <h6>{ `${user.follower_ids.length} follower${user.follower_ids.length === 1 ? "" : "s"}` }</h6>
           </div>
         </div>
         <div className="user-follow">

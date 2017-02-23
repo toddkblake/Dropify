@@ -25,7 +25,10 @@ class Follow extends React.Component {
         </div>
         <div className="users">
           {
-            users.map(user => <User key={ user.id } user={ user } />)
+            users.map(user => {
+              if (user.id === this.props.currentUser.id) return null;
+              return (<User key={ user.id } user={ user } />);
+            })
           }
         </div>
       </div>
