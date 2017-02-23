@@ -4,7 +4,6 @@ import Playlists from '../playlists/playlists';
 import { selectUserPlaylists } from '../../selectors/playlist_selectors';
 import PlaylistForm from '../playlists/playlist_form_container';
 import Spinner from '../loading/spinner';
-import Empty from '../loading/empty';
 
 class Collection extends React.Component {
   constructor (props) {

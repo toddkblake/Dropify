@@ -2,11 +2,8 @@ class Api::FollowsController < ApplicationController
   before_action :ensure_current_user, only: [:create]
 
   def create
-    debugger
     @follow = Follow.new(follow_params)
-    debugger
     if @follow.save
-      debugger
       @user = @follow.follower
       render "api/users/show"
     else

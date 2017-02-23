@@ -1,5 +1,4 @@
 export const followUser = (currentUser, user) => {
-  debugger
   return $.ajax({
     method: 'POST',
     url: '/api/follows',

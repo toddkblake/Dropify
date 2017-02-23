@@ -1,0 +1,41 @@
+.follow-header {
+  padding: 15px 0;
+  border-bottom: 1px solid $medium-grey;
+}
+
+.follow-header h1 {
+  padding-bottom: 15px;
+}
+
+.user-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid $medium-grey;
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-profile-photo-medium {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.user-info > * {
+  margin: 15px;
+}
+
+.user-header img:hover,
+.user-header h4:hover {
+  cursor: pointer;
+}

@@ -10,6 +10,7 @@ import AlbumDetail from './browse/album_detail_container';
 import PlaylistDetail from './playlists/playlist_detail_container';
 import PlayQueue from './play_queue/play_queue_container';
 import Collection from './collection/collection_container';
+import Follow from './follow/follow_container';
 
 const Root = ({ store }) => {
 
@@ -40,6 +41,7 @@ const Root = ({ store }) => {
             <Route path="/users/:userId/playlists/:playlistId" component={ PlaylistDetail } onEnter={ _redirectUnlessLoggedIn } />
             <Route path="/queue" component={ PlayQueue } onEnter={ _redirectUnlessLoggedIn } />
             <Route path="/users/:userId/collection" component={ Collection } onEnter={ _redirectIfNotCurrentUser } />
+            <Route path="/follow" component={ Follow } onEnter={ _redirectUnlessLoggedIn } />
           </Route>
         </Route>
       </Router>
