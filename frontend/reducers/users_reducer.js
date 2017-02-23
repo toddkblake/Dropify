@@ -1,8 +1,4 @@
-import {
-  RECEIVE_USERS,
-  RECEIVE_USER
-} from '../actions/user_actions';
-
+import { RECEIVE_USERS, RECEIVE_USER, RECEIVE_USER_FOLLOW, RECEIVE_PLAYLIST_FOLLOW } from '../actions/user_actions';
 import { RECEIVE_PLAYLIST } from '../actions/playlist_actions';
 
 const UsersReducer = (state = {}, action) => {
@@ -20,6 +16,17 @@ const UsersReducer = (state = {}, action) => {
       if (user && !user.playlist_ids.includes(action.playlist.id)) {
         result[action.playlist.owner_id].playlist_ids.push(action.playlist.id);
       }
+      return result;
+    }
+    case RECEIVE_USER_FOLLOW: {
+      let result = Object.assign({}, state);
+      result[action.follow.follower.id] = action.follow.follower;
+      result[action.follow.followee.id] = action.follow.followee;
+      return result;
+    }
+    case RECEIVE_PLAYLIST_FOLLOW: {
+      let result = Object.assign({}, state);
+      result[action.follow.follower.id] = action.follow.follower;
       return result;
     }
     default: {

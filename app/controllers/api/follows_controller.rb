@@ -4,8 +4,7 @@ class Api::FollowsController < ApplicationController
   def create
     @follow = Follow.new(follow_params)
     if @follow.save
-      @user = @follow.follower
-      render "api/users/show"
+      render "api/follows/show"
     else
       render json: { base: @follow.errors.full_messages }, status: 422
     end

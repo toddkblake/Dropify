@@ -55,7 +55,13 @@ class PlaylistDetail extends React.Component {
               </div>
             </ul>
             <div className="playlist-info">
-              <p>By <Link to={ `users/${playlist.owner_id}` } className="white">{ `${owner.f_name} ${owner.l_name}` }</Link> • { playlist.songs.length } songs</p>
+              <p>By &nbsp;
+                <Link to={ `users/${playlist.owner_id}` } className="white">
+                  { `${owner.f_name} ${owner.l_name}` }
+                </Link>&nbsp;
+                • { `${playlist.songs.length} song${playlist.songs.length === 1 ? "" : "s"} ` }
+                • { `${playlist.followers.length} follower${playlist.followers.length === 1 ? "" : "s"}` }
+               </p>
             </div>
           </div>
         </div>

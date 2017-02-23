@@ -1,8 +1,5 @@
-import {
-  RECEIVE_PLAYLISTS,
-  RECEIVE_PLAYLIST,
-  REMOVE_PLAYLIST
-} from '../actions/playlist_actions';
+import { RECEIVE_PLAYLISTS, RECEIVE_PLAYLIST, REMOVE_PLAYLIST } from '../actions/playlist_actions';
+import { RECEIVE_PLAYLIST_FOLLOW } from '../actions/user_actions';
 
 const PlaylistsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -16,6 +13,11 @@ const PlaylistsReducer = (state = {}, action) => {
     case REMOVE_PLAYLIST: {
       let result = Object.assign({}, state);
       delete result[`${action.playlist.id}`];
+      return result;
+    }
+    case RECEIVE_PLAYLIST_FOLLOW: {
+      let result = Object.assign({}, state);
+      result[action.follow.playlist.id] = action.follow.playlist;
       return result;
     }
     default: {
