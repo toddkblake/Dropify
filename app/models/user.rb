@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
   def followed_users
     User.find_by_sql(<<-SQL)
       SELECT
-        users_two.*
+        users_two
       FROM
         users
       JOIN
@@ -64,10 +64,18 @@ class User < ActiveRecord::Base
     SQL
   end
 
+  def followed_user_ids
+    followed_user_ids = [];
+    followed_users.each do |user|
+      followed_user_ids << user.id
+    end
+    followed_user_ids
+  end
+
   def followed_playlists
     Playlist.find_by_sql(<<-SQL)
       SELECT
-        *
+        playlists.id
       FROM
         playlists
       JOIN
@@ -77,6 +85,14 @@ class User < ActiveRecord::Base
       WHERE
         follower_id = #{self.id} AND follows.followable_type = 'Playlist'
     SQL
+  end
+
+  def followed_playlist_ids
+    followed_playlist_ids = [];
+    followed_playlists.each do |playlist|
+      followed_playlist_ids << playlist.id
+    end
+    followed_playlist_ids
   end
 
   def is_password?(password)

@@ -3,3 +3,6 @@ json.profile_photo_large user.profile_photo(:large)
 json.profile_photo_medium user.profile_photo(:medium)
 json.profile_photo_small user.profile_photo(:small)
 json.playlist_ids user.playlists.pluck(:id)
+json.followed_playlist_ids user.followed_playlist_ids
+json.follower_ids user.followers.pluck(:id)
+json.followed_user_ids user.followed_user_ids

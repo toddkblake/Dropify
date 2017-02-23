@@ -7,3 +7,4 @@ json.songs do
     json.partial! 'api/songs/song', song: song
   end
 end
+json.followers playlist.followers.pluck(:id)
