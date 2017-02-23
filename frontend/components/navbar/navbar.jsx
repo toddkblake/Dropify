@@ -19,12 +19,6 @@ class NavBar extends React.Component {
         <img className="round-logo-white" src={window.images.roundLogoWhite}/>
         <ul>
           <li>
-            <Link>
-              <i className="fa fa-search"></i>
-              <p>Search</p>
-            </Link>
-          </li>
-          <li>
             <Link to="/browse" activeClassName="active-col">
               <i className="fa fa-clone"></i>
               <p>Browse</p>

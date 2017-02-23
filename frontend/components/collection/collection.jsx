@@ -28,8 +28,8 @@ class Collection extends React.Component {
           <h1>Your Music</h1>
           <nav className="page-header-nav">
             <ul>
-              <li className="active">
-                <Link to={ `/users/${this.props.user.id}/collection/` } >
+              <li>
+                <Link to={ `/users/${this.props.user.id}/collection/` } className="active-row">
                   <h5>
                     Playlists
                   </h5>

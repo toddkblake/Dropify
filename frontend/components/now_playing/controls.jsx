@@ -75,9 +75,6 @@ class Controls extends React.Component {
           <li>
             <i className="fa fa-retweet small" onClick={ this.toggleRepeat.bind(this) }></i>
           </li>
-          <li>
-            <i className="fa fa-volume-up small"></i>
-          </li>
         </ul>
       </div>
     );

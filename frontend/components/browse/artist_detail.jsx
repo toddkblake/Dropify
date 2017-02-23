@@ -34,10 +34,6 @@ class ArtistDetail extends React.Component {
                 <h2>{ artist.name }</h2>
               </div>
             </div>
-            <ul className="button-row">
-              <button className="medium green">Play</button>
-              <button className="medium">Follow</button>
-            </ul>
           </div>
         </div>
         <Albums albums={ albums } />

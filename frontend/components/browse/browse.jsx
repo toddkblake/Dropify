@@ -26,13 +26,6 @@ class Browse extends React.Component {
                   </h5>
                 </Link>
               </li>
-              <li>
-                <Link>
-                  <h5>
-                    Genres
-                  </h5>
-                </Link>
-              </li>
             </ul>
           </nav>
         </div>
