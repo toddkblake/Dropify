@@ -58,11 +58,6 @@ h6 {
   color: $white;
 }
 
-.hidden {
-  display: none !important;
-}
-
-
 /* BUTTONS & INPUTS */
 
 button,
@@ -173,4 +168,10 @@ input {
 
 :-moz-placeholder {
   color: $white;
+}
+
+/* ICONS */
+
+i.green {
+  color: $secondary-green;
 }

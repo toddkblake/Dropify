@@ -10,6 +10,8 @@ import {
   PLAY_ALBUM,
   PLAY_PLAYLIST,
   SHUFFLE,
+  REPEAT,
+  CLEAR_REPEAT,
   CLEAR_PLAY_QUEUE
 } from '../actions/play_queue_actions';
 
@@ -22,8 +24,8 @@ const _defaultState = {
   queuedSongs: {
     songs: {},
     order: [],
-    repeat: true
-  }
+  },
+  repeat: false
 };
 
 const PlayQueueReducer = (state = _defaultState, action) => {
@@ -43,7 +45,11 @@ const PlayQueueReducer = (state = _defaultState, action) => {
       if (result.queuedSongs.order[0]) {
         const nextSong = result.queuedSongs.songs[result.queuedSongs.order[0]]
         result.currentSong.song = nextSong;
-        result.queuedSongs.order.shift();
+        const currentSong = result.queuedSongs.order.shift();
+
+        if (result.repeat) {
+          result.queuedSongs.order.push(currentSong);
+        }
         return result;
       } else {
         return result;
@@ -87,6 +93,14 @@ const PlayQueueReducer = (state = _defaultState, action) => {
       if (result.queuedSongs.order.length > 0) {
         result.queuedSongs.order.sort((a, b) => 0.5 - Math.random());
       }
+      return result;
+    }
+    case REPEAT: {
+      let result = merge({}, state, { repeat: true });
+      return result;
+    }
+    case CLEAR_REPEAT: {
+      let result = merge({}, state, { repeat: false });
       return result;
     }
     case CLEAR_PLAY_QUEUE: {

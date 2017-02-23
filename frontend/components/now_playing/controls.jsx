@@ -28,6 +28,16 @@ class Controls extends React.Component {
     this.props.shuffle();
   }
 
+  toggleRepeat () {
+    if (this.props.playQueue.repeat) {
+      this.props.clearRepeat();
+      $('i.fa-retweet').removeClass('green');
+    } else{
+      this.props.repeat();
+      $('i.fa-retweet').addClass('green');
+    }
+  }
+
   render () {
     const currentSong = this.props.playQueue.currentSong;
     let play_pause_button;
@@ -57,7 +67,10 @@ class Controls extends React.Component {
             <i className="fa fa-random small" onClick={ this.shuffle.bind(this) }></i>
           </li>
           <li>
-            <i className="fa fa-retweet small"></i>
+            <i
+              className="fa fa-retweet small"
+              ref={ ref => this.repeat = ref }
+              onClick={ this.toggleRepeat.bind(this) }></i>
           </li>
           <li>
             <i className="fa fa-volume-up small"></i>

@@ -9,6 +9,8 @@ export const ADD_PLAYLIST = "ADD_PLAYLIST";
 export const PLAY_ALBUM = "PLAY_ALBUM";
 export const PLAY_PLAYLIST = "PLAY_PLAYLIST";
 export const SHUFFLE = "SHUFFLE";
+export const REPEAT = "REPEAT";
+export const CLEAR_REPEAT = "CLEAR_REPEAT";
 export const CLEAR_PLAY_QUEUE = "CLEAR_PLAY_QUEUE";
 
 export const setCurrentSong = (song) => ({
@@ -50,6 +52,14 @@ export const playPlaylist = playlist => ({
 
 export const shuffle = () => ({
   type: SHUFFLE
+})
+
+export const repeat = () => ({
+  type: REPEAT
+})
+
+export const clearRepeat = () => ({
+  type: CLEAR_REPEAT
 })
 
 export const clearPlayQueue = playlist => ({

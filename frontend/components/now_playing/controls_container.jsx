@@ -5,7 +5,9 @@ import {
   pauseCurrentSong,
   fetchCurrentSong,
   nextSong,
-  shuffle
+  shuffle,
+  repeat,
+  clearRepeat
 } from '../../actions/play_queue_actions';
 
 const mapStateToProps = state => {
@@ -19,7 +21,9 @@ const mapDispatchToProps = dispatch => {
     playCurrentSong: () => dispatch(playCurrentSong()),
     pauseCurrentSong: () => dispatch(pauseCurrentSong()),
     nextSong: () => dispatch(nextSong()),
-    shuffle: () => dispatch(shuffle())
+    shuffle: () => dispatch(shuffle()),
+    repeat: () => dispatch(repeat()),
+    clearRepeat: () => dispatch(clearRepeat())
   });
 }
 
