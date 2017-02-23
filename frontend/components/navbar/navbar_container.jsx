@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
+import { clearPlayQueue } from '../../actions/play_queue_actions';
 import NavBar from './navbar';
 
 const mapStateToProps = state => ({
@@ -7,7 +8,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  clearPlayQueue: () => dispatch(clearPlayQueue())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

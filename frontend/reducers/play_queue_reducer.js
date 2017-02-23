@@ -8,7 +8,8 @@ import {
   ADD_SONG,
   ADD_PLAYLIST,
   PLAY_ALBUM,
-  PLAY_PLAYLIST
+  PLAY_PLAYLIST,
+  CLEAR_PLAY_QUEUE
 } from '../actions/play_queue_actions';
 
 const _defaultState = {
@@ -79,6 +80,9 @@ const PlayQueueReducer = (state = _defaultState, action) => {
         result.queuedSongs.songs[song.id] = song;
       })
       return result;
+    }
+    case CLEAR_PLAY_QUEUE: {
+      return _defaultState;
     }
     default: {
       return state;

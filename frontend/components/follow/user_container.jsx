@@ -2,9 +2,11 @@ import { connect } from 'react-redux';
 import User from './user';
 import { followUser, unfollowUser } from '../../actions/user_actions';
 
-const mapStateToProps = state => ({
-  currentUser: state.users[state.session.currentUser.id]
-});
+const mapStateToProps = state => {
+  return ({
+    currentUser: state.users[state.session.currentUser.id]
+  });
+};
 
 const mapDispatchToProps = dispatch => ({
   followUser: (currentUser, user) => dispatch(followUser(currentUser, user)),

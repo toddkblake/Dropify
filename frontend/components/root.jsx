@@ -11,6 +11,7 @@ import PlaylistDetail from './playlists/playlist_detail_container';
 import PlayQueue from './play_queue/play_queue_container';
 import Collection from './collection/collection_container';
 import Follow from './follow/follow_container';
+import UserDetail from './follow/user_detail_container';
 
 const Root = ({ store }) => {
 
@@ -23,9 +24,18 @@ const Root = ({ store }) => {
   };
 
   const _redirectIfNotCurrentUser = (nextState, replace) => {
-    if (nextState.params.userId != store.getState().session.currentUser.id) {
+    const currentUser = store.getState().session.currentUser
+    if (nextState.params.userId != currentUser.id) {
       _redirectIfLoggedIn(nextState, replace);
       _redirectUnlessLoggedIn(nextState, replace);
+    }
+  }
+
+  const _redirectIfCurrentUser = (nextState, replace) => {
+    _redirectUnlessLoggedIn(nextState, replace);
+    const currentUser = store.getState().session.currentUser
+    if (nextState.params.userId == currentUser.id) {
+      replace(`users/${currentUser.id}/collection`);
     }
   }
 
@@ -42,6 +52,7 @@ const Root = ({ store }) => {
             <Route path="/queue" component={ PlayQueue } onEnter={ _redirectUnlessLoggedIn } />
             <Route path="/users/:userId/collection" component={ Collection } onEnter={ _redirectIfNotCurrentUser } />
             <Route path="/follow" component={ Follow } onEnter={ _redirectUnlessLoggedIn } />
+            <Route path="/users/:userId" component={ UserDetail } onEnter={ _redirectIfCurrentUser } />
           </Route>
         </Route>
       </Router>

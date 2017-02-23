@@ -4,12 +4,14 @@ import { Link, withRouter } from 'react-router';
 class NavBar extends React.Component {
   constructor(props){
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
-  handleClick (e) {
-    e.preventDefault();
-    this.props.logout().then(() => this.props.router.push("/"));
+  handleLogout (e) {
+    this.props.clearPlayQueue();
+    this.props.logout().then(() => {
+      this.props.router.push("/")
+    });
   }
 
   render () {
@@ -49,7 +51,7 @@ class NavBar extends React.Component {
             <img className="user-profile-photo" src={ this.props.session.currentUser.profile_photo_small }/>
             <p>{ this.props.session.currentUser.f_name }</p>
           </Link>
-          <button className="small" onClick={ this.handleClick }>Logout</button>
+          <button className="small" onClick={ this.handleLogout }>Logout</button>
         </div>
       </div>
     );

@@ -8,6 +8,7 @@ export const ADD_SONG = "ADD_SONG";
 export const ADD_PLAYLIST = "ADD_PLAYLIST";
 export const PLAY_ALBUM = "PLAY_ALBUM";
 export const PLAY_PLAYLIST = "PLAY_PLAYLIST";
+export const CLEAR_PLAY_QUEUE = "CLEAR_PLAY_QUEUE";
 
 export const setCurrentSong = (song) => ({
   type: SET_CURRENT_SONG,
@@ -53,3 +54,7 @@ export const playPlaylist = playlist => {
     playlist
   })
 }
+
+export const clearPlayQueue = playlist => ({
+    type: CLEAR_PLAY_QUEUE
+})
