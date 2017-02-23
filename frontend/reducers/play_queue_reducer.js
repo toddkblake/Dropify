@@ -9,6 +9,7 @@ import {
   ADD_PLAYLIST,
   PLAY_ALBUM,
   PLAY_PLAYLIST,
+  SHUFFLE,
   CLEAR_PLAY_QUEUE
 } from '../actions/play_queue_actions';
 
@@ -79,6 +80,13 @@ const PlayQueueReducer = (state = _defaultState, action) => {
         result.queuedSongs.order.push(song.id);
         result.queuedSongs.songs[song.id] = song;
       })
+      return result;
+    }
+    case SHUFFLE: {
+      let result = merge({}, state);
+      if (result.queuedSongs.order.length > 0) {
+        result.queuedSongs.order.sort((a, b) => 0.5 - Math.random());
+      }
       return result;
     }
     case CLEAR_PLAY_QUEUE: {

@@ -16,6 +16,18 @@ class Controls extends React.Component {
     this.props.pauseCurrentSong();
   }
 
+  nextSong () {
+    this.props.nextSong();
+  }
+
+  queue () {
+    this.props.router.push("/queue");
+  }
+
+  shuffle () {
+    this.props.shuffle();
+  }
+
   render () {
     const currentSong = this.props.playQueue.currentSong;
     let play_pause_button;
@@ -34,15 +46,15 @@ class Controls extends React.Component {
             { play_pause_button }
           </li>
           <li>
-            <i className="fa fa-step-forward medium" onClick={ e => this.props.nextSong() }></i>
+            <i className="fa fa-step-forward medium" onClick={ this.nextSong.bind(this) }></i>
           </li>
         </ul>
         <ul className="play-queue-row">
           <li>
-            <i className="fa fa-list small" onClick={ e => this.props.router.push("/queue") }></i>
+            <i className="fa fa-list small" onClick={ this.queue.bind(this) }></i>
           </li>
           <li>
-            <i className="fa fa-random small"></i>
+            <i className="fa fa-random small" onClick={ this.shuffle.bind(this) }></i>
           </li>
           <li>
             <i className="fa fa-retweet small"></i>
