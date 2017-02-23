@@ -24,8 +24,14 @@ class Controls extends React.Component {
     this.props.router.push("/queue");
   }
 
-  shuffle () {
-    this.props.shuffle();
+  toggleShuffle () {
+    if (this.props.playQueue.shuffled) {
+      this.props.unshuffle();
+      $('i.fa-random').removeClass('green');
+    } else{
+      this.props.shuffle();
+      $('i.fa-random').addClass('green');
+    }
   }
 
   toggleRepeat () {
@@ -64,13 +70,10 @@ class Controls extends React.Component {
             <i className="fa fa-list small" onClick={ this.queue.bind(this) }></i>
           </li>
           <li>
-            <i className="fa fa-random small" onClick={ this.shuffle.bind(this) }></i>
+            <i className="fa fa-random small" onClick={ this.toggleShuffle.bind(this) }></i>
           </li>
           <li>
-            <i
-              className="fa fa-retweet small"
-              ref={ ref => this.repeat = ref }
-              onClick={ this.toggleRepeat.bind(this) }></i>
+            <i className="fa fa-retweet small" onClick={ this.toggleRepeat.bind(this) }></i>
           </li>
           <li>
             <i className="fa fa-volume-up small"></i>

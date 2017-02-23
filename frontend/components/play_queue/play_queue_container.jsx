@@ -5,7 +5,7 @@ import { allQueuedSongs } from '../../selectors/play_queue_selectors';
 const mapStateToProps = state => {
   return ({
     currentSong: state.playQueue.currentSong.song,
-    queuedSongs: allQueuedSongs(state.playQueue.queuedSongs)
+    queuedSongs: allQueuedSongs(state.playQueue.queuedSongs, state.playQueue)
   });
 }
 

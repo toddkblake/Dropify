@@ -10,6 +10,7 @@ import {
   PLAY_ALBUM,
   PLAY_PLAYLIST,
   SHUFFLE,
+  UNSHUFFLE,
   REPEAT,
   CLEAR_REPEAT,
   CLEAR_PLAY_QUEUE
@@ -24,7 +25,9 @@ const _defaultState = {
   queuedSongs: {
     songs: {},
     order: [],
+    shuffledOrder: [],
   },
+  shuffled: false,
   repeat: false
 };
 
@@ -89,10 +92,16 @@ const PlayQueueReducer = (state = _defaultState, action) => {
       return result;
     }
     case SHUFFLE: {
-      let result = merge({}, state);
+      let result = merge({}, state, { shuffled: true });
       if (result.queuedSongs.order.length > 0) {
-        result.queuedSongs.order.sort((a, b) => 0.5 - Math.random());
+        let sortedOrder = result.queuedSongs.order.slice(0);
+        result.queuedSongs.shuffledOrder = sortedOrder.sort((a, b) => 0.5 - Math.random());
       }
+      return result;
+    }
+    case UNSHUFFLE: {
+      let result = merge({}, state, { shuffled: false });
+      result.queuedSongs.shuffledOrder = [];
       return result;
     }
     case REPEAT: {
