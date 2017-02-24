@@ -56,6 +56,12 @@ const PlayQueueReducer = (state = _defaultState, action) => {
             result.queuedSongs.shuffledOrder.push(currentSongId);
           }
 
+          function removeCurrentSongFromUnshuffledOrder(songId) {
+            return songId !== currentSongId;
+          }
+          const newUnshuffledOrder = result.queuedSongs.order.filter(removeCurrentSongFromUnshuffledOrder);
+          result.queuedSongs.order = newUnshuffledOrder;
+
         } else {
           let nextSong = result.queuedSongs.songs[result.queuedSongs.order[0]]
           result.currentSong.song = nextSong;
