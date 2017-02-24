@@ -19,8 +19,7 @@ import {
 const _defaultState = {
   currentSong: {
     song: {},
-    playing: false,
-    restart: false
+    playing: false
   },
   queuedSongs: {
     songs: {},
@@ -55,6 +54,7 @@ const PlayQueueReducer = (state = _defaultState, action) => {
         }
         return result;
       } else {
+        result.currentSong.playing = false;
         return result;
       }
     }
