@@ -46,14 +46,27 @@ const PlayQueueReducer = (state = _defaultState, action) => {
     case NEXT_SONG: {
       let result = merge({}, state);
       if (result.queuedSongs.order[0]) {
-        const nextSong = result.queuedSongs.songs[result.queuedSongs.order[0]]
-        result.currentSong.song = nextSong;
-        const currentSong = result.queuedSongs.order.shift();
+        let currentSongId = result.currentSong.song.id
+        if (result.shuffled) {
+          let nextSong = result.queuedSongs.songs[result.queuedSongs.shuffledOrder[0]]
+          result.currentSong.song = nextSong;
 
-        if (result.repeat) {
-          result.queuedSongs.order.push(currentSong);
+          result.queuedSongs.shuffledOrder.shift();
+          if (result.repeat) {
+            result.queuedSongs.shuffledOrder.push(currentSongId);
+          }
+
+        } else {
+          let nextSong = result.queuedSongs.songs[result.queuedSongs.order[0]]
+          result.currentSong.song = nextSong;
+
+          result.queuedSongs.order.shift();
+          if (result.repeat) {
+            result.queuedSongs.order.push(currentSongId);
+          }
         }
         return result;
+
       } else {
         result.currentSong.playing = false;
         return result;
