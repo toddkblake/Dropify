@@ -56,12 +56,6 @@ const PlayQueueReducer = (state = _defaultState, action) => {
             result.queuedSongs.shuffledOrder.push(currentSongId);
           }
 
-          function removeCurrentSongFromUnshuffledOrder(songId) {
-            return songId !== currentSongId;
-          }
-          const newUnshuffledOrder = result.queuedSongs.order.filter(removeCurrentSongFromUnshuffledOrder);
-          result.queuedSongs.order = newUnshuffledOrder;
-
         } else {
           let nextSong = result.queuedSongs.songs[result.queuedSongs.order[0]]
           result.currentSong.song = nextSong;
@@ -122,6 +116,9 @@ const PlayQueueReducer = (state = _defaultState, action) => {
     case UNSHUFFLE: {
       let result = merge({}, state, { shuffled: false });
       result.queuedSongs.shuffledOrder = [];
+      let currentSongId = result.currentSong.song.id
+      let currentSongIdx = result.queuedSongs.order.indexOf(currentSongId);
+      result.queuedSongs.order = result.queuedSongs.order.slice(currentSongIdx + 1);
       return result;
     }
     case REPEAT: {
