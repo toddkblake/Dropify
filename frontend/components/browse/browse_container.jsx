@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import Browse from './browse';
 import { fetchArtists } from '../../actions/browse_actions';
+import { allArtists } from '../../selectors/browse_selectors';
 
 const mapStateToProps = state => ({
-  artists: Object.values(state.browse.artists)
+  artists: allArtists(state.browse.artists)
 });
 
 const mapDispatchToProps = dispatch => ({

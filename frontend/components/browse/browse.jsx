@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Artists from './artists';
+import Spinner from '../loading/spinner';
 
 class Browse extends React.Component {
   constructor(props){
@@ -13,6 +14,7 @@ class Browse extends React.Component {
 
   render () {
     const { artists } = this.props;
+    if (artists.length === 0) return (<Spinner/>);
     return (
       <div className="browse-container">
         <div className="page-header">
