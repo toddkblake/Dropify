@@ -23,8 +23,7 @@ class ArtistDetail extends React.Component {
     return (
       <div className="artist-container">
         <div className="artist-header">
-          <div className="artist-header-img">
-            <img src={ artist.header_photo } />
+          <div className="artist-header-img" style={ { backgroundImage: `url(${ artist.header_photo })` } }>
           </div>
           <div className="artist-header-info">
             <div className="artist-profile-photo">
