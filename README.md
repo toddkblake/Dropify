@@ -20,19 +20,56 @@ The main feature of Dropify is the ability for users to explore and discover new
 
 In order to keep the code base DRY and the UI consistent, Dropify utilizes several modular React components including a `<ContentCard/>` functional component that can render `artist`, `album` or `playlist` information based upon the props given.
 
-### PlayQueue
+```javascript
+const ContentCard = ({ cardType, image, primaryContent, primaryLink, secondaryContent, secondaryLink }) => {
+  if (cardType === "album") {
+    secondaryContent = (<p className="secondary"><Link to={ secondaryLink } >{ secondaryContent }</Link></p>)
+  }
+
+  return (
+    <div className={`content-card ${cardType}`}>
+      <div className="content-card-image">
+        <img src={ image } />
+      </div>
+      <div className="content-card-content">
+        <p className="primary"><Link to={ primaryLink }>{ primaryContent }</Link></p>
+        { secondaryContent }
+      </div>
+    </div>
+  )
+}
+```
+
+### Play Queue
 
 Somewhat behind the scenes, Dropify relies on a `playQueue` object in the redux state that tracks the `currentSong` in play, as well as any `queuedSongs` that may be added individually or from albums or playlist.
 
 #### NowPlaying
 
-A sidebar `NowPlaying` component displays information about the `currentSong` and allows users to control the `playQueue` either by directly visiting the Play Queue page or clicking control buttons to shuffle or repeat the songs in the `playQueue`.
+A sidebar `NowPlaying` component displays information about the `currentSong` and allows users to control the `playQueue` either by directly visiting the Play Queue page or clicking control buttons to shuffle or repeat the songs in the `playQueue`. To achieve this, the `playQueue` stores information about the `shuffledOrder` and unshuffled song `order` of the queue.
+
+```javascript
+const _defaultState = {
+  currentSong: {
+    song: {},
+    playing: false,
+    restart: false
+  },
+  queuedSongs: {
+    songs: {},
+    order: [],
+    shuffledOrder: [],
+  },
+  shuffled: false,
+  repeat: false
+};
+```
 
 ### Playlists
 
 A key feature of Spotify is for users to be able to create, read, update and delete playlists. Dropify implements a `playlists` and `playlist_songs` association table to store information about the songs user's have added to their playlists.
 
-#### Dropdown menus
+#### Dropdown Menus
 
 In order for users to be able to create, update and delete playlists as well as add and remove `songs` from playlists, Dropify implements dropdown menus that are conditionally rendered based upon a global `modalOpen` variable on the app's Redux state that stores the id of the currently open dropdown menu, if any.
 
@@ -43,6 +80,8 @@ const Dropdown = ({ isOpen, children }) => {
 };
 ```
 As soon as a user clicks on an option from the dropdown menu, the menu is cleared by dispatching an action to the store. If the user decides not perform an action and clicks off of the menu, the menu is cleared from the global state and no longer rendered.
+
+![tag gif](docs/wireframes/dropdown-menus.gif)
 
 ### Users & Follows
 
@@ -74,7 +113,7 @@ class User
 end
 ```
 
-The flexibility of this model allows for any model to be followable, including artists in the future.
+The flexibility of this model allows for any model to be followable, including `artists` in the future.
 
 ## Future Directions for the Project
 
