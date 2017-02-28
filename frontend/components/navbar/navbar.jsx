@@ -16,7 +16,9 @@ class NavBar extends React.Component {
     const currentUser = this.props.session.currentUser;
     return (
       <div className="navbar">
-        <img className="round-logo-white" src={window.images.roundLogoWhite}/>
+        <Link to="/">
+          <img className="round-logo-white" src={window.images.roundLogoWhite}/>
+        </Link>
         <ul>
           <li>
             <Link to="/browse" activeClassName="active-col">
