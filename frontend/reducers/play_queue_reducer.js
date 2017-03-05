@@ -68,7 +68,6 @@ const PlayQueueReducer = (state = _defaultState, action) => {
         return result;
 
       } else {
-        result.currentSong.playing = false;
         return result;
       }
     }
