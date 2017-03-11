@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "static_pages#root"
+  get 'api/search', :to => 'api/search#index'
 
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:index, :show, :create, :update] do
