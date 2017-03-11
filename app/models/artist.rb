@@ -31,4 +31,7 @@ class Artist < ActiveRecord::Base
   has_attached_file :header_photo,
     default_url: -> (a) { ActionController::Base.helpers.asset_path('default-header-photo.jpg') }
   validates_attachment_content_type :header_photo, content_type: /\Aimage\/.*\Z/
+
+  include PgSearch
+  multisearchable :against => [:name]
 end

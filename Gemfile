@@ -35,6 +35,7 @@ gem 'aws-sdk', '>= 2.0'
 gem 'figaro'
 gem "paperclip", '~> 5.0.0'
 gem 'ruby-mp3info'
+gem 'pg_search'
 
 group :production do
   gem 'rails_12factor'

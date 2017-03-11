@@ -51,6 +51,9 @@ class User < ActiveRecord::Base
     source: :followable,
     source_type: 'Playlist'
 
+  include PgSearch
+  multisearchable :against => [:f_name, :l_name, :username]
+
   attr_reader :password
 
   def self.find_by_credentials(credentials)

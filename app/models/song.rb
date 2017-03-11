@@ -34,4 +34,7 @@ class Song < ActiveRecord::Base
   has_many :playlists,
     through: :playlist_songs,
     source: :playlist
+
+  include PgSearch
+  multisearchable :against => [:title]
 end
