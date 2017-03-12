@@ -3,6 +3,7 @@ import * as SearchApiUtil from '../util/search_api_util';
 export const RECEIVE_SEARCH_RESULTS = "RECEIVE_SEARCH_RESULTS";
 export const RECEIVE_SEARCH_ERROR = "RECEIVE_SEARCH_ERROR";
 export const CLEAR_SEARCH_RESULTS = "CLEAR_SEARCH_RESULTS"
+export const CLEAR_SEARCH_ERROR = "CLEAR_SEARCH_ERROR"
 
 export const fetchSearchResults = (queryString) => dispatch => {
   return SearchApiUtil.fetchSearchResults(queryString).then(
@@ -23,4 +24,8 @@ export const receiveSearchError = error => ({
 
 export const clearSearchResults = () => {
   type: CLEAR_SEARCH_RESULTS
+}
+
+export const clearSearchError = () => {
+  type: CLEAR_SEARCH_ERROR
 }
