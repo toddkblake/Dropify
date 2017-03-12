@@ -65,7 +65,7 @@ class PlaylistDetail extends React.Component {
             </div>
           </div>
         </div>
-        <Songs songs={ playlist.songs } />
+        <Songs songs={ playlist.songs } type="playlist" />
       </div>
     );
   }

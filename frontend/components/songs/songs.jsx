@@ -2,7 +2,7 @@ import React from 'react';
 import Song from './song_container';
 
 class Songs extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       userPlaylists: []
@@ -21,7 +21,7 @@ class Songs extends React.Component {
   }
 
   render () {
-    const { songs } = this.props;
+    const { songs, type } = this.props;
     return (
       <div className="songs-container">
         <table className="songs-table">
@@ -39,7 +39,18 @@ class Songs extends React.Component {
           </thead>
           <tbody>
             {
-              songs.map((song, i, songs) => <Song key={ i } song={ song } userPlaylists={ this.state.userPlaylists } uniqueId={ i + songs.length } />)
+              songs.map((song, i, songs) => {
+                let ord = (type === 'playlist') ? i + 1 : song.ord;
+                return (
+                  <Song
+                    key={ i }
+                    song={ song }
+                    ord={ ord }
+                    userPlaylists={ this.state.userPlaylists }
+                    uniqueId={ i + songs.length }
+                  />
+                );
+              })
             }
           </tbody>
         </table>

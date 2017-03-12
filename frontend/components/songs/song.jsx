@@ -36,12 +36,12 @@ class Song extends React.Component {
   }
 
   render () {
-    const { song } = this.props;
+    const { song, ord } = this.props;
     return (
       <tr onDoubleClick={ this.handleDoubleClick(song).bind(this) } className="song-row" >
         <td><i className="fa fa-play-circle-o tooltip" onClick={ this.handleClick(song, "play").bind(this) }><span className="tooltiptext">Play</span></i></td>
         <td><i className="fa fa-plus tooltip" onClick={ this.handleClick(song, "queue").bind(this) }><span className="tooltiptext">Add to Queue</span></i></td>
-        <td><p>{ song.ord }</p></td>
+        <td><p>{ ord }</p></td>
         <td><div className="ellipsis"><p className="white">{ song.title }</p></div></td>
         <td><div className="ellipsis"><Link to={ `artists/${song.artist.id}` } className="white">{ song.artist.name }</Link></div></td>
         <td><div className="ellipsis"><Link to={ `artists/${song.artist.id}/albums/${song.album.id}` } className="white">{ song.album.title }</Link></div></td>
