@@ -3,20 +3,21 @@ import NavBar from './navbar/navbar_container';
 import NowPlaying from './now_playing/now_playing_container';
 import { connect } from 'react-redux';
 import { clearModal } from '../actions/modal_actions';
+import { clearSearchResults } from '../actions/search_actions';
 
 class WebPlayer extends React.Component {
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (!nextProps.isLoggedIn) {
       this.props.router.push("/")
     }
   }
 
-  render () {
-
+  render() {
     function handleModal() {
       if (this.props.modalOpen) {
         this.props.clearModal();
+        this.props.clearSearchResults();
       }
     }
 
@@ -40,7 +41,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  clearModal: () => dispatch(clearModal())
+  clearModal: () => dispatch(clearModal()),
+  clearSearchResults: () => dispatch(clearSearchResults())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WebPlayer);

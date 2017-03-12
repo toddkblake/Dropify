@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchResultsSection from './search_results_section';
+import SearchResultsSection from './search_results_section_container';
 
 const SearchResults = ({ topResult, songs, artists, albums, playlists, users, error }) => (
   <div className="search-results">

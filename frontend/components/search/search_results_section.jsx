@@ -3,9 +3,6 @@ import SearchResult from './search_result';
 import { withRouter } from 'react-router';
 
 class SearchResultsSection extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     const { results, label, type } = this.props;
@@ -26,8 +23,9 @@ class SearchResultsSection extends React.Component {
                   primaryContent = result.title;
                   secondaryContent = result.artist_name;
                   clickHandler = () => {
-                    debugger
                     this.props.router.push(`/artists/${result.artist_id}/albums/${result.album_id}`);
+                    this.props.clearModal();
+                    this.props.clearSearchResults();
                   }
                   imageUrl = null;
                   break;
@@ -37,6 +35,8 @@ class SearchResultsSection extends React.Component {
                   secondaryContent = null;
                   clickHandler = () => {
                     this.props.router.push(`/artists/${result.id}`);
+                    this.props.clearModal();
+                    this.props.clearSearchResults();
                   }
                   imageUrl = result.profile_photo_small;
                   break;
@@ -46,6 +46,8 @@ class SearchResultsSection extends React.Component {
                   secondaryContent = result.artist_name;
                   clickHandler = () => {
                     this.props.router.push(`/artists/${result.artist_id}/albums/${result.id}`);
+                    this.props.clearModal();
+                    this.props.clearSearchResults();
                   }
                   imageUrl = result.album_cover_small;
                   break;
@@ -55,6 +57,8 @@ class SearchResultsSection extends React.Component {
                   secondaryContent = result.owner;
                   clickHandler = () => {
                     this.props.router.push(`/users/${result.owner_id}/playlists/${result.id}`);
+                    this.props.clearModal();
+                    this.props.clearSearchResults();
                   }
                   imageUrl = result.photo_small;
                   break;
@@ -64,6 +68,8 @@ class SearchResultsSection extends React.Component {
                   secondaryContent = result.username;
                   clickHandler = () => {
                     this.props.router.push(`/users/${result.id}`);
+                    this.props.clearModal();
+                    this.props.clearSearchResults();
                   }
                   imageUrl = result.profile_photo_small;
                   break;

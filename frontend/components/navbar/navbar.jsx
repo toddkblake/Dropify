@@ -6,6 +6,7 @@ class NavBar extends React.Component {
   constructor(props){
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleLogout(e) {
@@ -16,7 +17,7 @@ class NavBar extends React.Component {
 
   handleSearch(e) {
     e.preventDefault()
-    debugger
+    this.props.openModal('search');
   }
 
   render () {

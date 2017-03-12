@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchResults from './search_results';
+import Dropdown from '../menus/dropdown';
 
 class Search extends React.Component {
   constructor(props) {
@@ -36,13 +37,15 @@ class Search extends React.Component {
     }
 
     return (
-      <div className="search-container">
-        <div className="search-input">
-          <input type="text" placeholder="Search" onChange={ this.handleChange }/>
-          <i className="fa fa-search"></i>
+      <Dropdown isOpen={ this.props.modalOpen === "search" }>
+        <div id="search" className="search-container">
+          <div className="search-input">
+            <input type="text" placeholder="Search" onChange={ this.handleChange }/>
+            <i className="fa fa-search"></i>
+          </div>
+          { searchResults ? searchResults : null}
         </div>
-        { searchResults ? searchResults : null}
-      </div>
+      </Dropdown>
     )
   }
 }

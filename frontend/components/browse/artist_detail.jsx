@@ -8,6 +8,12 @@ class ArtistDetail extends React.Component {
     super(props);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.artistId != this.props.artistId) {
+      this.props.fetchArtist(nextProps.artistId);
+    }
+  }
+
   componentDidMount () {
     this.props.fetchArtist(this.props.artistId);
   }
