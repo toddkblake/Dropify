@@ -4,7 +4,7 @@ PgSearch.multisearch_options = {
       :prefix => true
     },
     :trigram => {
-      :threshold => 0.2
+      :threshold => 0.4
     }
   }
 }
