@@ -1,0 +1,73 @@
+.search-container {
+  position: absolute;
+  left: 90px;
+  height: 100%;
+  width: 240px;
+  background-color: $medium-grey;
+  z-index: 1000;
+  overflow-y: scroll;
+}
+
+.search-input {
+  padding: 15px;
+}
+
+.search-input input[type="text"] {
+  background: $white;
+  color: $dark-grey;
+  height: 25px;
+  border-radius: 25px;
+  width: 100%;
+}
+
+.search-results-section li {
+  background-color: $light-medium-grey;
+  margin-top: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.search-results-section li:hover {
+  background-color: $lighter-medium-grey;
+}
+
+.search-results-section.artists img,
+.search-results-section.users img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.result-content {
+  padding: 5px;
+}
+
+.search-results-section {
+  margin-top: 15px;
+}
+
+.result-content .primary {
+  color: white;
+}
+
+.result-content p {
+  padding: 2px;
+}
+
+.search-results-section img {
+  width: 50px;
+  height: 50px;
+}
+
+.search-results {
+  padding: 8px;
+}
+
+.search-results h5 {
+  font-size: 0.85em;
+  margin-bottom: 5px;
+}
