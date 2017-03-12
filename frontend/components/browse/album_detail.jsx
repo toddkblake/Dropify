@@ -8,11 +8,17 @@ class AlbumDetail extends React.Component {
     super(props);
   }
 
-  componentDidMount () {
+  componentWillMount() {
     this.props.fetchAlbum(this.props.artistId, this.props.albumId);
   }
 
-  componentWillUnmount () {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.albumId != this.props.albumId) {
+      this.props.fetchAlbum(nextProps.artistId, nextProps.albumId);
+    }
+  }
+
+  componentWillUnmount() {
     this.props.clearAlbum();
   }
 

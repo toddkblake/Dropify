@@ -1,6 +1,11 @@
 import { connect } from 'react-redux';
 import Songs from './songs';
 import { fetchUserPlaylists } from '../../actions/playlist_actions';
+import {
+  setCurrentSong,
+  playCurrentSong,
+  addSongToQueue
+} from '../../actions/play_queue_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
