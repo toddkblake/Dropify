@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import Search from '../search/search_container';
 
 class NavBar extends React.Component {
   constructor(props){
@@ -7,9 +8,14 @@ class NavBar extends React.Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
 
-  handleLogout (e) {
+  handleLogout(e) {
     this.props.clearPlayQueue();
     this.props.logout();
+  }
+
+  handleSearch(e) {
+    e.preventDefault()
+    debugger
   }
 
   render () {
@@ -17,9 +23,15 @@ class NavBar extends React.Component {
     return (
       <div className="navbar">
         <Link to="/">
-          <img className="round-logo-white" src={window.images.roundLogoWhite}/>
+          <img className="round-logo-white" src={ window.images.roundLogoWhite }/>
         </Link>
         <ul>
+          <li>
+            <Link to="" onClick={ this.handleSearch } activeClassName="active-col">
+              <i className="fa fa-search"></i>
+              <p>Search</p>
+            </Link>
+          </li>
           <li>
             <Link to="/browse" activeClassName="active-col">
               <i className="fa fa-clone"></i>
@@ -46,6 +58,7 @@ class NavBar extends React.Component {
           </Link>
           <button className="small" onClick={ this.handleLogout }>Logout</button>
         </div>
+        <Search/>
       </div>
     );
   }
