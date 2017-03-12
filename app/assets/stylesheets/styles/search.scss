@@ -9,7 +9,15 @@
 }
 
 .search-input {
+  position: relative;
   padding: 15px;
+}
+
+.search-container .fa-search {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  transform: scale(1,1);
 }
 
 .search-input input[type="text"] {
@@ -17,6 +25,7 @@
   color: $dark-grey;
   height: 25px;
   border-radius: 25px;
+  padding-left: 30px;
   width: 100%;
 }
 

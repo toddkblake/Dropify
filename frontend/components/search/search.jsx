@@ -39,6 +39,7 @@ class Search extends React.Component {
       <div className="search-container">
         <div className="search-input">
           <input type="text" placeholder="Search" onChange={ this.handleChange }/>
+          <i className="fa fa-search"></i>
         </div>
         { searchResults ? searchResults : null}
       </div>
