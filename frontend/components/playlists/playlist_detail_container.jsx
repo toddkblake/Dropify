@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     owner: state.users[ownProps.params.userId],
     playlist: state.playlists[ownProps.params.playlistId],
-    currentUser: state.users[state.session.currentUser.id]
+    currentUser: state.users[state.session.currentUser.id],
+    session: state.session
   });
 }
 

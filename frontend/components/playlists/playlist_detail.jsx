@@ -13,6 +13,9 @@ class PlaylistDetail extends React.Component {
   componentDidMount () {
     this.props.fetchPlaylist(this.props.params.userId, this.props.params.playlistId);
     this.props.fetchUser(this.props.params.userId);
+    if (!this.props.currentUser) {
+      this.props.fetchUser(this.props.session.currentUser.id);
+    }
   }
 
   handleModal (e) {
@@ -28,7 +31,7 @@ class PlaylistDetail extends React.Component {
   }
 
   render () {
-    if (!this.props.playlist || !this.props.owner) return (<Spinner/>);
+    if (!this.props.playlist || !this.props.owner || !this.props.currentUser) return (<Spinner/>);
     const { playlist, owner } = this.props;
     const buttonText = (this.props.currentUser.followed_playlist_ids.includes(this.props.playlist.id)) ? "Unfollow" : "Follow";
     return (
