@@ -10,7 +10,7 @@ class NavBar extends React.Component {
   }
 
   handleLogout(e) {
-    this.props.clearPlayQueue();
+    this.props.resetPlayQueue();
     this.props.clearSearchResults();
     this.props.logout();
   }

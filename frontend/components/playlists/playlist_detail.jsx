@@ -46,7 +46,7 @@ class PlaylistDetail extends React.Component {
               </div>
             </div>
             <ul className="button-row">
-              <button className="medium green" onClick={ e => this.props.playPlaylist(playlist) }>Play</button>
+              <button className="medium green" onClick={ (e) => this.props.playPlaylist(playlist) }>Play</button>
               <button className="medium" onClick={ this.toggleFollow.bind(this) }>{ buttonText }</button>
               <div className="dropdown-anchor">
                 <button className="round" onClick={ this.handleModal.bind(this) }>

@@ -29,7 +29,7 @@ class Songs extends React.Component {
             <tr>
               <th></th>
               <th></th>
-              <th><h5>#</h5></th>
+              { type === "queue" ? null : <th><h5>#</h5></th> }
               <th><h5>Song</h5></th>
               <th><h5>Artist</h5></th>
               <th><h5>Album</h5></th>
@@ -45,7 +45,9 @@ class Songs extends React.Component {
                   <Song
                     key={ i }
                     song={ song }
+                    songs={ songs }
                     ord={ ord }
+                    type= { type }
                     userPlaylists={ this.state.userPlaylists }
                     uniqueId={ i + songs.length }
                   />

@@ -15,8 +15,7 @@ class Song extends React.Component {
     return (e) => {
       e.preventDefault();
       if (action === "play") {
-        this.props.setCurrentSong(song);
-        this.props.playCurrentSong();
+        this.props.playSong(song, this.props.songs);
       } else if (action === "queue") {
         this.props.addSongToQueue(song);
       }
@@ -26,8 +25,7 @@ class Song extends React.Component {
   handleDoubleClick (song) {
     return (e) => {
       e.preventDefault();
-      this.props.setCurrentSong(song);
-      this.props.playCurrentSong();
+      this.props.playSong(song, this.props.songs);
     };
   }
 
@@ -36,12 +34,13 @@ class Song extends React.Component {
   }
 
   render () {
-    const { song, ord } = this.props;
+    const { song, ord, playQueue, type } = this.props;
+    let active = (song.id === playQueue.currentSong.song.id) ? "active" : "";
     return (
-      <tr onDoubleClick={ this.handleDoubleClick(song).bind(this) } className="song-row" >
+      <tr onDoubleClick={ this.handleDoubleClick(song).bind(this) } className={`song-row ${active}`}>
         <td><i className="fa fa-play-circle-o tooltip" onClick={ this.handleClick(song, "play").bind(this) }><span className="tooltiptext">Play</span></i></td>
         <td><i className="fa fa-plus tooltip" onClick={ this.handleClick(song, "queue").bind(this) }><span className="tooltiptext">Add to Queue</span></i></td>
-        <td><p>{ ord }</p></td>
+        { type === "queue" ? null : <td><p>{ ord }</p></td> }
         <td><div className="ellipsis"><p className="white">{ song.title }</p></div></td>
         <td><div className="ellipsis"><Link to={ `artists/${song.artist.id}` } className="white">{ song.artist.name }</Link></div></td>
         <td><div className="ellipsis"><Link to={ `artists/${song.artist.id}/albums/${song.album.id}` } className="white">{ song.album.title }</Link></div></td>

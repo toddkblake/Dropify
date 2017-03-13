@@ -20,9 +20,13 @@ class Controls extends React.Component {
     this.props.nextSong();
   }
 
-  restart() {
+  previous() {
     this.audioEl = document.getElementById('audio-element');
-    this.audioEl.currentTime = 0;
+    if (this.audioEl.currentTime < 3) {
+      this.props.lastSong();
+    } else {
+      this.audioEl.currentTime = 0;
+    }
   }
 
   queue () {
@@ -61,7 +65,7 @@ class Controls extends React.Component {
       <div className="controls">
         <ul className="play-pause-row">
           <li>
-            <i className="fa fa-step-backward medium" onClick={ this.restart.bind(this) }></i>
+            <i className="fa fa-step-backward medium" onClick={ this.previous.bind(this) }></i>
           </li>
           <li>
             { play_pause_button }

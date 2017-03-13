@@ -15,11 +15,6 @@ class PlaylistMenu extends React.Component {
     this.props.openModal('playlist-form');
   }
 
-  handleQueue (e) {
-    this.props.addPlaylistToQueue(this.props.playlist);
-    this.props.clearModal();
-  }
-
   handleDelete (e) {
     this.props.deletePlaylist(this.props.playlist).then(
       this.props.router.push(`/users/${this.props.playlist.owner_id}/collection`)
@@ -33,9 +28,6 @@ class PlaylistMenu extends React.Component {
           <ul>
             <li onClick={ this.handlePlay.bind(this) }>
               <p>Play</p>
-            </li>
-            <li onClick={ this.handleQueue.bind(this) }>
-              <p>Add to Play Queue</p>
             </li>
             <li onClick={ this.handleRename.bind(this) }>
               <p>Rename</p>

@@ -19,10 +19,10 @@ class PlayQueue extends React.Component {
     let currentSong;
     let queuedSongs;
     if (this.props.currentSong.id) {
-      currentSong = (<Songs songs={ [this.props.currentSong] } />);
+      currentSong = (<Songs songs={ [this.props.currentSong] } type="queue" />);
     }
     if (this.props.queuedSongs.length) {
-      queuedSongs = (<Songs songs={ this.props.queuedSongs } />)
+      queuedSongs = (<Songs songs={ this.props.queuedSongs } type="queue" />)
     }
 
     return (
