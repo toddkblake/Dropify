@@ -1,17 +1,35 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
-const SearchResult = ({ primaryContent, secondaryContent, clickHandler, imageUrl }) => {
-  return (
-    <li onClick={ clickHandler }>
-      { imageUrl ? <img src={ imageUrl }/> : null }
-      <div className="result-content">
-        <p className="primary">
-          { primaryContent }
-        </p>
-        { secondaryContent ? <p className="secondary">{ secondaryContent }</p> : null }
-      </div>
-    </li>
-  );
+class SearchResult extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(linkUrl) {
+    return (event) => {
+      debugger
+      this.props.router.push(linkUrl);
+      this.props.clearModal();
+      this.props.clearSearchResults();
+    }
+  }
+
+  render() {
+    const { primaryContent, secondaryContent, linkUrl, imageUrl } = this.props;
+      return (
+        <li onClick={ this.handleClick(linkUrl) }>
+          { imageUrl ? <img src={ imageUrl }/> : null }
+          <div className="result-content">
+            <p className="primary">
+              { primaryContent }
+            </p>
+            { secondaryContent ? <p className="secondary">{ secondaryContent }</p> : null }
+          </div>
+        </li>
+      );
+  }
 }
 
-export default SearchResult;
+export default withRouter(SearchResult);
