@@ -30,6 +30,10 @@
   margin-bottom: 10px;
 }
 
+.now-playing a:hover {
+  border-bottom: none;
+}
+
 .controls {
   display: flex;
   flex-direction: column;

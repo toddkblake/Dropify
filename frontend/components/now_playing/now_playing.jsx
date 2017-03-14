@@ -32,8 +32,12 @@ class NowPlaying extends React.Component {
     return (
       <div className="now-playing-container active">
         <div className="now-playing">
-          <img src={ currentSong.song.album.album_cover_large }></img>
-          <p className="white">{ currentSong.song.title }</p>
+          <Link to={`/artists/${currentSong.song.artist.id}/albums/${currentSong.song.album.id}`}>
+            <img src={ currentSong.song.album.album_cover_large }></img>
+          </Link>
+          <Link to={`/artists/${currentSong.song.artist.id}/albums/${currentSong.song.album.id}`}>
+            <p className="white">{ currentSong.song.title }</p>
+          </Link>
           <Link to={`/artists/${currentSong.song.artist.id}`}>{ currentSong.song.artist.name }</Link>
           <audio
             id="audio-element"
