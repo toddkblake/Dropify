@@ -17,12 +17,15 @@ class Controls extends React.Component {
   }
 
   nextSong () {
+    this.audioEl.pause();
+    this.audioEl.currentTime = 0;
     this.props.nextSong();
   }
 
   previous() {
-    this.audioEl = document.getElementById('audio-element');
     if (this.audioEl.currentTime < 3) {
+      this.audioEl.pause();
+      this.audioEl.currentTime = 0;
       this.props.lastSong();
     } else {
       this.audioEl.currentTime = 0;

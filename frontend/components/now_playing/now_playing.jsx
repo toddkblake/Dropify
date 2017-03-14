@@ -10,7 +10,7 @@ class NowPlaying extends React.Component {
 
   componentDidUpdate () {
     if (this.props.currentSong.playing && this.audioEl) {
-      this.audioEl.play();
+      this.audioEl.play().then(() => {}, () => {}); // catch new Chrome play() promise errors when skipping through songs quickly
     } else if (this.audioEl) {
       this.audioEl.pause();
     }
