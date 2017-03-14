@@ -9,7 +9,6 @@ class SearchResult extends React.Component {
 
   handleClick(linkUrl) {
     return (event) => {
-      debugger
       this.props.router.push(linkUrl);
       this.props.clearModal();
       this.props.clearSearchResults();
