@@ -1,12 +1,8 @@
 # Dropify
 
-[Dropify][live]
+[Dropify](https://www.dropifyapp.io/)
 
-[live]: https://www.dropifyapp.io/
-
-Dropify is a full-stack music-streaming web application inspired by the [Spotify Web Player][spotify]. It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the frontend.
-
-[spotify]: https://play.spotify.com
+Dropify is a full-stack music-streaming web application inspired by the [Spotify Web Player](https://play.spotify.com). It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the frontend.
 
 ## Features & Implementation
 
@@ -15,6 +11,27 @@ Dropify is a full-stack music-streaming web application inspired by the [Spotify
 ### Artists, Albums and Songs
 
 The main feature of Dropify is the ability for users to explore and discover new music. Using a PostgreSQL database with `artists`, `albums` and `songs` tables, linked to an Amazon Web Services (AWS) S3 cloud storage bucket, Dropify maintains a library of music ready for streaming at the touch of a button.
+
+#### Search
+
+In order for users to be able to search through `artists`, `albums`, `songs`, `users` and `playlists`, Dropify utilizes the `pg_search` gem, and specifically the `multi-search` option to query all five Active Record classes in one global search.
+
+![search](docs/wireframes/search.gif)
+
+By making use of the Postgres `pg_trgm` trigram search module, Dropify is able to perform 'fuzzy' search, matching all search results against the measure of similarity between the search query string and each result using trigrams.
+
+```ruby
+PgSearch.multisearch_options = {
+  :using => {
+    :tsearch => {
+      :prefix => true
+    },
+    :trigram => {
+      :threshold => 0.4
+    }
+  }
+}
+```
 
 #### Modular Components
 
@@ -118,10 +135,6 @@ The flexibility of this model allows for any model to be followable, including `
 ## Future Directions for the Project
 
 In addition to the features already implemented, I plan to continue work on this project. The next steps for Dropify are outlined below.
-
-### Search
-
-Searching artists, albums, songs, users and playlists is a standard feature of Spotify. I plan to utilize the Fuse.js library to implement a fuzzy search of these models that will populate a sidebar component, enabling users to find what they are looking for quickly.
 
 ### Genres / Radio
 
