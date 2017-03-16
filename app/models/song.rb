@@ -22,8 +22,7 @@ class Song < ActiveRecord::Base
   has_one :artist,
     through: :album
 
-  has_attached_file :audio,
-    s3_protocol: :https
+  has_attached_file :audio
 
   validates_attachment :audio,
     presence: true,

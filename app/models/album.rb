@@ -21,7 +21,6 @@ class Album < ActiveRecord::Base
   has_many :songs
 
   has_attached_file :album_cover,
-    s3_protocol: :https,
     styles: { small: "50x50", medium: "130x130", large: "210x210" },
     default_url: -> (a) { ActionController::Base.helpers.asset_path('default-album-cover.jpg') }
   validates_attachment_content_type :album_cover, content_type: /\Aimage\/.*\Z/

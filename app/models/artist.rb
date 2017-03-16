@@ -24,13 +24,11 @@ class Artist < ActiveRecord::Base
     through: :album
 
   has_attached_file :profile_photo,
-    s3_protocol: :https,
     styles: { small: "50x50", medium: "130x130", large: "210x210" },
     default_url: -> (a) { ActionController::Base.helpers.asset_path('default-profile-photo.jpg') }
   validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
 
   has_attached_file :header_photo,
-    s3_protocol: :https,
     default_url: -> (a) { ActionController::Base.helpers.asset_path('default-header-photo.jpg') }
   validates_attachment_content_type :header_photo, content_type: /\Aimage\/.*\Z/
 
