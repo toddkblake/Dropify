@@ -8,9 +8,11 @@ const ContentCard = ({ cardType, image, primaryContent, primaryLink, secondaryCo
 
   return (
     <div className={`content-card ${cardType}`}>
-      <div className="content-card-image">
-        <img src={ image } />
-      </div>
+      <Link to={ primaryLink }>
+        <div className="content-card-image">
+          <img src={ image } />
+        </div>
+      </Link>
       <div className="content-card-content">
         <p className="primary"><Link to={ primaryLink }>{ primaryContent }</Link></p>
         { secondaryContent }
