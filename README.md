@@ -1,6 +1,6 @@
 # Dropify
 
-[Dropify](https://www.dropifyapp.io/)
+[Dropify](https://dropifyapp.herokuapp.com/)
 
 Dropify is a full-stack music-streaming web application inspired by the [Spotify Web Player](https://play.spotify.com). It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the frontend.
 
